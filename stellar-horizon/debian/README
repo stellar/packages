@@ -1,0 +1,6 @@
+The Debian Package stellar-horizon
+----------------------------
+
+Horizon is the client facing HTTP API server for the Stellar ecosystem.
+
+ -- Package Maintainer <packages@stellar.org>  Mon, 11 Dec 2017 08:44:05 +0000

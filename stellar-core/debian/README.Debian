@@ -1,0 +1,7 @@
+stellar-core for Debian
+----------------------
+
+ * removed Git dependency
+ * TODO: extract libmedida, libsodium, xdrpp submodules
+
+ -- Package Maintainer <packages@stellar.org>  Fri, 24 Nov 2017 09:50:02 +0000

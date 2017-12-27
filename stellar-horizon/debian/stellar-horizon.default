@@ -1,0 +1,12 @@
+## /etc/default/stellar-horizon
+
+DATABASE_URL="dbname=horizon user=stellar host=/var/run/postgresql"
+STELLAR_CORE_DATABASE_URL="dbname=stellar user=stellar host=/var/run/postgresql"
+STELLAR_CORE_URL="http://127.0.0.1:11626"
+FRIENDBOT_SECRET=
+PORT=8000
+SENTRY_DSN=
+LOGGLY_TOKEN=
+PER_HOUR_RATE_LIMIT=9000
+INGEST=true
+# ingestion is currently only supported on 1 Horizon instance

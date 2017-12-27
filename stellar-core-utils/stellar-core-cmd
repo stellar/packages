@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+case $1 in
+  # display stellar-core man page
+  # better than unformated html core output
+  "--help"|"-h"|"help"|"")
+    man stellar-core
+    ;;
+  *)
+    curl -s "http://localhost:11626/$1"
+    ;;
+esac

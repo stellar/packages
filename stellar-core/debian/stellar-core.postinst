@@ -1,0 +1,30 @@
+#!/bin/sh
+
+set -e
+
+ROLE=stellar;
+
+# create the stellar user/group
+# check stellar user exists on this system
+if ! getent passwd stellar > /dev/null ;then
+  adduser --system --group --quiet --home /etc/stellar \
+    --no-create-home --disabled-password --shell /bin/bash $ROLE;
+fi
+
+chown -R stellar:stellar /etc/stellar/ /var/lib/stellar/ /var/log/stellar/
+
+# Added by dh_systemd_enable
+# This will only remove masks created by d-s-h on package removal.
+deb-systemd-helper unmask stellar-core.service >/dev/null || true
+
+# was-enabled defaults to true, so new installations run enable.
+if deb-systemd-helper --quiet was-enabled stellar-core.service; then
+        # Enables the unit on first installation, creates new
+        # symlinks on upgrades if the unit file has changed.
+        deb-systemd-helper enable stellar-core.service >/dev/null || true
+else
+        # Update the statefile to add new symlinks (if any), which need to be
+        # cleaned up on purge. Also remove old symlinks.
+        deb-systemd-helper update-state stellar-core.service >/dev/null || true
+fi
+# End dh_systemd added section

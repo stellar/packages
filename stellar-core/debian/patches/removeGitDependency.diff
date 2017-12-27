@@ -1,0 +1,37 @@
+--- a/make-mks
++++ b/make-mks
+@@ -7,7 +7,7 @@
+ esac
+ 
+ # Bail if not under git
+-git rev-parse
++#git rev-parse
+ 
+ trap 'rm -f src/src.mk lib/medida.mk lib/lib.mk' 0
+ 
+@@ -18,9 +18,9 @@
+ # must run "git add -N foo.cpp" before running this script.
+ (cd src
+  echo "$message"
+- echo "SRC_H_FILES" = $(git ls-files '*.h' '*.[ih]pp')
+- echo "SRC_CXX_FILES" = $(git ls-files '*.cpp')
+- echo "SRC_X_FILES" = $(git ls-files '*.x')
++ echo "SRC_H_FILES" = $(find . -regextype posix-egrep -regex '.*\.(h|hpp|ipp)' -printf '%P\n')
++ echo "SRC_CXX_FILES" = $(find . -regextype posix-egrep -regex '.*\.cpp' -printf '%P\n')
++ echo "SRC_X_FILES" = $(find . -regextype posix-egrep -regex '.*\.(x)' -printf '%P\n')
+ ) > src/src.mk
+ 
+ 
+--- a/src/Makefile.am
++++ b/src/Makefile.am
+@@ -34,9 +34,7 @@
+ 
+ # Always rebuild because .git/HEAD is a symbolic ref one can't depend on
+ StellarCoreVersion.h: always
+-	@vers=$$(cd "$(srcdir)" \
+-		&& git describe --always --dirty --tags 2>/dev/null \
+-		|| echo "$(PACKAGE) $(VERSION)"); \
++	@vers=$$(echo "${LOCAL_PACKAGE} ${LOCAL_VERSION} (${GIT_COMMIT})"); \
+ 	    echo "#define STELLAR_CORE_VERSION \"$$vers\"" > $@~
+ 	@if cmp -s $@~ $@; then rm -f $@~; else \
+ 	    mv -f $@~ $@ && printf "echo '%s' > $@\n" "$$(cat $@)"; fi

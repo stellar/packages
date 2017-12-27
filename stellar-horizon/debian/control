@@ -1,0 +1,13 @@
+Source: stellar-horizon
+Section: web
+Priority: optional
+Maintainer: Package Maintainer <packages@stellar.org>
+Build-Depends: debhelper (>=9)
+Standards-Version: 3.9.6
+Homepage: https://www.stellar.org/
+
+Package: stellar-horizon
+Architecture: any
+Description: Horizon is the client facing API server for the Stellar ecosystem.
+ It acts as the interface between stellar-core and applications that want to access the Stellar network.
+ It allows you to submit transactions to the network, check the status of accounts, subscribe to event streams, etc.

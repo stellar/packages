@@ -1,0 +1,6 @@
+The Debian Package stellar-core-utils
+----------------------------
+
+This package provides a common toolset for working with stellar-core
+
+ -- Package Maintainer <packages@stellar.org>  Fri, 07 Dec 2017 13:44:05 +0000

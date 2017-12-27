@@ -1,0 +1,21 @@
+[Unit]
+Description=SDF - stellar-horizon
+Before=multi-user.target
+#PartOf=stellar.service
+
+[Service]
+User=stellar
+Group=stellar
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=stellar-horizon
+EnvironmentFile=/etc/default/stellar-horizon
+ExecStart=/usr/bin/stellar-horizon
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=process
+Restart=on-failure
+RestartPreventExitStatus=255
+Type=simple
+
+[Install]
+WantedBy=multi-user.target

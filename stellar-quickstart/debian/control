@@ -1,0 +1,12 @@
+Source: stellar-quickstart
+Section: web
+Priority: optional
+Maintainer: Package Maintainer <packages@stellar.org>
+Build-Depends: debhelper (>=9)
+Standards-Version: 3.9.6
+Homepage: https://www.stellar.org/
+
+Package: stellar-quickstart
+Architecture: any
+Depends: stellar-core-postgres, stellar-horizon-postgres
+Description: This package configures a Testnet stellar-core and stellar-horizon locally using a local PostgreSQL db

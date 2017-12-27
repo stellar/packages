@@ -1,0 +1,6 @@
+The Debian Package stellar-quickstart
+----------------------------
+
+This package configures a Testnet stellar-core and stellar-horizon locally using a local PostgreSQL db
+
+ -- Package Maintainer <packages@stellar.org>  Fri, 07 Dec 2017 13:44:05 +0000

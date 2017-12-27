@@ -1,0 +1,8 @@
+stellar-core (_VERSION_-_BUILD_VERSION_) stable; urgency=medium
+
+  * Makefile.am overrides vers string
+    with LOCAL_PACKAGE, LOCAL_VERSION and GIT_COMMIT environment variables
+
+  * Initial release 
+
+ -- Package Maintainer <packages@stellar.org>  Thu, 30 Nov 2017 15:23:02 +0000
