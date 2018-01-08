@@ -41,6 +41,37 @@ The **stellar-quickstart** package configures a local `stellar-core` and `stella
 # sudo systemctl start stellar-horizon # start up stellar-horizon
 ```
 
+#### Accessing the quickstart databases
+
+The stellar-quickstart package configures 2 databases, `stellar` and `horizon`. Access to these databases is managed via the `stellar` PostgreSQL role and it's corresponding `stellar` system user.
+
+```
+# sudo -u stellar psql -d stellar
+psql (9.5.10)
+Type "help" for help.
+
+stellar=> \dt
+            List of relations
+ Schema |     Name      | Type  |  Owner
+--------+---------------+-------+---------
+ public | accountdata   | table | stellar
+ public | accounts      | table | stellar
+ public | ban           | table | stellar
+ public | ledgerheaders | table | stellar
+ public | offers        | table | stellar
+ public | peers         | table | stellar
+ public | publishqueue  | table | stellar
+ public | pubsub        | table | stellar
+ public | scphistory    | table | stellar
+ public | scpquorums    | table | stellar
+ public | signers       | table | stellar
+ public | storestate    | table | stellar
+ public | trustlines    | table | stellar
+ public | txfeehistory  | table | stellar
+ public | txhistory     | table | stellar
+(15 rows)
+```
+
 ##### moving on from Quickstart
 
 Once you are comfortable with the various packages that `stellar-quickstart` brings in as dependencies, we highly recommend that you switch to installing the individual packages directly.
