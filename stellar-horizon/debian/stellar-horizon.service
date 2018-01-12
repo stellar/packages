@@ -6,6 +6,7 @@ Before=multi-user.target
 [Service]
 User=stellar
 Group=stellar
+LimitNOFILE=8192
 StandardOutput=syslog
 StandardError=syslog
 SyslogIdentifier=stellar-horizon
