@@ -105,10 +105,6 @@ As with [accessing the database directly](#accessing-the-quickstart-databases), 
 
 ##### moving on from Quickstart
 
-Once you are comfortable with the various packages that `stellar-quickstart` brings in as dependencies, we highly recommend that you switch to installing the individual packages directly.
-
-For this you will need to configure **PostgreSQL** which unfortunately is out of the scope of this document.
-
 `stellar-quickstart` is a **configuration** package that through it's dependencies pulls in the required packages.
 
 | Package                  | Dependencies                | Comments                                                                           |
@@ -119,6 +115,10 @@ For this you will need to configure **PostgreSQL** which unfortunately is out of
 | stellar-horizon          | none                        | installs stellar-horizon binary, systemd service                                   |
 | stellar-horizon-postgres | stellar-horizon, PostgreSQL | configures a PostgreSQL server, creates a horizon db and stellar role, system user |
 | stellar-quickstart       | stellar-core-postgres, stellar-horizon-postgres | pulls in required packages via it's dependencies               |
+
+Once you are comfortable with the various packages that `stellar-quickstart` brings in as dependencies, it is possible to install them individually.
+
+See [Running Horizon in production](#running-horizon-in-production) for a generic distributed Horizon cluster, you will need to configure **PostgreSQL** which unfortunately is out of the scope of this document.
 
 ## Installing individual packages
 
