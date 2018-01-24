@@ -8,6 +8,12 @@ You may choose to install these packages individually, this offers the greatest 
 
 Alternatively you may choose to install the **stellar-quickstart** package which configures a **Testnet** `stellar-core` and `stellar-horizon` both backed by a local PostgreSQL database.
 
+#
+1. [Adding the SDF stable repository to your system](https://github.com/stellar/packages#adding-the-sdf-stable-repository-to-your-system)
+2. [Quickstart](https://github.com/stellar/packages#quickstart)
+3. [Installing individual packages](https://github.com/stellar/packages#installing-individual-packages)
+4. [Upgrading](https://github.com/stellar/packages#upgrading)
+
 ## Adding the SDF stable repository to your system
 
 In order to use our repository you will need to **add our GPG public key** to your system and create a sources file.
@@ -70,6 +76,30 @@ stellar=> \dt
  public | txfeehistory  | table | stellar
  public | txhistory     | table | stellar
 (15 rows)
+```
+
+#### stellar-core --newdb
+
+As with [accessing the database directly](https://github.com/stellar/packages#accessing-the-quickstart-databases), you can re-initialise the `stellar-core` db by running `stellar-core` as the `stellar` system user.
+
+```
+# sudo -u stellar stellar-core --conf /etc/stellar/stellar-core.cfg --newdb
+2018-01-22T19:43:20.715 GABA2 [Database INFO] Connecting to: postgresql://dbname=stellar user=stellar
+2018-01-22T19:43:20.719 GABA2 [SCP INFO] LocalNode::LocalNode@GABA2 qSet: 273af2
+2018-01-22T19:43:20.833 GABA2 [Database INFO] Applying DB schema upgrade to version 2
+2018-01-22T19:43:20.851 GABA2 [Database INFO] Applying DB schema upgrade to version 3
+2018-01-22T19:43:20.857 GABA2 [Database INFO] Applying DB schema upgrade to version 4
+2018-01-22T19:43:20.866 GABA2 [Database INFO] Applying DB schema upgrade to version 5
+2018-01-22T19:43:20.872 GABA2 [default INFO] *
+2018-01-22T19:43:20.872 GABA2 [default INFO] * The database has been initialized
+2018-01-22T19:43:20.872 GABA2 [default INFO] *
+2018-01-22T19:43:20.874 GABA2 [Ledger INFO] Established genesis ledger, closing
+2018-01-22T19:43:20.874 GABA2 [Ledger INFO] Root account seed: SCXXZABQBBVSHQLXASSQU7MQSCOI56JMB24GTJGKKPUY3SYLGBASEGQ6
+2018-01-22T19:43:20.879 GABA2 [default INFO] *
+2018-01-22T19:43:20.879 GABA2 [default INFO] * The next launch will catchup from the network afresh.
+2018-01-22T19:43:20.879 GABA2 [default INFO] *
+2018-01-22T19:43:20.879 GABA2 [default INFO] Application destructing
+2018-01-22T19:43:20.879 GABA2 [default INFO] Application destroyed
 ```
 
 ##### moving on from Quickstart
