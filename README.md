@@ -9,11 +9,11 @@ You may choose to install these packages individually, this offers the greatest 
 Alternatively you may choose to install the **stellar-quickstart** package which configures a **Testnet** `stellar-core` and `stellar-horizon` both backed by a local PostgreSQL database.
 
 #
-1. [Adding the SDF stable repository to your system](https://github.com/stellar/packages#adding-the-sdf-stable-repository-to-your-system)
-2. [Quickstart](https://github.com/stellar/packages#quickstart)
-3. [Installing individual packages](https://github.com/stellar/packages#installing-individual-packages)
-4. [Upgrading](https://github.com/stellar/packages#upgrading)
-5. [Running Horizon in production](https://github.com/stellar/packages#running-horizon-in-production)
+1. [Adding the SDF stable repository to your system](#adding-the-sdf-stable-repository-to-your-system)
+2. [Quickstart](#quickstart)
+3. [Installing individual packages](#installing-individual-packages)
+4. [Upgrading](#upgrading)
+5. [Running Horizon in production](#running-horizon-in-production)
 
 ## Adding the SDF stable repository to your system
 
@@ -81,7 +81,7 @@ stellar=> \dt
 
 #### stellar-core --newdb
 
-As with [accessing the database directly](https://github.com/stellar/packages#accessing-the-quickstart-databases), you can re-initialise the `stellar-core` db by running `stellar-core` as the `stellar` system user.
+As with [accessing the database directly](#accessing-the-quickstart-databases), you can re-initialise the `stellar-core` db by running `stellar-core` as the `stellar` system user.
 
 ```
 # sudo -u stellar stellar-core --conf /etc/stellar/stellar-core.cfg --newdb
@@ -224,4 +224,4 @@ Given this, the following principles should apply to most hosting environments.
  * run a dedicated **non-validating** `stellar-core` instance which the Horizon cluster will connect to and ingest from
  * run a highly available [PostgreSQL cluster](https://www.postgresql.org/docs/9.5/static/high-availability.html) (RDS) for each of the required databases (`stellar`,`horizon`)
 
-![Generic Distributed Horizon Cluster](https://github.com/stellar/packages/blob/documentation/images/generic-distributed-horizon.png)
+![Generic Distributed Horizon Cluster](images/generic-distributed-horizon.png)
