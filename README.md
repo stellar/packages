@@ -215,13 +215,15 @@ Running your own distributed Horizon setup is **highly** recommended for product
 
 **reminder:** the SDF horizon cluster does not have an SLA!
 
-How you achieve this **highly available environment** is dependent on your internal infrastructure. Using managed services such as AWS (ELB,RDS,EC2) and other cloud providers will greatly simplify your environment.
+How you achieve this **distributed environment** is dependent on your internal infrastructure. If possible, using managed services such as AWS (ELB,RDS,EC2) or other cloud providers will greatly simplify your environment.
 
 Given this, the following principles should apply to most hosting environments.
 
  * distribute the Horizon service across multiple **load-balanced** instances (ELB,EC2)
  * only `ingest` on 1 horizon node
  * run a dedicated **non-validating** `stellar-core` instance which the Horizon cluster will connect to and ingest from
- * run a highly available [PostgreSQL cluster](https://www.postgresql.org/docs/9.5/static/high-availability.html) (RDS) for each of the required databases (`stellar`,`horizon`)
+ * run a highly available [PostgreSQL cluster](https://www.postgresql.org/docs/9.5/static/high-availability.html) ( or RDS) for each of the required databases (`stellar`,`horizon`)
+ * use a heartbeat ([Keepalived](https://github.com/acassen/keepalived)) to avoid `core-001` becoming a Single Point Of Failure
+   * during failover 2 services need to be updated, the `core-db` and `stellar-core` instance accessed by the Horizon nodes
 
 ![Generic Distributed Horizon Cluster](images/generic-distributed-horizon.png)
