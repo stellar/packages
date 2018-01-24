@@ -13,6 +13,7 @@ Alternatively you may choose to install the **stellar-quickstart** package which
 2. [Quickstart](https://github.com/stellar/packages#quickstart)
 3. [Installing individual packages](https://github.com/stellar/packages#installing-individual-packages)
 4. [Upgrading](https://github.com/stellar/packages#upgrading)
+5. [Running Horizon in production](https://github.com/stellar/packages#running-horizon-in-production)
 
 ## Adding the SDF stable repository to your system
 
@@ -207,3 +208,20 @@ stellar-core-cmd info
 # stellar-core --version
 # stellar-core 9.0.1 (7ad53a57f9f279d9f1697a3699ba23ed74177043)
 ```
+
+## Running Horizon in production
+
+Running your own distributed Horizon setup is **highly** recommended for production environments.
+
+**reminder:** the SDF horizon cluster does not have an SLA!
+
+How you achieve this **highly available environment** is dependent on your internal infrastructure. Using managed services such as AWS (ELB,RDS,EC2) and other cloud providers will greatly simplify your environment.
+
+Given this, the following principles should apply to most hosting environments.
+
+ * distribute the Horizon service across multiple **load-balanced** instances (ELB,EC2)
+ * only `ingest` on 1 horizon node
+ * run a dedicated **non-validating** `stellar-core` instance which the Horizon cluster will connect to and ingest from
+ * run a highly available [PostgreSQL cluster](https://www.postgresql.org/docs/9.5/static/high-availability.html) (RDS) for each of the required databases (`stellar`,`horizon`)
+
+![Generic Distributed Horizon Cluster](https://github.com/stellar/packages/blob/documentation/images/generic-distributed-horizon.png)
