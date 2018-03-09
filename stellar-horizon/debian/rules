@@ -15,7 +15,7 @@
 
 
 %:
-	dh $@ 
+	dh $@ --with systemd
 
 
 # dh_make generated override targets
