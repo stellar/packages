@@ -17,6 +17,8 @@
 %:
 	dh $@ --with systemd
 
+override_dh_systemd_start:
+	dh_systemd_start --restart-after-upgrade
 
 # dh_make generated override targets
 # This is example for Cmake (See https://bugs.debian.org/641051 )
