@@ -1,8 +1,14 @@
 stellar-horizon (_VERSION_-_BUILD_VERSION_) stable; urgency=medium
 
+  * restart after upgrade, run db migrations in postinst
+
+ -- Package Maintainer <packages@stellar.org>  Sun, 11 Mar 2018 17:44:05 +0000
+
+stellar-horizon (0.12.0-10) stable; urgency=medium
+
   * Increase systemd service LimitNOFILE to 8192
 
- -- Package Maintainer <packages@stellar.org>  Tue, 09 Dec 2018 08:44:05 +0000
+ -- Package Maintainer <packages@stellar.org>  Tue, 09 Jan 2018 08:44:05 +0000
 
 stellar-horizon (0.12.0-9) stable; urgency=medium
 
