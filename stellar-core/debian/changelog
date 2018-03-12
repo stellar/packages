@@ -1,5 +1,11 @@
 stellar-core (_VERSION_-_BUILD_VERSION_) stable; urgency=medium
 
+  * pandoc is a build-dependency
+
+ -- Package Maintainer <packages@stellar.org>  Mon, 12 Mar 2018 17:23:02 +0000
+
+stellar-core (9.1.0-6) stable; urgency=medium
+
   * Makefile.am overrides vers string
     with LOCAL_PACKAGE, LOCAL_VERSION and GIT_COMMIT environment variables
 
