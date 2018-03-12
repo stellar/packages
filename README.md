@@ -215,6 +215,7 @@ stellar-core-cmd info
 # stellar-horizon version                                                                                                                                              19:24:05
 # v0.12.0-testing
 # sudo apt-get update && sudo apt-get install stellar-horizon
+# for i in `grep = /etc/default/stellar-horizon`; do export $i;done # export Horizon's environment using /etc/default/stellar-horizon
 # stellar-horizon db reingest # you may need to reingest if db schema changed
 # ...
 # stellar-horizon version
