@@ -236,6 +236,6 @@ Given this, the following principles should apply to most hosting environments.
  * run a dedicated **non-validating** `stellar-core` instance which the Horizon cluster will connect to and ingest from
  * run a highly available [PostgreSQL cluster](https://www.postgresql.org/docs/9.5/static/high-availability.html) ( or RDS) for each of the required databases (`stellar`,`horizon`)
  * use a heartbeat ([Keepalived](https://github.com/acassen/keepalived)) to avoid `core-001` becoming a Single Point Of Failure
-   * during failover 2 services need to be updated, the `core-db` and `stellar-core` instance accessed by the Horizon nodes
+   * during failover the `core-db` and `stellar-core` instance accessed by Horizon need to be updated
 
 ![Generic Distributed Horizon Cluster](images/generic-distributed-horizon.png)
