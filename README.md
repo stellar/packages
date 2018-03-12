@@ -209,6 +209,18 @@ stellar-core-cmd info
 # stellar-core 9.0.1 (7ad53a57f9f279d9f1697a3699ba23ed74177043)
 ```
 
+##### stellar-horizon
+
+```
+# stellar-horizon version                                                                                                                                              19:24:05
+# v0.12.0-testing
+# sudo apt-get update && sudo apt-get install stellar-horizon
+# stellar-horizon db reingest # you may need to reingest if db schema changed
+# ...
+# stellar-horizon version
+# 0.12.0
+```
+
 ## Running Horizon in production
 
 Running your own distributed Horizon setup is **highly** recommended for production environments.
