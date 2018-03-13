@@ -1,0 +1,15 @@
+#!/bin/bash
+
+DEFAULTS='/etc/default/stellar-horizon';
+
+# import defaults file, use automatic export shell variables feature
+set -a
+source $DEFAULTS
+set +a
+
+if [ $# -eq 0 ]; then
+  # display help if no parameters are provided
+  sudo --preserve-env -u stellar stellar-horizon help
+else
+  sudo --preserve-env -u stellar stellar-horizon $@
+fi

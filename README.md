@@ -109,10 +109,11 @@ As with [accessing the database directly](#accessing-the-quickstart-databases), 
 
 | Package                  | Dependencies                | Comments                                                                           |
 |:-------------------------|:----------------------------|:-----------------------------------------------------------------------------------|
-| stellar-core             | stellar-core-utils          | installs stellar-core binary, systemd service, logrotate script, documentation     |
+| stellar-core             | none                        | installs stellar-core binary, systemd service, logrotate script, documentation     |
 | stellar-core-utils       | none                        | installs useful command line tools (stellar-core-cmd)                              |
 | stellar-core-postgres    | stellar-core, PostgreSQL    | configures a PostgreSQL server, creates a stellar db,role and system user          |
 | stellar-horizon          | none                        | installs stellar-horizon binary, systemd service                                   |
+| stellar-horizon-utils    | none                        | installs useful command line tools (stellar-horizon-cmd)                           |
 | stellar-horizon-postgres | stellar-horizon, PostgreSQL | configures a PostgreSQL server, creates a horizon db and stellar role, system user |
 | stellar-quickstart       | stellar-core-postgres, stellar-horizon-postgres | pulls in required packages via it's dependencies               |
 
@@ -193,6 +194,17 @@ stellar-core-cmd info
       "state" : "Synced!"
    }
 }
+```
+
+##### stellar-horizon-cmd
+
+This simple script exports all variables found in /etc/default/stellar-horizon and wraps stellar-horizon.
+
+```
+stellar-horizon-cmd db reingest
+INFO[0000] reingest: all                                 end=7888983 pid=26862 start=7888985
+INFO[0000] ingest: range complete                        end=7888983 err=<nil> ingested=3 pid=26862 start=7888985
+INFO[0000] reingest: complete                            count=3 means="load: 2.138432ms clear: 525.499µs ingest: 525.499µs" pid=26862 rate=111.0815757543577
 ```
 
 ## Upgrading
