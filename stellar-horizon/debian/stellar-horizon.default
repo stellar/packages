@@ -1,5 +1,5 @@
 ## /etc/default/stellar-horizon
-
+NETWORK_PASSPHRASE="Test SDF Network ; September 2015"
 DATABASE_URL="dbname=horizon user=stellar host=/var/run/postgresql"
 STELLAR_CORE_DATABASE_URL="dbname=stellar user=stellar host=/var/run/postgresql"
 STELLAR_CORE_URL="http://127.0.0.1:11626"
