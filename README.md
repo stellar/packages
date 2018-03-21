@@ -136,11 +136,21 @@ If you choose to install the individual packages, you will need to install your 
 
 ##### Systemd Unit
 
-For convenience our packages install a Systemd service `/lib/systemd/system/stellar-core.service` or `/lib/systemd/system/stellar-horizon.service`. These services are loaded by default but as a precaution you will still need to start the services manually post installation.
+For convenience our packages install a Systemd service `/lib/systemd/system/stellar-core.service` or `/lib/systemd/system/stellar-horizon.service`. These services are enabled by default but as a precaution you will still need to start the `core` service manually post installation.
 
-Should you want these services to start up after a reboot, you will need to run:
-
-`systemctl enable stellar-core` or `systemctl enable stellar-horizon`
+```
+systemctl start stellar-core
+systemctl status
+● stellar-core.service - SDF - stellar-core
+   Loaded: loaded (/lib/systemd/system/stellar-core.service; enabled; vendor preset: enabled)
+   Active: active (running) since Wed 2018-03-21 12:01:05 UTC; 1min 46s ago
+ Main PID: 1522 (stellar-core)
+    Tasks: 4
+   Memory: 4.7M
+      CPU: 437ms
+   CGroup: /system.slice/stellar-core.service
+           └─1522 /usr/bin/stellar-core --conf /etc/stellar/stellar-core.cfg
+```
 
 ##### Logrotate
 
@@ -148,7 +158,7 @@ The stellar-core Debian package installs a Logrotate script under `/etc/logrotat
 
 Due to the way stellar-core currently manages it's logs, we are temporarily using `copytruncate` to rotate the logs. Unfortunately, a minimal amount of log entries may be lost with this setup. We are actively looking at ways of improving this.
 
-You can disable automatic logrotation `rm -r /etc/logrotate.d/stellar-core`
+You can disable automatic logrotation `rm /etc/logrotate.d/stellar-core`
 
 ```
 /var/log/stellar/*.log {
@@ -223,11 +233,13 @@ INFO[0000] reingest: complete                            count=3 means="load: 2.
 
 ##### stellar-horizon
 
+The stellar-horizon package attempts to migrate the db schema after every upgrade. It extracts database connection parameters from `/etc/default/stellar-horizon`, runs db migrations and finally restarts stellar-horizon post migration resulting in minimal downtime.
+
 ```
 # stellar-horizon version                                                                                                                                              19:24:05
 # v0.12.0-testing
 # sudo apt-get update && sudo apt-get install stellar-horizon
-# stellar-horizon-cmd db reingest # you may need to reingest if db schema changed
+# stellar-horizon-cmd db reingest # you may need to reingest manually, see changelog for details
 # ...
 # stellar-horizon version
 # 0.12.0
