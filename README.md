@@ -217,6 +217,18 @@ INFO[0000] ingest: range complete                        end=7888983 err=<nil> i
 INFO[0000] reingest: complete                            count=3 means="load: 2.138432ms clear: 525.499µs ingest: 525.499µs" pid=26862 rate=111.0815757543577
 ```
 
+##### Debian
+
+We do not currently test the packages on Debian GNU/Linux as part of our internal release process.
+
+That said, the packages install correctly on Debian Stretch although you will need to add the official PostgreSQL apt repository to satisfy dependencies, instructions can be found in the [PostgreSQL APT documentation](https://wiki.postgresql.org/wiki/Apt#Quickstart).
+
+##### User permissions
+
+We create and make extensive use of a `stellar` user during the installation, runtime, upgrade process'. With this in mind, the `stellar` user needs r/w access to the stellar-core buckets directory (/var/lib/stellar/buckets) and to the log directory (/var/log/stellar/).
+
+If you need to use different mount points, you will need to make sure the `stellar` user has r/w access.
+
 ## Upgrading
 
 ##### stellar-core
