@@ -1,0 +1,95 @@
+--- a/src/test/run-selftest-pg
++++ b/src/test/run-selftest-pg
+@@ -33,6 +33,11 @@ if [ "$(which $PGCTL)" == "" ]; then
+     findpg pg_ctlcluster
+     PGCTL=pg_ctlcluster
+ 
++    if [ "$(which $PGCTL)" == "pg_ctlcluster" ]; then
++        # we are on a Debian based distro
++        DEBIAN_SYSTEM=true # this var is a string, not a boolean
++    fi
++
+     if [ "$(which $PGCTL)" == "" ]; then
+         echo "Could not find pg_ctl or pg_ctlcluster"
+         exit 1
+@@ -40,9 +45,15 @@ if [ "$(which $PGCTL)" == "" ]; then
+ fi
+ 
+ cleanup() {
+-    $PGCTL stop -D $PGDATA -m immediate
+-    rm -rf "$PGDATA"
+-    exit
++    if [ $DEBIAN_SYSTEM ]; then
++        $PGCTL --force $PG_VERSION $PG_CLUSTER_ID stop
++        rm -rf "$PGDATA" "/etc/postgresql/${PG_VERSION}/${PG_CLUSTER_ID}/postgresql.conf"
++        exit
++    else
++        $PGCTL stop -D $PGDATA -m immediate
++        rm -rf "$PGDATA"
++        exit
++    fi
+ }
+ 
+ # Creates a temporary postgres database cluster, runs a command (or a
+@@ -53,19 +64,41 @@ runpg() {
+     export PGDATA=$(mktemp -d ${TMPDIR-/tmp}/pgtmp.XXXXXXXX)
+     export PGHOST="$PGDATA"
+     export PGUSER=postgres
++    export PG_VERSION=$(pg_config --version | awk -F'[ .]' '{print $2 "." $3}')
++    export PG_CLUSTER_ID=tempcluster
+ 
+-    trap cleanup 0 2 15
++    if [ $DEBIAN_SYSTEM ]; then
++        PG_CLUSTER_ID=tempcluster
++        conf="/etc/postgresql/${PG_VERSION}/${PG_CLUSTER_ID}/postgresql.conf"
+ 
+-    echo Creating temporary PostgreSQL database cluster in "$PGDATA"
++        trap cleanup 0 2 15
+ 
+-    $PGCTL init -s -o "--no-locale -U ${PGUSER-postgres} -A trust" \
+-        || return 1
+-    conf="$PGDATA/postgresql.conf"
+-    usd=$(sed -ne '/#\(unix_socket_director[^ ]*\) =.*/{
+-                    s//\1/p
+-                    q
+-                   }' "$conf")
+-    cat >> "$conf" <<EOF
++        echo Creating temporary PostgreSQL database cluster in "$PGDATA"
++
++        # create temporary pg cluster
++        pg_createcluster -U ${PGUSER-postgres} -d $PGDATA/db $PG_VERSION $PG_CLUSTER_ID \
++            -l $PGDATA/log --start-conf=manual -s $PGDATA/socket
++        cat >> "$conf" <<EOF
++listen_addresses = ''
++logging_collector = yes
++fsync = no
++synchronous_commit = off
++full_page_writes = off
++EOF
++        $PGCTL --force $PG_VERSION $PG_CLUSTER_ID start
++    else
++        trap cleanup 0 2 15
++
++        echo Creating temporary PostgreSQL database cluster in "$PGDATA"
++
++        $PGCTL init -s -o "--no-locale -U ${PGUSER-postgres} -A trust" \
++            || return 1
++        conf="$PGDATA/postgresql.conf"
++        usd=$(sed -ne '/#\(unix_socket_director[^ ]*\) =.*/{
++                        s//\1/p
++                        q
++                       }' "$conf")
++        cat >> "$conf" <<EOF
+ $usd = '$PGDATA'
+ listen_addresses = ''
+ logging_collector = yes
+@@ -73,7 +106,8 @@ fsync = no
+ synchronous_commit = off
+ full_page_writes = off
+ EOF
+-    $PGCTL start -w -s &> /dev/null
++        $PGCTL start -w -s &> /dev/null
++    fi
+ }
+ 
+ setup_test() {
