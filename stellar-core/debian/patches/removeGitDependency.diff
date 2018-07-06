@@ -22,16 +22,3 @@
  ) > src/src.mk
  
  
---- a/src/Makefile.am
-+++ b/src/Makefile.am
-@@ -38,9 +38,7 @@ always:
- 
- # Always rebuild because .git/HEAD is a symbolic ref one can't depend on
- main/StellarCoreVersion.cpp: always
--	@vers=$$(cd "$(srcdir)" \
--		&& git describe --always --dirty --tags 2>/dev/null \
--		|| echo "$(PACKAGE) $(VERSION)"); \
-+	@vers=$$(echo "${LOCAL_PACKAGE} ${LOCAL_VERSION} (${GIT_COMMIT})"); \
- 		sed -e "s/%%VERSION%%/$$vers/" < main/StellarCoreVersion.cpp.in > $@~
- 	@if cmp -s $@~ $@; then rm -f $@~; else \
- 	    mv -f $@~ $@ && printf "echo '%s' > $@\n" "$$(cat $@)"; fi
