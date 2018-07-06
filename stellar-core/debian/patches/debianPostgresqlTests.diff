@@ -1,21 +1,22 @@
 --- a/src/test/run-selftest-pg
 +++ b/src/test/run-selftest-pg
-@@ -33,6 +33,14 @@ if [ "$(which $PGCTL)" == "" ]; then
+@@ -33,6 +33,15 @@ if [ "$(which $PGCTL)" == "" ]; then
      findpg pg_ctlcluster
      PGCTL=pg_ctlcluster
  
-+    if [ "$(which $PGCTL)" == "pg_ctlcluster" ]; then
++    if [ "$PGCTL" == "pg_ctlcluster" ]; then
 +        # we are on a Debian based distro
 +        DEBIAN_SYSTEM=true # this var is a string, not a boolean
 +    fi
 +
++    echo $(which $PGCTL)
 +    echo $DEBIAN_SYSTEM
 +    echo $PGCTL
 +
      if [ "$(which $PGCTL)" == "" ]; then
          echo "Could not find pg_ctl or pg_ctlcluster"
          exit 1
-@@ -40,9 +48,15 @@ if [ "$(which $PGCTL)" == "" ]; then
+@@ -40,9 +49,15 @@ if [ "$(which $PGCTL)" == "" ]; then
  fi
  
  cleanup() {
@@ -34,7 +35,7 @@
  }
  
  # Creates a temporary postgres database cluster, runs a command (or a
-@@ -53,19 +67,40 @@ runpg() {
+@@ -53,19 +68,40 @@ runpg() {
      export PGDATA=$(mktemp -d ${TMPDIR-/tmp}/pgtmp.XXXXXXXX)
      export PGHOST="$PGDATA"
      export PGUSER=postgres
@@ -85,7 +86,7 @@
  $usd = '$PGDATA'
  listen_addresses = ''
  logging_collector = yes
-@@ -73,7 +108,8 @@ fsync = no
+@@ -73,7 +109,8 @@ fsync = no
  synchronous_commit = off
  full_page_writes = off
  EOF
