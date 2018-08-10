@@ -1,4 +1,3 @@
-Bug-Template.md
 CONTRIBUTING.md
 COPYING
 docs/architecture.md
@@ -12,18 +11,15 @@ docs/software/admin.md
 docs/software/commands.md
 docs/software/core-data-flow.pdf
 docs/software/core-data-flow.pdf.metadata
+docs/software/security-protocol-release-notes.md
 docs/software/testnet.md
-docs/stellar-core.1
-docs/stellar-core.1.in
 docs/stellar-core.1.md
 docs/stellar-core_example.cfg
 docs/stellar-core_standalone.cfg
 docs/stellar-core_testnet.cfg
 docs/transaction.md
 docs/versioning.md
-INSTALL
 INSTALL.md
-ISSUE_TEMPLATE.md
 NEWS
 README
 README.md
