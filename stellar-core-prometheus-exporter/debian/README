@@ -1,0 +1,6 @@
+The Debian Package stellar-core-prometheus-exporter
+----------------------------
+
+This package deploys and configures a prometheus exporter for scraping stellar-core metrics
+
+ -- Package Maintainer <packages@stellar.org>  Fri, 24 Aug 2018 12:22:22 +0000
