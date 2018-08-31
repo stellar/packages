@@ -32,13 +32,11 @@ class StellarCoreCollector(object):
       
       if metrics[k]['type'] == 'timer':
         # we have a timer, expose as a Prometheus Summary
-        summary = SummaryMetricFamily(underscores, 'libmedida metric type: ' + metrics[k]['type'], count_value=metrics[k]['count'], sum_value=(metrics[k]['mean_rate'] * metrics[k]['count']))
+        underscores = underscores + '_' + metrics[k]['duration_unit']
+        summary = SummaryMetricFamily(underscores, 'libmedida metric type: ' + metrics[k]['type'], count_value=metrics[k]['count'], sum_value=(metrics[k]['mean'] * metrics[k]['count']))
         # add stellar-core calculated quantiles to our summary
         summary.add_sample(underscores, labels={'quantile':'0.75'}, value=metrics[k]['75%']) 
-        summary.add_sample(underscores, labels={'quantile':'0.95'}, value=metrics[k]['95%'])
-        summary.add_sample(underscores, labels={'quantile':'0.98'}, value=metrics[k]['98%']) 
         summary.add_sample(underscores, labels={'quantile':'0.99'}, value=metrics[k]['99%']) 
-        summary.add_sample(underscores, labels={'quantile':'0.999'}, value=metrics[k]['99.9%']) 
         yield summary
       elif metrics[k]['type'] == 'counter':
         # we have a counter, this is a Prometheus Gauge
