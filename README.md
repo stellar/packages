@@ -130,6 +130,24 @@ If you choose to install the individual packages, you will need to install your 
 
 ### Installation
 
+**Recent stellar-core packages now start the service post installation**, if you would like to retain the previous behaviour and prevent stellar-core from starting automatically, you could use `systemctl mask`.
+
+#### masking the service
+
+if the package is already installed:
+
+```
+systemctl mask stellar-core # no start post upgrades
+```
+
+if the package is not yet installed:
+
+```
+ln -s /dev/null /etc/systemd/system/stellar-core.service # no start post installation
+```
+
+#### installing
+
 * `apt-get update && apt-get install stellar-core` or `apt-get update && apt-get install stellar-horizon`
 * deploy suitable configs, see [docs](https://www.stellar.org/developers/software/)
 * `systemctl start stellar-core` or `systemctl start stellar-horizon`
