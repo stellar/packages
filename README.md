@@ -44,9 +44,7 @@ The **stellar-quickstart** package configures a local `stellar-core` and `stella
 
 ```
 # sudo apt-get update && sudo apt-get install stellar-quickstart # install packages
-# sudo systemctl start stellar-core # start up stellar-core
-# stellar-core-cmd info # check/wait until stellar-core is in synch
-# sudo systemctl start stellar-horizon # start up stellar-horizon
+# stellar-core-cmd info # stellar-horizon will only start ingesting when stellar-core is in synch
 ```
 
 #### Accessing the quickstart databases
@@ -108,15 +106,16 @@ As with [accessing the database directly](#accessing-the-quickstart-databases), 
 
 `stellar-quickstart` is a **configuration** package that through it's dependencies pulls in the required packages.
 
-| Package                  | Dependencies                | Comments                                                                           |
-|:-------------------------|:----------------------------|:-----------------------------------------------------------------------------------|
-| stellar-core             | none                        | installs stellar-core binary, systemd service, logrotate script, documentation     |
-| stellar-core-utils       | none                        | installs useful command line tools (stellar-core-cmd)                              |
-| stellar-core-postgres    | stellar-core, PostgreSQL    | configures a PostgreSQL server, creates a stellar db,role and system user          |
-| stellar-horizon          | none                        | installs stellar-horizon binary, systemd service                                   |
-| stellar-horizon-utils    | none                        | installs useful command line tools (stellar-horizon-cmd)                           |
-| stellar-horizon-postgres | stellar-horizon, PostgreSQL | configures a PostgreSQL server, creates a horizon db and stellar role, system user |
-| stellar-quickstart       | stellar-core-postgres, stellar-horizon-postgres | pulls in required packages via it's dependencies               |
+| Package                           | Dependencies                | Comments                                                                           |
+|:----------------------------------|:----------------------------|:-----------------------------------------------------------------------------------|
+| stellar-core                      | none                        | installs stellar-core binary, systemd service, logrotate script, documentation     |
+| stellar-core-utils                | none                        | installs useful command line tools (stellar-core-cmd)                              |
+| stellar-core-prometheus-exporter  | none                        | installs a Prometheus exporter to facilitate ingesting stellar-core metrics        |
+| stellar-core-postgres             | stellar-core, PostgreSQL    | configures a PostgreSQL server, creates a stellar db,role and system user          |
+| stellar-horizon                   | none                        | installs stellar-horizon binary, systemd service                                   |
+| stellar-horizon-utils             | none                        | installs useful command line tools (stellar-horizon-cmd)                           |
+| stellar-horizon-postgres          | stellar-horizon, PostgreSQL | configures a PostgreSQL server, creates a horizon db and stellar role, system user |
+| stellar-quickstart                | stellar-core-postgres, stellar-horizon-postgres | pulls in required packages via it's dependencies               |
 
 Once you are comfortable with the various packages that `stellar-quickstart` brings in as dependencies, it is possible to install them individually.
 
@@ -124,7 +123,7 @@ See [Running Horizon in production](#running-horizon-in-production) for a generi
 
 ## Installing individual packages
 
-If you choose to install the individual packages, you will need to install your own configuration files as well as configure PostgreSQL.
+If you choose to install the individual packages, you will need to install your own configuration files as none are provided by default, you will also need to configure PostgreSQL as well as create users and relevant databases.
 
 * **stellar-core:** is configured by modifying `/etc/stellar/stellar-core.cfg`
 * **stellar-horizon:** is configured by modifying `/etc/default/stellar-horizon`
@@ -137,7 +136,7 @@ If you choose to install the individual packages, you will need to install your 
 
 ##### Systemd Unit
 
-For convenience our packages install a Systemd service `/lib/systemd/system/stellar-core.service` or `/lib/systemd/system/stellar-horizon.service`. These services are enabled by default but as a precaution you will still need to start the `core` service manually post installation.
+For convenience our packages install Systemd services `/lib/systemd/system/stellar-core.service` or `/lib/systemd/system/stellar-horizon.service`. These services are enabled and started by default.
 
 ```
 systemctl start stellar-core
@@ -239,7 +238,6 @@ If you need to use different mount points, you will need to make sure the `stell
 # stellar-core 9.0.0 (a79bfa71d221df9f68be36e3aa3dd7ffd71094ef)
 # sudo apt-get update && sudo apt-get install stellar-core
 # ...
-# sudo systemctl start stellar-core
 # stellar-core --version
 # stellar-core 9.0.1 (7ad53a57f9f279d9f1697a3699ba23ed74177043)
 ```
