@@ -13,3 +13,9 @@ Recommends: stellar-core-utils
 Description: Stellar  is  a  decentralized, federated peer-to-peer network
  Stellar  is  a  decentralized, federated peer-to-peer network that allows people to send payments in any asset anywhere in the world instantaneously, and with minimal fee.
  Stellar-core is the core component of this network. Stellar-core is a C++ implementation of the Stellar Consensus Protocol configured to construct a chain of ledgers that are guaranteed to be in agreement across all the participating nodes at all times.
+
+Package: stellar-core-dbg
+Section: debug
+Architecture: any
+Depends: stellar-core (= ${Source-Version})
+Description: Debug symbols for stellar-core
