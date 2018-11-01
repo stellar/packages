@@ -27,3 +27,9 @@ override_dh_auto_configure:
 
 override_dh_systemd_start:
 	dh_systemd_start --restart-after-upgrade
+
+override_dh_auto_install:
+	dh_auto_install --destdir=debian/stellar-core
+
+override_dh_strip:
+	dh_strip --dbg-package=stellar-core-dbg
