@@ -15,6 +15,7 @@ Alternatively you may choose to install the **stellar-quickstart** package which
 4. [Upgrading](#upgrading)
 5. [Running Horizon in production](#running-horizon-in-production)
 6. [Bleeding Edge](#bleeding-edge-unstable-repository)
+7. [Debug Symbols](#debug-symbols)
 
 ## Adding the SDF stable repository to your system
 
@@ -301,4 +302,12 @@ If you would like to install our Release Candidates and/or track the Master bran
 
 ```
 echo "deb https://apt.stellar.org/public unstable/" | sudo tee -a /etc/apt/sources.list.d/SDF-unstable.list
+```
+
+## Debug Symbols
+
+We provide `stellar-core-dbg` packages containing the stellar-core debug symbols.
+
+```
+apt-get install stellar-core-dbg
 ```
