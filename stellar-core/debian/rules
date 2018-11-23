@@ -23,7 +23,7 @@ override_dh_autoreconf:
 # dh_make generated override targets
 # This is example for Cmake (See https://bugs.debian.org/641051 )
 override_dh_auto_configure:
-	CXX=clang-5.0 CXXFLAGS="-stdlib=libc++ -fno-omit-frame-pointer -O3 -ggdb -isystem /usr/include/libcxxabi" ./configure --prefix=/usr --includedir=/usr/include --mandir=/usr/share/man --infodir=/usr/share/info --sysconfdir=/etc --localstatedir=/var
+	CXX=clang++-5.0 CXXFLAGS="-stdlib=libc++ -fno-omit-frame-pointer -O3 -ggdb -isystem /usr/include/libcxxabi" ./configure --prefix=/usr --includedir=/usr/include --mandir=/usr/share/man --infodir=/usr/share/info --sysconfdir=/etc --localstatedir=/var
 
 override_dh_systemd_start:
 	dh_systemd_start --restart-after-upgrade
