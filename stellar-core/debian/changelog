@@ -1,5 +1,17 @@
 stellar-core (_VERSION_-_BUILD_VERSION_) stable; urgency=medium
 
+  * use clang-5.0 and llvm's libc++
+
+  * added libc++-dev libc++abi-dev Build-Depends
+
+  * added libc++1 libc++abi1 Depends
+
+  * clean up dependencies
+
+ -- Package Maintainer <packages@stellar.org>  Sat, 23 Nov 2018 23:03:50 +0000
+
+stellar-core (9.2.0-9) stable; urgency=medium
+
   * pandoc is a build-dependency
 
  -- Package Maintainer <packages@stellar.org>  Mon, 12 Mar 2018 17:23:02 +0000
