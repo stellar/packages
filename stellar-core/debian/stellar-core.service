@@ -6,7 +6,7 @@ Before=multi-user.target
 [Service]
 User=stellar
 Group=stellar
-ExecStart=/usr/bin/stellar-core --conf /etc/stellar/stellar-core.cfg
+ExecStart=/usr/bin/stellar-core run --conf /etc/stellar/stellar-core.cfg
 ExecReload=/bin/kill -HUP $MAINPID
 KillMode=process
 Restart=on-failure

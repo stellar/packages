@@ -84,7 +84,7 @@ stellar=> \dt
 As with [accessing the database directly](#accessing-the-quickstart-databases), you can re-initialise the `stellar-core` db by running `stellar-core` as the `stellar` system user.
 
 ```
-# sudo -u stellar stellar-core --conf /etc/stellar/stellar-core.cfg --newdb
+# sudo -u stellar stellar-core new-db --conf /etc/stellar/stellar-core.cfg
 2018-01-22T19:43:20.715 GABA2 [Database INFO] Connecting to: postgresql://dbname=stellar user=stellar
 2018-01-22T19:43:20.719 GABA2 [SCP INFO] LocalNode::LocalNode@GABA2 qSet: 273af2
 2018-01-22T19:43:20.833 GABA2 [Database INFO] Applying DB schema upgrade to version 2
@@ -168,7 +168,7 @@ systemctl status
    Memory: 4.7M
       CPU: 437ms
    CGroup: /system.slice/stellar-core.service
-           └─1522 /usr/bin/stellar-core --conf /etc/stellar/stellar-core.cfg
+           └─1522 /usr/bin/stellar-core run --conf /etc/stellar/stellar-core.cfg
 ```
 
 ##### Logrotate
