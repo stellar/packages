@@ -46,7 +46,7 @@ case "$1" in
     if [ -x /usr/bin/stellar-core ];then
       # if we can not find a peers table, --newdb
       if ! echo "SELECT 'stellar' FROM information_schema.tables WHERE table_schema = 'public' AND table_name = 'peers';" | runuser -l ${ROLE} -c "psql -tA" | grep 'stellar' 2>&1 > /dev/null;then
-        runuser -l ${ROLE} -c "/usr/bin/stellar-core --conf /etc/stellar/stellar-core.cfg --newdb"
+        runuser -l ${ROLE} -c "/usr/bin/stellar-core --conf /etc/stellar/stellar-core.cfg new-db"
       fi
     fi
   ;;

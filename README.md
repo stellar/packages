@@ -16,6 +16,8 @@ Alternatively you may choose to install the **stellar-quickstart** package which
 5. [Running Horizon in production](#running-horizon-in-production)
 6. [Bleeding Edge](#bleeding-edge-unstable-repository)
 7. [Debug Symbols](#debug-symbols)
+8. [Testnet Reset](#testnet-reset)
+9. [Troubleshooting](#troubleshooting)
 
 ## Adding the SDF stable repository to your system
 
@@ -79,12 +81,12 @@ stellar=> \dt
 (15 rows)
 ```
 
-#### stellar-core --newdb
+#### stellar-core new-db
 
 As with [accessing the database directly](#accessing-the-quickstart-databases), you can re-initialise the `stellar-core` db by running `stellar-core` as the `stellar` system user.
 
 ```
-# sudo -u stellar stellar-core --conf /etc/stellar/stellar-core.cfg --newdb
+# sudo -u stellar stellar-core --conf /etc/stellar/stellar-core.cfg new-db
 2018-01-22T19:43:20.715 GABA2 [Database INFO] Connecting to: postgresql://dbname=stellar user=stellar
 2018-01-22T19:43:20.719 GABA2 [SCP INFO] LocalNode::LocalNode@GABA2 qSet: 273af2
 2018-01-22T19:43:20.833 GABA2 [Database INFO] Applying DB schema upgrade to version 2
@@ -168,7 +170,7 @@ systemctl status
    Memory: 4.7M
       CPU: 437ms
    CGroup: /system.slice/stellar-core.service
-           └─1522 /usr/bin/stellar-core --conf /etc/stellar/stellar-core.cfg
+           └─1522 /usr/bin/stellar-core --conf /etc/stellar/stellar-core.cfg run
 ```
 
 ##### Logrotate
@@ -253,12 +255,12 @@ If you need to use different mount points, you will need to make sure the `stell
 ##### stellar-core
 
 ```
-# stellar-core --version
-# stellar-core 9.0.0 (a79bfa71d221df9f68be36e3aa3dd7ffd71094ef)
+# stellar-core version
+# stellar-core 10.1.0 (1fe2e8a768ecc4db2d53a4a67fc733bb1e99ecd1)
 # sudo apt-get update && sudo apt-get install stellar-core
 # ...
-# stellar-core --version
-# stellar-core 9.0.1 (7ad53a57f9f279d9f1697a3699ba23ed74177043)
+# stellar-core version
+# stellar-core 10.2.0 (54504c714ab6e696283e0bd0fdf1c3a029b7c88b)
 ```
 
 ##### stellar-horizon
@@ -310,4 +312,69 @@ We provide `stellar-core-dbg` packages containing the stellar-core debug symbols
 
 ```
 apt-get install stellar-core-dbg
+```
+
+## Testnet Reset
+
+The Testnet network is reset quarterly by the Stellar Development Foundation. The exact date will be announced with at least two weeks notice on the Stellar Dashboard as well as on several of Stellar’s online developer communities.
+
+The reset will always occur at 09:00 UTC on the announced reset date.
+
+Post reset you will need to perform a small maintenance in order to join/synch to the new network:
+
+#### stellar-core maintenance overview
+
+ * stop `stellar-core`
+ * clear/recreate `stellar` database
+ * re-initialise `stellar`db schema
+ * optionally re-init your history archives (only required if you publish your own archives)
+ * start `stellar-core`
+
+##### maintenance steps
+
+```
+# sudo systemctl stop stellar-core
+# sudo -u stellar psql -c ‘DROP DATABASE stellar’`
+# sudo -u stellar psql -c ‘CREATE DATABASE stellar’
+# sudo -u stellar stellar-core --conf /etc/stellar/stellar-core.cfg new-db
+# sudo -u stellar stellar-core --conf /etc/stellar/stellar-core.cfg new-hist ARCHIVE_NAME
+# sudo systemctl start stellar-core
+```
+
+#### stellar-horizon maintenance overview
+
+ * stop `stellar-horizon`
+ * clear/recreate `horizon` database
+ * re-initialise `horizon`db schema
+
+##### maintenance steps
+
+```
+# sudo systemctl stop stellar-horizon
+# sudo -u stellar psql -c ‘DROP DATABASE horizon’
+# sudo -u stellar psql -c ‘CREATE DATABASE horizon’
+# sudo stellar-horizon-cmd db init
+# sudo systemctl stop stellar-horizon
+```
+
+## Troubleshooting
+
+### Testnet reset known issue
+
+We do not update the `NETWORK_PASSPHRASE` as part of the reset process, this greatly simplifies the procedure for most.
+
+However in practice this means that it may be possible for your `stellar-core` instance to receive `stale SCP messages` from nodes still trying to connect to the previous Testnet, if this occurs your node will permanently get stuck during the initial synch as it never receives the correct `trigger` ledger to join the new network.
+
+For the avoidance of doubt, a normal node's `Waiting for trigger ledger ETA` is counted down by 5 seconds at roughly 5 second intervals or more precisely at the rate ledgers are processed on the new network.
+
+If your node is stuck waiting for a trigger ledger and the ETA doesn't get lower then you are likely experiencing this issue.
+
+`Catching up: Waiting for trigger ledger: 22463254/22463297, ETA: 215s"`
+
+If this occurs on your node, truncating the `peers` table within the `stellar` database will usually allow the instance to re-join what is hopefully the new network.
+
+```
+# sudo systemctl stop stellar-core
+# sudo -u stellar psql -c 'TRUNCATE peers'
+# sudo systemctl start stellar-core
 ```
