@@ -355,6 +355,7 @@ Post reset you will need to perform a small maintenance in order to join/synch t
  * stop `stellar-horizon`
  * clear/recreate `horizon` database
  * re-initialise `horizon`db schema
+ * start `stellar-horizon`
 
 ##### maintenance steps
 
@@ -363,7 +364,7 @@ Post reset you will need to perform a small maintenance in order to join/synch t
 # sudo -u stellar psql -c 'DROP DATABASE horizon'
 # sudo -u stellar psql -c 'CREATE DATABASE horizon'
 # sudo stellar-horizon-cmd db init
-# sudo systemctl stop stellar-horizon
+# sudo systemctl start stellar-horizon
 ```
 
 ## Troubleshooting
