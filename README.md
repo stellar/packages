@@ -201,20 +201,28 @@ This simple script wraps a curl call to the stellar-core http endpoint.
 stellar-core-cmd info
 {
    "info" : {
-      "UNSAFE_QUORUM" : "UNSAFE QUORUM ALLOWED",
-      "build" : "stellar-core 0.6.4 (631687e6324a5f1bcbd92982fee3fd51fa1b80a2)",
+      "build" : "stellar-core 10.2.0 (54504c714ab6e696283e0bd0fdf1c3a029b7c88b)",
+      "history_failure_rate" : "0",
       "ledger" : {
-         "age" : 1,
-         "closeTime" : 1512646297,
-         "hash" : "6b01ce7ca7528632c0e2afd9387f7fddcdae7e17bc4101373c92e35b91ea0c29",
-         "num" : 5822467
+         "age" : 10,
+         "baseFee" : 100,
+         "baseReserve" : 5000000,
+         "closeTime" : 1550142213,
+         "hash" : "95b9b72407174e9d79f184f19b48a0c0a4348573d425f1327191c89fbe2e8235",
+         "maxTxSetSize" : 100,
+         "num" : 2227691,
+         "version" : 10
       },
       "network" : "Test SDF Network ; September 2015",
-      "numPeers" : 3,
-      "protocol_version" : 8,
+      "peers" : {
+         "authenticated_count" : 3,
+         "pending_count" : 3
+      },
+      "protocol_version" : 10,
       "quorum" : {
-         "5822466" : {
+         "2227691" : {
             "agree" : 3,
+            "delayed" : 0,
             "disagree" : 0,
             "fail_at" : 2,
             "hash" : "273af2",
@@ -222,6 +230,7 @@ stellar-core-cmd info
             "phase" : "EXTERNALIZE"
          }
       },
+      "startedOn" : "2019-02-14T10:41:29Z",
       "state" : "Synced!"
    }
 }
