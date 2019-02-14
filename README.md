@@ -343,8 +343,8 @@ Post reset you will need to perform a small maintenance in order to join/synch t
 
 ```
 # sudo systemctl stop stellar-core
-# sudo -u stellar psql -c ‘DROP DATABASE stellar’`
-# sudo -u stellar psql -c ‘CREATE DATABASE stellar’
+# sudo -u stellar psql -c 'DROP DATABASE stellar' postgres
+# sudo -u stellar psql -c 'CREATE DATABASE stellar' postgres
 # sudo -u stellar stellar-core --conf /etc/stellar/stellar-core.cfg new-db
 # sudo -u stellar stellar-core --conf /etc/stellar/stellar-core.cfg new-hist ARCHIVE_NAME
 # sudo systemctl start stellar-core
@@ -360,8 +360,8 @@ Post reset you will need to perform a small maintenance in order to join/synch t
 
 ```
 # sudo systemctl stop stellar-horizon
-# sudo -u stellar psql -c ‘DROP DATABASE horizon’
-# sudo -u stellar psql -c ‘CREATE DATABASE horizon’
+# sudo -u stellar psql -c 'DROP DATABASE horizon'
+# sudo -u stellar psql -c 'CREATE DATABASE horizon'
 # sudo stellar-horizon-cmd db init
 # sudo systemctl stop stellar-horizon
 ```
