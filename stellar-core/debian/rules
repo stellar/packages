@@ -3,16 +3,18 @@
 # output every command that modifies files on the build system.
 export DH_VERBOSE = 1
 
+# dpkg-buildflags
+DPKG_EXPORT_BUILDFLAGS = 1
+include /usr/share/dpkg/buildflags.mk
 
 # see FEATURE AREAS in dpkg-buildflags(1)
 #export DEB_BUILD_MAINT_OPTIONS = hardening=+all
 
-# see ENVIRONMENT in dpkg-buildflags(1)
-# package maintainers to append CFLAGS
-#export DEB_CFLAGS_MAINT_APPEND  = -Wall -pedantic
-# package maintainers to append LDFLAGS
-#export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed
+# package maintainers to append CXXFLAGS
+export DEB_CXXFLAGS_MAINT_APPEND  = -stdlib=libc++ -fno-omit-frame-pointer -O3 -ggdb -isystem /usr/include/libcxxabi
 
+# set DEB_CONFIGURE_OPTS in your environment to override
+DEB_CONFIGURE_OPTS ?= --prefix=/usr --includedir=/usr/include --mandir=/usr/share/man --infodir=/usr/share/info --sysconfdir=/etc --localstatedir=/var
 
 %:
 	dh $@ --with autoreconf --with systemd
@@ -23,7 +25,7 @@ override_dh_autoreconf:
 # dh_make generated override targets
 # This is example for Cmake (See https://bugs.debian.org/641051 )
 override_dh_auto_configure:
-	CXX=clang++-5.0 CXXFLAGS="-stdlib=libc++ -fno-omit-frame-pointer -O3 -ggdb -isystem /usr/include/libcxxabi" ./configure --prefix=/usr --includedir=/usr/include --mandir=/usr/share/man --infodir=/usr/share/info --sysconfdir=/etc --localstatedir=/var
+	CXX=clang++-5.0 ./configure $(DEB_CONFIGURE_OPTS)
 
 override_dh_systemd_start:
 	dh_systemd_start --restart-after-upgrade
