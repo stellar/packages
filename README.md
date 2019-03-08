@@ -339,14 +339,14 @@ When building the `stellar-core` packages, it is possible to override the compil
 
 If you need to modify to the c++ compiler flags, you may do so by setting `DEB_CXXFLAGS_SET` in your build environment which overrides the default `CXXFLAGS` value returned to `dpkg-buildpackage` by `dpkg-buildflags`.
 
-One caveat to this which is not immediately obvious, is that we append `-stdlib=libc++ -fno-omit-frame-pointer -isystem /usr/include/libcxxabi` to the end of `DEB_CXXFLAGS_SET` or by default to the value returned by `dpkg-buildflags`.
-We do this by setting `DEB_CXXFLAGS_MAINT_APPEND` in the `debian/rules` make file to enforce the use of `clang++`,`libc++` and `libc++abi` during compilation.
+One caveat to this which is not immediately obvious, is that we prepend `-stdlib=libc++ -fno-omit-frame-pointer -isystem /usr/include/libcxxabi` to the beginning of `DEB_CXXFLAGS_SET` or by default to the value returned by `dpkg-buildflags`.
+We do this by setting `DEB_CXXFLAGS_MAINT_PREPEND` in the `debian/rules` make file to enforce the use of `clang++`,`libc++` and `libc++abi` during compilation.
 
 Example:
 
 ```
-DEB_CXXFLAGS_MAINT_APPEND = -stdlib=libc++ -fno-omit-frame-pointer -isystem /usr/include/libcxxabi
-CXXFLAGS = $(DEB_CXXFLAGS_SET) + $(DEB_CXXFLAGS_MAINT_APPEND)
+DEB_CXXFLAGS_MAINT_PREPEND = -stdlib=libc++ -fno-omit-frame-pointer -isystem /usr/include/libcxxabi
+CXXFLAGS = $(DEB_CXXFLAGS_MAINT_PREPEND) + $(DEB_CXXFLAGS_SET)
 ```
 
 ##### CFLAGS
