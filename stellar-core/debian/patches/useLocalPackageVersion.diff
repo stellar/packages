@@ -1,6 +1,6 @@
 --- a/src/Makefile.am
 +++ b/src/Makefile.am
-@@ -38,9 +38,7 @@ always:
+@@ -43,9 +43,7 @@ always:
  
  # Always rebuild because .git/HEAD is a symbolic ref one can't depend on
  main/StellarCoreVersion.cpp: always
