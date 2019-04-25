@@ -1,0 +1,6 @@
+The Debian Package stellar-archivist
+----------------------------
+
+This package provides a common toolset for working with stellar-core history archives
+
+ -- Package Maintainer <packages@stellar.org>  Fri, 07 Dec 2017 13:44:05 +0000
