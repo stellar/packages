@@ -545,7 +545,7 @@ Given the choice, it is best to configure the History archive prior to your node
 
 #### After
 
-If unfortunately you have not published an archive during the node's initial synch, it is still possible to use the `stellar-archivist` command line tool to mirror, scan and repair existing archives.
+If unfortunately you have not published an archive during the node's initial synch, it is still possible to use the [stellar-archivist](https://github.com/stellar/go/tree/master/tools/stellar-archivist) command line tool to mirror, scan and repair existing archives.
 
 The steps required to create a History archive for an existing validator (ie: basic validator -> full validator) are straightforward:
 
