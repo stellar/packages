@@ -17,8 +17,9 @@ Alternatively you may choose to install the **stellar-quickstart** package which
 6.  [Bleeding Edge](#bleeding-edge-unstable-repository)
 7.  [Building Packages](#building-packages)
 8.  [Debug Symbols](#debug-symbols)
-9.  [Testnet Reset](#testnet-reset)
-10. [Troubleshooting](#troubleshooting)
+9.  [Publishing a History archive](#publishing-a-history-archive)
+10. [Testnet Reset](#testnet-reset)
+11. [Troubleshooting](#troubleshooting)
 
 ## Adding the SDF stable repository to your system
 
