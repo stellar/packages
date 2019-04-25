@@ -386,6 +386,283 @@ We provide `stellar-core-dbg` packages containing the stellar-core debug symbols
 apt-get install stellar-core-dbg
 ```
 
+## Publishing a history archive
+
+Running a full validator requires publishing the validator's history archive, this can be achieved using blob stores such as Amazon's s3, digital ocean's spaces or simply by serving a local archive directly via an HTTP server such as Nginx or Apache. Which ever method you choose to use you may find the below tips useful.
+
+In order to publish a history archive it is essential to have a stellar-core instance running as either an [Archiver](https://www.stellar.org/developers/stellar-core/software/admin.html#archiver-nodes) or a [Full Validator](https://www.stellar.org/developers/stellar-core/software/admin.html#full-validators)
+
+### Caching and History Archives
+
+It is possible to significantly reduce the data transfer costs associated with running a public History archive by using common caching techniques or a CDN.
+
+Which ever solution you choose, 3 simple rules apply to caching the History archives:
+
+  * Do not cache the archive state file `.well-known/history-stellar.json` (**"Cache-Control: no-cache"**)
+  * Do not cache HTTP 4xx responses (**"Cache-Control: no-cache"**)
+  * Cache everything else for as long as possible (**> 1 day**)
+
+### Local history archive published using nginx
+
+ * add a history configuration stanza to your `/etc/stellar/stellar-core.cfg`:
+
+```
+[HISTORY.local]
+get="cp /mnt/xvdf/stellar-core-archive/node_001/{0} {1}"
+put="cp {0} /mnt/xvdf/stellar-core-archive/node_001/{1}"
+mkdir="mkdir -p /mnt/xvdf/stellar-core-archive/node_001/{0}"
+```
+
+ * run new-hist to create the local archive
+
+`# sudo -u stellar stellar-core --conf /etc/stellar/stellar-core.cfg new-hist local`
+
+This command creates the History archive structure:
+
+```
+# tree -a /mnt/xvdf/stellar-core-archive/
+/mnt/xvdf/stellar-core-archive
+└── node_001
+    ├── history
+    │   └── 00
+    │       └── 00
+    │           └── 00
+    │               └── history-00000000.json
+    └── .well-known
+        └── stellar-history.json
+
+6 directories, 2 file
+```
+
+ * configure a virtual host to serve the local archive (Nginx)
+
+```
+server {
+  listen 80;
+  root /mnt/xvdf/stellar-core-archive/node_001/;
+
+  server_name history.example.com;
+
+  # default is to deny all
+  location / { deny all; }
+
+  # do not cache 404 errors
+  error_page 404 /404.html;
+  location = /404.html {
+    add_header Cache-Control "no-cache" always;
+  }
+
+  # do not cache history state file
+  location ~ ^/.well-known/stellar-history.json$ {
+    add_header Cache-Control "no-cache" always;
+    try_files $uri;
+  }
+
+  # cache entire history archive for 1 day
+  location / {
+    add_header Cache-Control "max-age=86400";
+    try_files $uri;
+  }
+}
+```
+
+### Amazon S3 backed history archive
+
+ * add a history configuration stanza to your `/etc/stellar/stellar-core.cfg`:
+
+```
+[HISTORY.s3]
+get='curl -sf http://history.example.com/{0} -o {1}' # Cached HTTP endpoint
+put='aws s3 cp --region us-east-1 {0} s3://bucket.name/{1}' # Direct S3 access
+```
+
+ * run new-hist to create the s3 archive
+
+`# sudo -u stellar stellar-core --conf /etc/stellar/stellar-core.cfg new-hist s3`
+
+ * serve the archive using an Amazon S3 static site
+ * optionally place a reverse proxy and CDN in front of the S3 static site
+
+```
+server {
+  listen 80;
+  root /srv/nginx/history.example.com;
+  index index.html index.htm;
+
+  server_name history.example.com;
+
+  # use google nameservers for lookups
+  resolver 8.8.8.8 8.8.4.4;
+
+  # bucket.name s3 static site endpoint
+  set $s3_bucket "bucket.name.s3-website-us-east-1.amazonaws.com";
+
+  # default is to deny all
+  location / { deny all; }
+
+  # do not cache 404 errors
+  error_page 404 /404.html;
+  location = /404.html {
+    add_header Cache-Control "no-cache" always;
+  }
+
+  # do not cache history state file
+  location ~ ^/.well-known/stellar-history.json$ {
+    add_header Cache-Control "no-cache" always;
+    proxy_intercept_errors on;
+    proxy_pass  http://$s3_bucket;
+    proxy_read_timeout 120s;
+    proxy_redirect off;
+    proxy_buffering off;
+    proxy_set_header        Host            $s3_bucket;
+    proxy_set_header        X-Real-IP       $remote_addr;
+    proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header        X-Forwarded-Proto $scheme;
+  }
+
+  # cache history archive for 1 day
+  location / {
+    add_header Cache-Control "max-age=86400";
+    proxy_intercept_errors on;
+    proxy_pass  http://$s3_bucket;
+    proxy_read_timeout 120s;
+    proxy_redirect off;
+    proxy_buffering off;
+    proxy_set_header        Host            $s3_bucket;
+    proxy_set_header        X-Real-IP       $remote_addr;
+    proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header        X-Forwarded-Proto $scheme;
+  }
+}
+```
+
+### Before or After
+
+#### Before
+
+Given the choice, it is best to configure the History archive prior to your nodes initial synch to the network, this way your validator or archiver's History is published as you join/synch to the network.
+
+#### After
+
+If unfortunately you have not published an archive during the node's initial synch, it is still possible to use the `stellar-archivist` command line tool to mirror, scan and repair existing archives.
+
+The steps required to create a History archive for an existing validator (ie: basic validator -> full validator) are straightforward:
+
+ * stop your stellar-core instance (`systemctl stop stellar-core`)
+ * configure a History archive for the new node
+
+```
+[HISTORY.local]
+get="cp /mnt/xvdf/stellar-core-archive/node_001/{0} {1}"
+put="cp {0} /mnt/xvdf/stellar-core-archive/node_001/{1}"
+mkdir="mkdir -p /mnt/xvdf/stellar-core-archive/node_001/{0}"
+```
+
+ * run new-hist to create the local archive
+
+`# sudo -u stellar stellar-core --conf /etc/stellar/stellar-core.cfg new-hist local`
+
+This command creates the History archive structure:
+
+```
+# tree -a /mnt/xvdf/stellar-core-archive/
+/mnt/xvdf/stellar-core-archive
+└── node_001
+    ├── history
+    │   └── 00
+    │       └── 00
+    │           └── 00
+    │               └── history-00000000.json
+    └── .well-known
+        └── stellar-history.json
+
+6 directories, 2 file
+```
+ * start your stellar-core instance (`systemctl start stellar-core`)
+ * allow your node to join the network and start publishing a few checkpoints to the newly created archive
+
+At this stage it is possible to use `stellar-archivist` to verify the state and integrity of your archive
+
+```
+# stellar-archivist scan file:///mnt/xvdf/stellar-core-archive/node_001
+2019/04/25 11:42:51 Scanning checkpoint files in range: [0x0000003f, 0x0000417f]
+2019/04/25 11:42:51 Checkpoint files scanned with 324 errors
+2019/04/25 11:42:51 Archive: 3 history, 2 ledger, 2 transactions, 2 results, 2 scp
+2019/04/25 11:42:51 Scanning all buckets, and those referenced by range
+2019/04/25 11:42:51 Archive: 30 buckets total, 30 referenced
+2019/04/25 11:42:51 Examining checkpoint files for gaps
+2019/04/25 11:42:51 Examining buckets referenced by checkpoints
+2019/04/25 11:42:51 Missing history (260): [0x0000003f-0x000040ff]
+2019/04/25 11:42:51 Missing ledger (260): [0x0000003f-0x000040ff]
+2019/04/25 11:42:51 Missing transactions (260): [0x0000003f-0x000040ff]
+2019/04/25 11:42:51 Missing results (260): [0x0000003f-0x000040ff]
+2019/04/25 11:42:51 No missing buckets referenced in range [0x0000003f, 0x0000417f]
+2019/04/25 11:42:51 324 errors scanning checkpoints
+```
+
+As you can tell from the output of the `scan` command some history, ledger, transactions, results are missing from the local history archive
+
+You can now repair the missing data using stellar-archivist's `repair` command and a known full archive such as the SDF public history archive
+
+`# stellar-archivist repair http://history.stellar.org/prd/core-testnet/core_testnet_001/ file:///mnt/xvdf/stellar-core-archive/node_001/`
+
+```
+2019/04/25 11:50:15 repairing http://history.stellar.org/prd/core-testnet/core_testnet_001/ -> file:///mnt/xvdf/stellar-core-archive/node_001/
+2019/04/25 11:50:15 Starting scan for repair
+2019/04/25 11:50:15 Scanning checkpoint files in range: [0x0000003f, 0x000041bf]
+2019/04/25 11:50:15 Checkpoint files scanned with 244 errors
+2019/04/25 11:50:15 Archive: 4 history, 3 ledger, 263 transactions, 61 results, 3 scp
+2019/04/25 11:50:15 Error: 244 errors scanning checkpoints
+2019/04/25 11:50:15 Examining checkpoint files for gaps
+2019/04/25 11:50:15 Repairing history/00/00/00/history-0000003f.json
+2019/04/25 11:50:15 Repairing history/00/00/00/history-0000007f.json
+2019/04/25 11:50:15 Repairing history/00/00/00/history-000000bf.json
+...
+2019/04/25 11:50:22 Repairing ledger/00/00/00/ledger-0000003f.xdr.gz
+2019/04/25 11:50:23 Repairing ledger/00/00/00/ledger-0000007f.xdr.gz
+2019/04/25 11:50:23 Repairing ledger/00/00/00/ledger-000000bf.xdr.gz
+...
+2019/04/25 11:51:18 Repairing results/00/00/0e/results-00000ebf.xdr.gz
+2019/04/25 11:51:18 Repairing results/00/00/0e/results-00000eff.xdr.gz
+2019/04/25 11:51:19 Repairing results/00/00/0f/results-00000f3f.xdr.gz
+...
+2019/04/25 11:51:39 Repairing scp/00/00/00/scp-0000003f.xdr.gz
+2019/04/25 11:51:39 Repairing scp/00/00/00/scp-0000007f.xdr.gz
+2019/04/25 11:51:39 Repairing scp/00/00/00/scp-000000bf.xdr.gz
+...
+2019/04/25 11:51:50 Re-running checkpoing-file scan, for bucket repair
+2019/04/25 11:51:50 Scanning checkpoint files in range: [0x0000003f, 0x000041bf]
+2019/04/25 11:51:50 Checkpoint files scanned with 5 errors
+2019/04/25 11:51:50 Archive: 264 history, 263 ledger, 263 transactions, 263 results, 241 scp
+2019/04/25 11:51:50 Error: 5 errors scanning checkpoints
+2019/04/25 11:51:50 Scanning all buckets, and those referenced by range
+2019/04/25 11:51:50 Archive: 40 buckets total, 2478 referenced
+2019/04/25 11:51:50 Examining buckets referenced by checkpoints
+2019/04/25 11:51:50 Repairing bucket/57/18/d4/bucket-5718d412bdc19084dafeb7e1852cf06f454392df627e1ec056c8b756263a47f1.xdr.gz
+2019/04/25 11:51:50 Repairing bucket/8a/a1/62/bucket-8aa1624cc44aa02609366fe6038ffc5309698d4ba8212ef9c0d89dc1f2c73033.xdr.gz
+2019/04/25 11:51:50 Repairing bucket/30/82/6a/bucket-30826a8569cb6b178526ddba71b995c612128439f090f371b6bf70fe8cf7ec24.xdr.gz
+...
+```
+
+A final scan of the local archive confirms that it has been successfully repaired
+
+`# stellar-archivist scan file:///mnt/xvdf/stellar-core-archive/node_001`
+
+```
+2019/04/25 12:15:41 Scanning checkpoint files in range: [0x0000003f, 0x000041bf]
+2019/04/25 12:15:41 Archive: 264 history, 263 ledger, 263 transactions, 263 results, 241 scp
+2019/04/25 12:15:41 Scanning all buckets, and those referenced by range
+2019/04/25 12:15:41 Archive: 2478 buckets total, 2478 referenced
+2019/04/25 12:15:41 Examining checkpoint files for gaps
+2019/04/25 12:15:41 Examining buckets referenced by checkpoints
+2019/04/25 12:15:41 No checkpoint files missing in range [0x0000003f, 0x000041bf]
+2019/04/25 12:15:41 No missing buckets referenced in range [0x0000003f, 0x000041bf]
+```
+
+  * start your stellar-core instance (`systemctl start stellar-core`)
+
+You should now have a complete history archive being written to by your full validator
+
 ## Testnet Reset
 
 The Testnet network is reset quarterly by the Stellar Development Foundation. The exact date will be announced with at least two weeks notice on the Stellar Dashboard as well as on several of Stellar’s online developer communities.
@@ -450,4 +727,17 @@ If this occurs on your node, truncating the `peers` table within the `stellar` d
 # sudo systemctl stop stellar-core
 # sudo -u stellar psql -c 'TRUNCATE peers'
 # sudo systemctl start stellar-core
+```
+
+If your attempt at re-joining the network is still not successful then you can temporarily set `PREFERRED_PEERS_ONLY=true` which will force stellar-core to only connect to your `PREFERRED_PEERS`, hopefully allowing you to connect to an available free slot.
+
+```
+# Only connect to the SDF Testnet validators temporarily
+# remove PREFERRED_PEERS_ONLY=true once connected to the new network
+PREFERRED_PEERS_ONLY=true
+PREFERRED_PEERS=[
+  "core-testnet1.stellar.org",
+  "core-testnet2.stellar.org",
+  "core-testnet3.stellar.org"
+]
 ```
