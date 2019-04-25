@@ -545,7 +545,7 @@ Given the choice, it is best to configure the History archive prior to your node
 
 #### After
 
-If unfortunately you have not published an archive during the node's initial synch, it is still possible to use the [stellar-archivist](https://github.com/stellar/go/tree/master/tools/stellar-archivist) command line tool to mirror, scan and repair existing archives.
+If you have not published an archive during the node's initial synch it is still possible to use the [stellar-archivist](https://github.com/stellar/go/tree/master/tools/stellar-archivist) command line tool to mirror, scan and repair existing archives.
 
 The steps required to create a History archive for an existing validator (ie: basic validator -> full validator) are straightforward:
 
@@ -580,9 +580,17 @@ This command creates the History archive structure:
 6 directories, 2 file
 ```
  * start your stellar-core instance (`systemctl start stellar-core`)
- * allow your node to join the network and start publishing a few checkpoints to the newly created archive
+ * allow your node to join the network and watch it start publishing a few checkpoints to the newly created archive
 
-At this stage it is possible to use `stellar-archivist` to verify the state and integrity of your archive
+```
+2019-04-25T12:30:43.275 GDUQJ [History INFO] Publishing 1 queued checkpoints [16895-16895]: Awaiting 0/0 prerequisites of: publish-000041ff
+```
+
+At this stage your archiver/validator is successfully publishing it's history, this enables other users to join the network using your archive but unfortunately won't allow them to `CATCHUP_COMPLETE=true` as the archive only has partial network history.
+
+##### Complete History Archive
+
+If you decide to publish a complete archive enabling users to join the network from the genesis ledger (ledger 1) to the latest ledger then it is possible to use `stellar-archivist` to add all missing history data to your partial archive as well as verifying the state and integrity of your archive.
 
 ```
 # stellar-archivist scan file:///mnt/xvdf/stellar-core-archive/node_001
