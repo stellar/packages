@@ -117,6 +117,7 @@ As with [accessing the database directly](#accessing-the-quickstart-databases), 
 | stellar-core-utils                | none                        | installs useful command line tools (stellar-core-cmd)                              |
 | stellar-core-prometheus-exporter  | none                        | installs a Prometheus exporter to facilitate ingesting stellar-core metrics        |
 | stellar-core-postgres             | stellar-core, PostgreSQL    | configures a PostgreSQL server, creates a stellar db,role and system user          |
+| stellar-archivist                 | none                        | installs stellar-archivist cli tool for managing stellar-core History archives     |
 | stellar-horizon                   | none                        | installs stellar-horizon binary, systemd service                                   |
 | stellar-horizon-utils             | none                        | installs useful command line tools (stellar-horizon-cmd)                           |
 | stellar-horizon-postgres          | stellar-horizon, PostgreSQL | configures a PostgreSQL server, creates a horizon db and stellar role, system user |
@@ -546,6 +547,8 @@ Given the choice, it is best to configure the History archive prior to your node
 #### After
 
 If unfortunately you have not published an archive during the node's initial synch, it is still possible to use the [stellar-archivist](https://github.com/stellar/go/tree/master/tools/stellar-archivist) command line tool to mirror, scan and repair existing archives.
+
+Using the SDF package repositories you can install `stellar-archivist` by running `apt-get install stellar-archivist`
 
 The steps required to create a History archive for an existing validator (ie: basic validator -> full validator) are straightforward:
 
