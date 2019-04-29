@@ -33,7 +33,11 @@ case "$1" in
     if [ -x /usr/bin/stellar-horizon ];then
       if [ -f /etc/default/stellar-horizon ]; then
         # extract --db_url from /etc/default/stellar-horizon
-        sudo -u ${ROLE} stellar-horizon --db-url "$(grep -r '^DATABASE_URL' /etc/default/stellar-horizon | sed 's/DATABASE_URL=//g' | sed 's/"//g')" db migrate up && echo 'info: migrated database'
+        db_connection_string=$(grep -r '^DATABASE_URL' /etc/default/stellar-horizon | sed 's/DATABASE_URL=//g' | sed 's/"//g');
+        # only apply migrations if history_ledgers table exists
+        if echo "SELECT 'horizon' FROM information_schema.tables WHERE table_schema = 'public' AND table_name = 'history_ledgers';" | runuser -l ${ROLE} -c "psql '${db_connection_string}' -tA" | grep 'horizon' 2>&1 > /dev/null;then
+          sudo -u ${ROLE} stellar-horizon --db-url "$db_connection_string" db migrate up && echo 'info: migrated database'
+        fi
       fi
     fi
   ;;
