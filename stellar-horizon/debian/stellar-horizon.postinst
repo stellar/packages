@@ -23,7 +23,7 @@ case "$1" in
   configure)
     # check stellar user exists
     if ! getent passwd stellar > /dev/null ;then
-      adduser --system --group --quiet --home /etc/stellar \
+      adduser --system --group --quiet --home /var/lib/stellar \
         --no-create-home --disabled-password --shell /bin/bash $ROLE;
     fi
 

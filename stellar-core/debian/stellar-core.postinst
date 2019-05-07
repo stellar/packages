@@ -24,7 +24,7 @@ case $1 in
     # create the stellar user/group
     # check stellar user exists on this system
     if ! getent passwd stellar > /dev/null ;then
-      adduser --system --group --quiet --home /etc/stellar \
+      adduser --system --group --quiet --home /var/lib/stellar \
         --no-create-home --disabled-password --shell /bin/bash $ROLE;
     fi
     chown -R stellar:stellar /etc/stellar/ /var/lib/stellar/ /var/log/stellar/
