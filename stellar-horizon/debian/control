@@ -8,6 +8,7 @@ Homepage: https://www.stellar.org/
 
 Package: stellar-horizon
 Architecture: any
+Depends: postgresql-client, postgresql-client-common
 Recommends: stellar-horizon-utils
 Description: Horizon is the client facing API server for the Stellar ecosystem.
  It acts as the interface between stellar-core and applications that want to access the Stellar network.
