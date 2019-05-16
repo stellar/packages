@@ -114,7 +114,7 @@ As with [accessing the database directly](#accessing-the-quickstart-databases), 
 | Package                           | Dependencies                | Comments                                                                           |
 |:----------------------------------|:----------------------------|:-----------------------------------------------------------------------------------|
 | stellar-core                      | none                        | installs stellar-core binary, systemd service, logrotate script, documentation     |
-| stellar-core-utils                | none                        | installs useful command line tools (stellar-core-cmd)                              |
+| stellar-core-utils                | none                        | installs useful command line tools (stellar-core-cmd, stellar-core-gap-detect)     |
 | stellar-core-prometheus-exporter  | none                        | installs a Prometheus exporter to facilitate ingesting stellar-core metrics        |
 | stellar-core-postgres             | stellar-core, PostgreSQL    | configures a PostgreSQL server, creates a stellar db,role and system user          |
 | stellar-archivist                 | none                        | installs stellar-archivist cli tool for managing stellar-core History archives     |
@@ -237,6 +237,18 @@ stellar-core-cmd info
       "state" : "Synced!"
    }
 }
+```
+
+##### stellar-core-gap-detect
+
+Simple script that queries the `stellar` database and checks for gaps in the ledgerheaders.
+
+```
+# stellar-core-gap-detect
+ gap_start | gap_end
+-----------+----------
+  23547277 | 23782142
+(1 row)
 ```
 
 ##### stellar-horizon-cmd
