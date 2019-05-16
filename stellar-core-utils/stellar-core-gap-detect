@@ -1,0 +1,21 @@
+#!/bin/bash
+
+cd /tmp;
+
+# extract db connection string from /etc/stellar/stellar-core.cfg (DATABASE)
+db_connection_string=$(grep -r '^DATABASE=' /etc/stellar/stellar-core.cfg | sed 's/DATABASE="postgresql:\/\///g' | sed 's/"//g');
+
+# requires psql, runs psql as stellar user
+if [ -x /usr/bin/psql ]; then
+  sudo -u stellar /usr/bin/psql -q -d "$db_connection_string" -c "
+SELECT ledgerseq + 1 AS gap_start,
+       next_number - 1 AS gap_end
+FROM (
+  SELECT ledgerseq,
+         LEAD(ledgerseq) OVER (ORDER BY ledgerseq) AS next_number
+  FROM ledgerheaders
+) number
+WHERE ledgerseq + 1 <> next_number;"
+else
+  echo "error: psql not found, 'apt-get install postgresql-client-common'"
+fi
