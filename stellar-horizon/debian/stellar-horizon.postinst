@@ -30,15 +30,19 @@ case "$1" in
     chown -R stellar:stellar /var/lib/stellar/ /var/log/stellar/
 
     # run db migrations
-    if [ -x /usr/bin/stellar-horizon ];then
-      if [ -f /etc/default/stellar-horizon ]; then
-        # extract --db_url from /etc/default/stellar-horizon
-        db_connection_string=$(grep -r '^DATABASE_URL' /etc/default/stellar-horizon | sed 's/DATABASE_URL=//g' | sed 's/"//g');
-        # only apply migrations if history_ledgers table exists
-        if echo "SELECT 'horizon' FROM information_schema.tables WHERE table_schema = 'public' AND table_name = 'history_ledgers';" | runuser -l ${ROLE} -c "psql '${db_connection_string}' -tA" | grep 'horizon' 2>&1 > /dev/null;then
-          sudo -u ${ROLE} stellar-horizon --db-url "$db_connection_string" db migrate up && echo 'info: migrated database'
+    # Confirm the stellar role exists in Postgres before proceeding. If it's not there then no DB migration should proceed
+    if [ is$(runuser -l postgres -c "psql -tAc \"SELECT 'Present' FROM pg_roles WHERE rolname='stellar'\"") = "isPresent" ]; then
+      if [ -x /usr/bin/stellar-horizon ];then
+        if [ -f /etc/default/stellar-horizon ]; then
+          # extract --db_url from /etc/default/stellar-horizon
+          db_connection_string=$(grep -r '^DATABASE_URL' /etc/default/stellar-horizon | sed 's/DATABASE_URL=//g' | sed 's/"//g');
+          # only apply migrations if history_ledgers table exists
+          if echo "SELECT 'horizon' FROM information_schema.tables WHERE table_schema = 'public' AND table_name = 'history_ledgers';" | runuser -l ${ROLE} -c "psql '${db_connection_string}' -tA" | grep 'horizon' 2>&1 > /dev/null; then
+            sudo -u ${ROLE} stellar-horizon --db-url "$db_connection_string" db migrate up && echo 'info: migrated database'
+          fi
         fi
       fi
+      else echo "Postgres role 'stellar' not present so no db migration took place "
     fi
   ;;
 
