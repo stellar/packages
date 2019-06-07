@@ -2,13 +2,12 @@
 
 import argparse
 import requests
-import json
 import re
 import time
 
 # Prometheus client library
 from prometheus_client import start_http_server
-from prometheus_client.core import GaugeMetricFamily, SummaryMetricFamily, REGISTRY
+from prometheus_client.core import GaugeMetricFamily, CounterMetricFamily, SummaryMetricFamily, REGISTRY
 
 parser = argparse.ArgumentParser(description='simple stellar-core Prometheus exporter/scraper')
 parser.add_argument('--uri', type=str,
@@ -85,19 +84,22 @@ class StellarCoreCollector(object):
         else:
           # compute sum value
           total_duration = (metrics[k]['mean'] * metrics[k]['count'])
-        summary = SummaryMetricFamily(underscores, 'libmedida metric type: ' + metrics[k]['type'], labels=labels.keys() )
+        summary = SummaryMetricFamily(underscores, 'libmedida metric type: ' + metrics[k]['type'], labels=labels.keys())
         summary.add_metric(labels.values(), count_value=metrics[k]['count'], sum_value=(duration_to_seconds(total_duration, metrics[k]['duration_unit'])))
         # add stellar-core calculated quantiles to our summary
         summary.add_sample(underscores, labels=labels_p75, value=(duration_to_seconds(metrics[k]['75%'], metrics[k]['duration_unit'])))
         summary.add_sample(underscores, labels=labels_p99, value=(duration_to_seconds(metrics[k]['99%'], metrics[k]['duration_unit'])))
         yield summary
-      elif metrics[k]['type'] == 'counter' or metrics[k]['type'] == 'meter':
-        # Meter is a Prometheus Counter but we only read and expose existing values.
-        # Prometheus Counter metric can only be incremented so we use Gauge instead
-        # and just set it to value returned by stellar-core
-        m = GaugeMetricFamily(underscores, 'libmedida metric type: ' + metrics[k]['type'], labels=labels.keys())
-        m.add_metric(labels.values(), metrics[k]['count'])
-        yield m
+      elif metrics[k]['type'] == 'counter':
+        # we have a counter, this is a Prometheus Gauge
+        g = GaugeMetricFamily(underscores, 'libmedida metric type: ' + metrics[k]['type'], labels=labels.keys())
+        g.add_metric(labels.values(), metrics[k]['count'])
+        yield g
+      elif metrics[k]['type'] == 'meter':
+        # we have a meter, this is a Prometheus Counter
+        c = CounterMetricFamily(underscores, 'libmedida metric type: ' + metrics[k]['type'], labels=labels.keys())
+        c.add_metric(labels.values(), metrics[k]['count'])
+        yield c
 
 if __name__ == "__main__":
   REGISTRY.register(StellarCoreCollector())
