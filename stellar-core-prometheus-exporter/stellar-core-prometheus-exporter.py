@@ -42,8 +42,11 @@ class StellarCoreCollector(object):
                            'closeTime': 'close_time', 'maxTxSetSize': 'max_tx_set_size',
                            'num': 'num', 'version': 'version'}
     self.quorum_metrics = ['agree', 'delayed', 'disagree', 'fail_at', 'missing']
-    # Example: "stellar-core 11.1.0-unstablerc2 (324c1bd61b0e9bada63e0d696d799421b00a7950)"
-    self.build_regex = re.compile('stellar-core +(\d+)\.(\d+)\.(\d+)-([^ ]+) .*$')
+    # Examples:
+    #   "stellar-core 11.1.0-unstablerc2 (324c1bd61b0e9bada63e0d696d799421b00a7950)"
+    #   "stellar-core 11.1.0 (324c1bd61b0e9bada63e0d696d799421b00a7950)"
+    #   "v11.1.0"
+    self.build_regex = re.compile('(stellar-core|v) ?(\d+)\.(\d+)\.(\d+)(-[^ ]+)?.*$')
 
   def get_labels(self):
     try:
@@ -56,11 +59,16 @@ class StellarCoreCollector(object):
     if not match:
       return {}
 
+    if not match.group(5):
+        ver_extra = ''  # If regex did not match ver_extra set it to empty string
+    else:
+        ver_extra = match.group(5).lstrip('-')
+
     labels = {
-      "ver_major": match.group(1),
-      "ver_minor": match.group(2),
-      "ver_patch": match.group(3),
-      "ver_extra": match.group(4),
+      "ver_major": match.group(2),
+      "ver_minor": match.group(3),
+      "ver_patch": match.group(4),
+      "ver_extra": ver_extra,
     }
     return labels
 
