@@ -110,7 +110,7 @@ class StellarCoreCollector(object):
     response = requests.get(args.info_uri)
     info = response.json()['info']
     if not all([i in info for i in self.info_keys]):
-        print('WARNINNG: info endpoint did not return all required fields')
+        print('WARNING: info endpoint did not return all required fields')
         return
 
     # Ledger metrics
