@@ -22,7 +22,7 @@ DBNAME=stellar;
 case "$1" in
   configure)
     # check stellar user exists
-    if ! getent passwd stellar > /dev/null ;then
+    if ! getent passwd stellar > /dev/null; then
       adduser --system --group --quiet --home /var/lib/stellar \
         --no-create-home --disabled-password --shell /bin/bash $ROLE;
     fi
@@ -31,18 +31,24 @@ case "$1" in
 
     # run db migrations
     # Confirm the stellar role exists in Postgres before proceeding. If it's not there then no DB migration should proceed
-    if [ is$(runuser -l postgres -c "psql -tAc \"SELECT 'Present' FROM pg_roles WHERE rolname='stellar'\"") = "isPresent" ]; then
-      if [ -x /usr/bin/stellar-horizon ];then
-        if [ -f /etc/default/stellar-horizon ]; then
-          # extract --db_url from /etc/default/stellar-horizon
-          db_connection_string=$(grep -r '^DATABASE_URL' /etc/default/stellar-horizon | sed 's/DATABASE_URL=//g' | sed 's/"//g');
-          # only apply migrations if history_ledgers table exists
+
+    if [ -x /usr/bin/stellar-horizon ]; then
+      if [ -f /etc/default/stellar-horizon ]; then
+        # extract --db_url from /etc/default/stellar-horizon
+        db_connection_string=$(grep -r '^DATABASE_URL' /etc/default/stellar-horizon | sed 's/DATABASE_URL=//g' | sed 's/"//g');
+        # check `stellar` role and DATABASE_URL
+        if echo "SELECT 'role_exists' FROM pg_roles WHERE rolname='${ROLE}'" | runuser -l ${ROLE} -c "psql '${db_connection_string}' -tA" | grep 'role_exists' 2>&1 > /dev/null; then
+          # check `horizon` database has been initialised
           if echo "SELECT 'horizon' FROM information_schema.tables WHERE table_schema = 'public' AND table_name = 'history_ledgers';" | runuser -l ${ROLE} -c "psql '${db_connection_string}' -tA" | grep 'horizon' 2>&1 > /dev/null; then
             sudo -u ${ROLE} stellar-horizon --db-url "$db_connection_string" db migrate up && echo 'info: migrated database'
+          else
+            echo "warning: no migrations run"
+            echo "warning: db has not yet been initialised, try running 'stellar-horizon-cmd db init'"
           fi
+        else
+          echo "warning: it appears the horizon database is not configured yet, migrations have not been run"
         fi
       fi
-      else echo "Postgres role 'stellar' not present so no db migration took place "
     fi
   ;;
 
