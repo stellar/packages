@@ -37,9 +37,9 @@ case "$1" in
         # extract --db_url from /etc/default/stellar-horizon
         db_connection_string=$(grep -r '^DATABASE_URL' /etc/default/stellar-horizon | sed 's/DATABASE_URL=//g' | sed 's/"//g');
         # check `stellar` role and DATABASE_URL
-        if echo "SELECT 'role_exists' FROM pg_roles WHERE rolname='${ROLE}'" | runuser -l ${ROLE} -c "psql '${db_connection_string}' -tA" | grep 'role_exists' 2>&1 > /dev/null; then
+        if echo "SELECT 'role_exists' FROM pg_roles WHERE rolname='${ROLE}'" | runuser -l ${ROLE} -c "psql '${db_connection_string}' -tA" 2>&1 | grep 'role_exists' > /dev/null; then
           # check `horizon` database has been initialised
-          if echo "SELECT 'horizon' FROM information_schema.tables WHERE table_schema = 'public' AND table_name = 'history_ledgers';" | runuser -l ${ROLE} -c "psql '${db_connection_string}' -tA" | grep 'horizon' 2>&1 > /dev/null; then
+          if echo "SELECT 'horizon' FROM information_schema.tables WHERE table_schema = 'public' AND table_name = 'history_ledgers';" | runuser -l ${ROLE} -c "psql '${db_connection_string}' -tA" 2>&1 | grep 'horizon' > /dev/null; then
             sudo -u ${ROLE} stellar-horizon --db-url "$db_connection_string" db migrate up && echo 'info: migrated database'
           else
             echo "warning: no migrations run"
