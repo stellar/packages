@@ -1,5 +1,5 @@
-#  SDF - packages
-
+# SDF - packages
+  
 1.  [Adding the SDF stable repository to your system](adding-the-sdf-stable-repository-to-your-system.md)
 2.  [Quickstart](quickstart.md)
 3.  [Installing individual packages](installing-individual-packages.md)
@@ -8,8 +8,10 @@
 6.  [Debug Symbols](debug-symbols.md)
 7.  [Running Horizon in production](running-horizon-in-production.md)
 8.  [Building Packages](building-packages.md)
-9.  [Publishing a History archive](publishing-a-history-archive.md)
-10. [Testnet Reset](testnet-reset.md)
+9.  [Running a Full Validator](running-a-full-validator.md)
+10. [Publishing a History archive](publishing-a-history-archive.md)
+11. [Monitoring](monitoring.md)
+12. [Testnet Reset](testnet-reset.md)
 
 ## Quickstart
 
@@ -86,7 +88,7 @@ As with [accessing the database directly](#accessing-the-quickstart-databases), 
 | stellar-core                      | none                        | installs stellar-core binary, systemd service, logrotate script, documentation     |
 | stellar-core-utils                | none                        | installs useful command line tools (stellar-core-cmd, stellar-core-gap-detect)     |
 | stellar-core-prometheus-exporter  | none                        | installs a Prometheus exporter to facilitate ingesting stellar-core metrics        |
-| stellar-core-postgres             | stellar-core, PostgreSQL    | configures a PostgreSQL server, creates a stellar db,role and system user          |
+| stellar-core-postgres             | stellar-core, PostgreSQL    | configures a PostgreSQL server, creates a stellar db,role and system user, the default stellar-core configuration contained in this package will connect to the Testnet|
 | stellar-archivist                 | none                        | installs stellar-archivist cli tool for managing stellar-core History archives     |
 | stellar-horizon                   | none                        | installs stellar-horizon binary, systemd service                                   |
 | stellar-horizon-utils             | none                        | installs useful command line tools (stellar-horizon-cmd)                           |

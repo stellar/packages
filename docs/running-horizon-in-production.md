@@ -1,5 +1,5 @@
-#  SDF - packages
-
+# SDF - packages
+  
 1.  [Adding the SDF stable repository to your system](adding-the-sdf-stable-repository-to-your-system.md)
 2.  [Quickstart](quickstart.md)
 3.  [Installing individual packages](installing-individual-packages.md)
@@ -8,8 +8,10 @@
 6.  [Debug Symbols](debug-symbols.md)
 7.  [Running Horizon in production](running-horizon-in-production.md)
 8.  [Building Packages](building-packages.md)
-9.  [Publishing a History archive](publishing-a-history-archive.md)
-10. [Testnet Reset](testnet-reset.md)
+9.  [Running a Full Validator](running-a-full-validator.md)
+10. [Publishing a History archive](publishing-a-history-archive.md)
+11. [Monitoring](monitoring.md)
+12. [Testnet Reset](testnet-reset.md)
 
 ## Running Horizon in production
 

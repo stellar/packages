@@ -1,0 +1,94 @@
+# SDF - packages
+  
+1.  [Adding the SDF stable repository to your system](adding-the-sdf-stable-repository-to-your-system.md)
+2.  [Quickstart](quickstart.md)
+3.  [Installing individual packages](installing-individual-packages.md)
+4.  [Upgrading](upgrading.md)
+5.  [Bleeding Edge](bleeding-edge-unstable-repository.md)
+6.  [Debug Symbols](debug-symbols.md)
+7.  [Running Horizon in production](running-horizon-in-production.md)
+8.  [Building Packages](building-packages.md)
+9.  [Running a Full Validator](running-a-full-validator.md)
+10. [Publishing a History archive](publishing-a-history-archive.md)
+11. [Monitoring](monitoring.md)
+12. [Testnet Reset](testnet-reset.md)
+
+### Monitoring
+Monitoring `stellar-core` using Prometheus is by far the simplest solution, especially if you already have a Prometheus server within your infrastructure. Prometheus is a time-series database with a simple yet incredibly powerful query language `PromQL`, Prometheus is also tightly integrated with Grafana and enables us to render complex visualisations with ease.
+
+In order for Prometheus to scrape `stellar-core` application metrics, you will need to install the stellar-core-prometheus-exporter (`apt-get install stellar-core-prometheus-exporter`) and configure your Prometheus server to scrape this exporter (default port: `9473`).
+
+#### Install a Prometheus server within your infrastructure
+Installing and configuring a Prometheus server is out of scope of this document, however it is a fairly simple process, Prometheus is a single Go binary which you can download from https://prometheus.io/download/.
+
+#### Install the stellar-core-prometheus-exporter
+The stellar-core-prometheus-exporter is an exporter that scrapes the `stellar-core` metrics endpoint (`http://localhost:11626/metrics`) and renders these metrics in the Prometheus text based format available for Prometheus to scrape and store in it's timeseries database.
+
+The exporter needs to be installed on every stellar-core node you wish to monitor.
+
+* `apt-get install stellar-core-prometheus-exporter`
+
+You will need to open up port `9473` between your Prometheus server and all your `stellar-core` nodes for your Prometheus server to be able to scrape `stellar-core` metrics.
+
+#### Point Prometheus to stellar-core-prometheus-exporter
+Pointing your Prometheus instance to the exporter can be achieved by manually configuring a scrape job, depending on the number of hosts you need to monitor this quickly becomes unwieldy. With this in mind the process can also be automated using Prometheus' various "service discovery" plugins. For example with AWS hosted instance you can use the `ec2_sd_config` plugin.
+
+##### Manual
+```yaml
+- job_name: 'stellar-core'
+  scrape_interval: 10s
+  scrape_timeout: 10s
+  static_configs:
+    - targets: ['core-node.example.com:9473'] # stellar-core-prometheus-exporter default port is 9473
+    - labels: ['application': 'stellar-core']
+```
+
+##### Using Service Discovery (EC2)
+```yaml
+- job_name: stellar-core
+  scrape_interval: 10s
+  scrape_timeout: 10s
+  ec2_sd_configs:
+  - region: eu-west-1
+    port: 9473
+  relabel_configs:
+  # ignore stopped instances
+  - source_labels: [__meta_ec2_instance_state]
+    regex: stopped
+    action: drop
+  # only keep with `core` in the Name tag
+  - source_labels: [__meta_ec2_tag_Name]
+    regex: "(.*core.*)"
+    action: keep
+  # use Name tag as instance label
+  - source_labels: [__meta_ec2_tag_Name]
+    regex: "(.*)"
+    action: replace
+    replacement: "${1}"
+    target_label: instance
+  # set application label to stellar-core
+  - source_labels: [__meta_ec2_tag_Name]
+    regex: "(.*core.*)"
+    action: replace
+    replacement: stellar-core
+    target_label: application
+```
+
+#### Useful Exporters
+
+You may find the below exporters useful for monitoring your infrastructure as they provide incredible insight into your operating system and database metrics. Unfortunately installing and configuring these exporters is out of the scope of this document but should be relatively straightforward.
+
+* [node_exporter](https://prometheus.io/docs/guides/node-exporter/) can be used to track all operating system metrics.
+* [postgresql_exporter](https://github.com/wrouesnel/postgres_exporter) can be used to monitor the local stellar-core database.
+
+#### Install a Grafana server within your infrastructure
+Now that you have configured Prometheus to scrape and store your stellar-core metrics, you will want a nice way to render this data for human consumption. Grafana offers the simplest and most effective way to achieve this. Again installing Grafana is out of scope of this document but is a very simple process, especially when using the prebuilt apt packages (https://grafana.com/docs/installation/debian/#apt-repository)
+
+##### Stellar Core Full dashboard
+We have created a `Stellar Core Full` Grafana dashboard which exposes a simple health summary as well as all `stellar-core-prometheus-exporter` metrics. This dashboard is available for installation at https://grafana.com/dashboards/10334.
+
+###### Health Summary
+![Stellar Core Full Health Summary](../images/stellar-core-full-health-summary.png)
+
+###### Overlay Metrics
+![Stellar Core Full Overlay Metrics](../images/stellar-core-full-overlay-metrics.png)
