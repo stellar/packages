@@ -4,17 +4,16 @@
 2.  [Quickstart](quickstart.md)
 3.  [Installing individual packages](installing-individual-packages.md)
 4.  [Upgrading](upgrading.md)
-5.  [Bleeding Edge](bleeding-edge-unstable-repository.md)
-6.  [Debug Symbols](debug-symbols.md)
-7.  [Running Horizon in production](running-horizon-in-production.md)
-8.  [Building Packages](building-packages.md)
-9.  [Running a Full Validator](running-a-full-validator.md)
-10. [Publishing a History archive](publishing-a-history-archive.md)
-11. [Monitoring](monitoring.md)
-12. [Testnet Reset](testnet-reset.md)
+5.  [Running Horizon in production](running-horizon-in-production.md)
+6.  [Building Packages](building-packages.md)
+7.  [Running a Full Validator](running-a-full-validator.md)
+8.  [Publishing a History archive](publishing-a-history-archive.md)
+9.  [Backfilling a History archive](backfilling-a-history-archive.md)
+10. [Monitoring](monitoring.md)
+11. [Testnet Reset](testnet-reset.md)
 
 ## Running a Full Validator
-When deciding to run a Full Validator it is important to understand the requirements and benefits of doing so, it is also worth noting that to become a **Tier 1 validator operator** one must run at least 3 full validators and have a demonstrable [high validator uptime](https://www.stellarbeat.io/nodes).
+When deciding to run a Full Validator it is important to understand the requirements and benefits of doing so, it is also worth noting that to become a **Tier 1 validator operator** one must run at least 3 full validators in geographically distinct zones and have a demonstrable [high validator uptime](https://www.stellarbeat.io/nodes).
 
 ### Benefits
 Running a full validator is not only beneficial to the operator but is also a great way to contribute to the general health of the Stellar network. Full validators are the true measure of how decentralized and redundant the network is as they are the only type of validators that perform all functions on the network. Listed below are some of the operator level benefits.
@@ -70,6 +69,8 @@ Configuring a node to participate in SCP and sign messages is a 3 step process c
 * add `NODE_IS_VALIDATOR=true` to your configuration file
 
 You will most likely want to share the public portion of your keypair to other validator operators so that they can add your nodes to their quorum set. This is best achieved by publishing a [.well-known/stellar.toml](https://www.stellar.org/.well-known/stellar.toml) on your homedomain, you can also use it to share other aspects of your nodes configuration, such as history archive location, organisation name, etc.
+
+Storing your node seed securely is essential, if someone else has access to it they can send messages to the network and these will appear to originate from your node.
 
 #### Quorum Set
 The quorum set is used by stellar-core to define which nodes on the network you trust as well as to configure stellar-core's behaviour during arbitrary node failures. More information can be found in the [quorum set](https://www.stellar.org/developers/stellar-core/software/admin.html#crafting-a-quorum-set) section of the main admin guide.

@@ -4,14 +4,13 @@
 2.  [Quickstart](quickstart.md)
 3.  [Installing individual packages](installing-individual-packages.md)
 4.  [Upgrading](upgrading.md)
-5.  [Bleeding Edge](bleeding-edge-unstable-repository.md)
-6.  [Debug Symbols](debug-symbols.md)
-7.  [Running Horizon in production](running-horizon-in-production.md)
-8.  [Building Packages](building-packages.md)
-9.  [Running a Full Validator](running-a-full-validator.md)
-10. [Publishing a History archive](publishing-a-history-archive.md)
-11. [Monitoring](monitoring.md)
-12. [Testnet Reset](testnet-reset.md)
+5.  [Running Horizon in production](running-horizon-in-production.md)
+6.  [Building Packages](building-packages.md)
+7.  [Running a Full Validator](running-a-full-validator.md)
+8.  [Publishing a History archive](publishing-a-history-archive.md)
+9.  [Backfilling a History archive](backfilling-a-history-archive.md)
+10. [Monitoring](monitoring.md)
+11. [Testnet Reset](testnet-reset.md)
 
 ## Upgrading
 

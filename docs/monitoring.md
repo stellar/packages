@@ -4,22 +4,21 @@
 2.  [Quickstart](quickstart.md)
 3.  [Installing individual packages](installing-individual-packages.md)
 4.  [Upgrading](upgrading.md)
-5.  [Bleeding Edge](bleeding-edge-unstable-repository.md)
-6.  [Debug Symbols](debug-symbols.md)
-7.  [Running Horizon in production](running-horizon-in-production.md)
-8.  [Building Packages](building-packages.md)
-9.  [Running a Full Validator](running-a-full-validator.md)
-10. [Publishing a History archive](publishing-a-history-archive.md)
-11. [Monitoring](monitoring.md)
-12. [Testnet Reset](testnet-reset.md)
+5.  [Running Horizon in production](running-horizon-in-production.md)
+6.  [Building Packages](building-packages.md)
+7.  [Running a Full Validator](running-a-full-validator.md)
+8.  [Publishing a History archive](publishing-a-history-archive.md)
+9.  [Backfilling a History archive](backfilling-a-history-archive.md)
+10. [Monitoring](monitoring.md)
+11. [Testnet Reset](testnet-reset.md)
 
 ### Monitoring
-Monitoring `stellar-core` using Prometheus is by far the simplest solution, especially if you already have a Prometheus server within your infrastructure. Prometheus is a time-series database with a simple yet incredibly powerful query language `PromQL`, Prometheus is also tightly integrated with Grafana and enables us to render complex visualisations with ease.
+Monitoring `stellar-core` using Prometheus is by far the simplest solution, especially if you already have a Prometheus server within your infrastructure. Prometheus is a free and open source time-series database with a simple yet incredibly powerful query language `PromQL`, Prometheus is also tightly integrated with Grafana and enables us to render complex visualisations with ease.
 
 In order for Prometheus to scrape `stellar-core` application metrics, you will need to install the stellar-core-prometheus-exporter (`apt-get install stellar-core-prometheus-exporter`) and configure your Prometheus server to scrape this exporter (default port: `9473`).
 
 #### Install a Prometheus server within your infrastructure
-Installing and configuring a Prometheus server is out of scope of this document, however it is a fairly simple process, Prometheus is a single Go binary which you can download from https://prometheus.io/download/.
+Installing and configuring a Prometheus server is out of scope of this document, however it is a fairly simple process, Prometheus is a single Go binary which you can download from https://prometheus.io/docs/prometheus/latest/installation/.
 
 #### Install the stellar-core-prometheus-exporter
 The stellar-core-prometheus-exporter is an exporter that scrapes the `stellar-core` metrics endpoint (`http://localhost:11626/metrics`) and renders these metrics in the Prometheus text based format available for Prometheus to scrape and store in it's timeseries database.
@@ -39,8 +38,9 @@ Pointing your Prometheus instance to the exporter can be achieved by manually co
   scrape_interval: 10s
   scrape_timeout: 10s
   static_configs:
-    - targets: ['core-node.example.com:9473'] # stellar-core-prometheus-exporter default port is 9473
-    - labels: ['application': 'stellar-core']
+    - targets: ['core-node-001.example.com:9473', 'core-node-002.example.com:9473'] # stellar-core-prometheus-exporter default port is 9473
+    - labels:
+      application: 'stellar-core'
 ```
 
 ##### Using Service Discovery (EC2)
