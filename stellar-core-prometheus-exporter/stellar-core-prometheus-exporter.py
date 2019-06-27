@@ -135,11 +135,19 @@ class StellarCoreCollector(object):
             g.add_metric(labels.values(), info['ledger'][core_name])
             yield g
 
-        # Quorum metrics are reported under dynamic name for example:
+        # Version 11.2.0 and later report quorum metrics in the following format:
+        # "quorum" : {
+        #    "qset" : {
+        #      "agree": 3
+        #
+        # Older versions use this format:
         # "quorum" : {
         #   "758110" : {
         #     "agree" : 3,
-        tmp = info['quorum'].values()[0]
+        if 'qset' in info['quorum']:
+            tmp = info['quorum']['qset']
+        else:
+            tmp = info['quorum'].values()[0]
         for metric in self.quorum_metrics:
             g = GaugeMetricFamily('stellar_core_quorum_{}'.format(metric),
                                   'Stellar core quorum metric: {}'.format(metric),
