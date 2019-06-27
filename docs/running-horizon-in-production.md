@@ -22,12 +22,15 @@ How you achieve this **distributed environment** is dependent on your internal i
 
 Given this, the following principles should apply to most hosting environments.
 
- * distribute the Horizon service across multiple **load-balanced** instances (ELB,EC2)
- * only `ingest` on 1 horizon node
- * run a highly available [PostgreSQL cluster](https://www.postgresql.org/docs/9.5/static/high-availability.html) ( or RDS) for the `horizon` database
- * run a **non-validating** `stellar-core` instance which the Horizon cluster will use to ingest and submit transactions to, Horizon needs access to stellar-core on port 11626 as well as to the PostgreSQL database on port 5432.
- * run a standby **non-validating** `stellar-core` instance which the Horizon cluster can failover to for ingestion and transaction submission
- * use a floating IP or virtual IP to manage failovers to the standby core when required
-   * during failover the `core-db` and `stellar-core` instance accessed by Horizon need to be updated, we suggest using a DNS record to avoid having to update configuration files
+* distribute the Horizon service across multiple **load-balanced** instances (ELB,EC2)
+* only `ingest` on 1 horizon node
+* run a highly available [PostgreSQL cluster](https://www.postgresql.org/docs/9.5/static/high-availability.html) ( or RDS) for the `horizon` database
+* run a **non-validating** `stellar-core` instance which the Horizon cluster will use to ingest and submit transactions to
+  * Horizon needs access to a highly available `horizon` database
+  * Horizon needs access to stellar-core on port 11626
+  * Horizon needs access to stellar-core's PostgreSQL database on port 5432
+* run a standby **non-validating** `stellar-core` instance which the Horizon cluster can failover to for ingestion and transaction submission
+* use a floating IP or virtual IP to manage failovers to the standby core when required
+  * during failover the `core-db` and `stellar-core` instance accessed by Horizon need to be updated, we suggest using a DNS record to avoid having to update configuration files
 
 ![Generic Distributed Horizon Cluster](../images/generic-distributed-horizon-active-standby-core.png)
