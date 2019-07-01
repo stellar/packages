@@ -155,6 +155,27 @@ class StellarCoreCollector(object):
             g.add_metric(labels.values(), tmp[metric])
             yield g
 
+        # Versions >=11.2.0 expose more info about quorum
+        if 'transitive' in info['quorum']:
+            g = GaugeMetricFamily('stellar_core_quorum_transitive_intersection',
+                                  'Stellar core quorum transitive intersection',
+                                  labels=labels.keys())
+            if info['quorum']['transitive']['intersection']:
+                g.add_metric(labels.values(), 1)
+            else:
+                g.add_metric(labels.values(), 0)
+            yield g
+            g = GaugeMetricFamily('stellar_core_quorum_transitive_last_check_ledger',
+                                  'Stellar core quorum transitive last_check_ledger',
+                                  labels=labels.keys())
+            g.add_metric(labels.values(), info['quorum']['transitive']['last_check_ledger'])
+            yield g
+            g = GaugeMetricFamily('stellar_core_quorum_transitive_node_count',
+                                  'Stellar core quorum transitive node_count',
+                                  labels=labels.keys())
+            g.add_metric(labels.values(), info['quorum']['transitive']['node_count'])
+            yield g
+
         # Peers metrics
         g = GaugeMetricFamily('stellar_core_peers_authenticated_count',
                               'Stellar core authenticated_count count',
