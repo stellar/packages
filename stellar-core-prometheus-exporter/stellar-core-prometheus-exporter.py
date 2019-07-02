@@ -177,10 +177,10 @@ class StellarCoreHandler(BaseHTTPRequestHandler):
         try:
             response = requests.get(args.info_uri)
         except requests.ConnectionError:
-            self.error(504, 'Error retrieving data from {}'.format(info.uri))
+            self.error(504, 'Error retrieving data from {}'.format(args.info_uri))
             return
         if not response.ok:
-            self.error(504, 'Error retrieving data from {}'.format(info.uri))
+            self.error(504, 'Error retrieving data from {}'.format(args.info_uri))
             return
         try:
             info = response.json()['info']
