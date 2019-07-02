@@ -148,6 +148,22 @@ class StellarCoreHandler(BaseHTTPRequestHandler):
                     self.duration_to_seconds(metrics[k]['75%'], metrics[k]['duration_unit']))
                 summary.labels(*self.labels + ['0.99']).set(
                     self.duration_to_seconds(metrics[k]['99%'], metrics[k]['duration_unit']))
+            if metrics[k]['type'] == 'histogram':
+                if 'count' not in metrics[k]:
+                    # Stellar-core version too old, we don't have required data
+                    continue
+                c = Counter(metric_name + '_count', 'libmedida metric type: ' + metrics[k]['type'],
+                            self.label_names, registry=self.registry)
+                c.labels(*self.labels).inc(metrics[k]['count'])
+                s = Counter(metric_name + '_sum', 'libmedida metric type: ' + metrics[k]['type'],
+                            self.label_names, registry=self.registry)
+                s.labels(*self.labels).inc(metrics[k]['sum'])
+
+                # add stellar-core calculated quantiles to our summary
+                summary = Gauge(metric_name, 'libmedida metric type: ' + metrics[k]['type'],
+                                self.label_names + ['quantile'], registry=self.registry)
+                summary.labels(*self.labels + ['0.75']).set(metrics[k]['75%'])
+                summary.labels(*self.labels + ['0.99']).set(metrics[k]['99%'])
             elif metrics[k]['type'] == 'counter':
                 # we have a counter, this is a Prometheus Gauge
                 g = Gauge(metric_name, 'libmedida metric type: ' + metrics[k]['type'], self.label_names, registry=self.registry)
