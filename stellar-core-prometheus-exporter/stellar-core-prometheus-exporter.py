@@ -43,20 +43,6 @@ class _ThreadingSimpleServer(ThreadingMixIn, HTTPServer):
     daemon_threads = True
 
 
-# given duration and duration_unit, returns duration in seconds
-def duration_to_seconds(duration, duration_unit):
-    time_units_to_seconds = {
-        'd':  'duration * 86400.0',
-        'h':  'duration * 3600.0',
-        'm':  'duration * 60.0',
-        's':  'duration / 1.0',
-        'ms': 'duration / 1000.0',
-        'us': 'duration / 1000000.0',
-        'ns': 'duration / 1000000000.0',
-    }
-    return eval(time_units_to_seconds[duration_unit])
-
-
 class StellarCoreHandler(BaseHTTPRequestHandler):
     def log_message(self, format, *args):
         return
@@ -67,23 +53,34 @@ class StellarCoreHandler(BaseHTTPRequestHandler):
             json = response.json()
             build = json['info']['build']
         except Exception:
-            return []
+            return ['unknown', 'unknown', 'unknown', 'unknown']
         match = self.build_regex.match(build)
-        if not match:
-            return []
+        build = re.sub('\s', '_', build).lower()
+        build = re.sub('\(|\)', '', build)
 
-        if not match.group(5):
-            ver_extra = ''  # If regex did not match ver_extra set it to empty string
-        else:
-            ver_extra = match.group(5).lstrip('-')
+        if not match:
+            return ['unknown', 'unknown', 'unknown', build]
 
         labels = [
             match.group(2),
             match.group(3),
             match.group(4),
-            ver_extra,
+            build,
         ]
         return labels
+
+    def duration_to_seconds(self, duration, duration_unit):
+        # given duration and duration_unit, returns duration in seconds
+        time_units_to_seconds = {
+            'd':  'duration * 86400.0',
+            'h':  'duration * 3600.0',
+            'm':  'duration * 60.0',
+            's':  'duration / 1.0',
+            'ms': 'duration / 1000.0',
+            'us': 'duration / 1000000.0',
+            'ns': 'duration / 1000000000.0',
+        }
+        return eval(time_units_to_seconds[duration_unit])
 
     def set_vars(self):
         self.info_keys = ['ledger', 'peers', 'protocol_version', 'quorum', 'startedOn', 'state']
@@ -95,10 +92,10 @@ class StellarCoreHandler(BaseHTTPRequestHandler):
         #   "stellar-core 11.1.0-unstablerc2 (324c1bd61b0e9bada63e0d696d799421b00a7950)"
         #   "stellar-core 11.1.0 (324c1bd61b0e9bada63e0d696d799421b00a7950)"
         #   "v11.1.0"
-        self.build_regex = re.compile('(stellar-core|v) ?(\d+)\.(\d+)\.(\d+)(-[^ ]+)?.*$')
+        self.build_regex = re.compile('(stellar-core|v) ?(\d+)\.(\d+)\.(\d+).*$')
 
         self.registry = CollectorRegistry()
-        self.label_names = ["ver_major", "ver_minor", "ver_patch", "ver_extra"]
+        self.label_names = ["ver_major", "ver_minor", "ver_patch", "build"]
         self.labels = self.get_labels()
 
     def do_GET(self):
@@ -125,13 +122,15 @@ class StellarCoreHandler(BaseHTTPRequestHandler):
                 c.labels(*self.labels).inc(metrics[k]['count'])
                 s = Counter(metric_name + '_sum', 'libmedida metric type: ' + metrics[k]['type'],
                             self.label_names, registry=self.registry)
-                s.labels(*self.labels).inc(duration_to_seconds(total_duration, metrics[k]['duration_unit']))
+                s.labels(*self.labels).inc(self.duration_to_seconds(total_duration, metrics[k]['duration_unit']))
 
                 # add stellar-core calculated quantiles to our summary
                 summary = Gauge(metric_name, 'libmedida metric type: ' + metrics[k]['type'],
                                 self.label_names + ['quantile'], registry=self.registry)
-                summary.labels(*self.labels + ['0.75']).set(duration_to_seconds(metrics[k]['75%'], metrics[k]['duration_unit']))
-                summary.labels(*self.labels + ['0.99']).set(duration_to_seconds(metrics[k]['99%'], metrics[k]['duration_unit']))
+                summary.labels(*self.labels + ['0.75']).set(
+                    self.duration_to_seconds(metrics[k]['75%'], metrics[k]['duration_unit']))
+                summary.labels(*self.labels + ['0.99']).set(
+                    self.duration_to_seconds(metrics[k]['99%'], metrics[k]['duration_unit']))
             elif metrics[k]['type'] == 'counter':
                 # we have a counter, this is a Prometheus Gauge
                 g = Gauge(metric_name, 'libmedida metric type: ' + metrics[k]['type'], self.label_names, registry=self.registry)
