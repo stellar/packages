@@ -98,10 +98,27 @@ class StellarCoreHandler(BaseHTTPRequestHandler):
         self.label_names = ["ver_major", "ver_minor", "ver_patch", "build"]
         self.labels = self.get_labels()
 
+    def error(self, code, msg):
+        self.send_response(code)
+        self.send_header('Content-Type', CONTENT_TYPE_LATEST)
+        self.end_headers()
+        self.wfile.write('{}\n'.format(msg).encode('utf-8'))
+
     def do_GET(self):
         self.set_vars()
-        response = requests.get(args.uri)
-        metrics = response.json()['metrics']
+        try:
+            response = requests.get(args.uri)
+        except requests.ConnectionError:
+            self.error(504, 'Error retrieving data from {}'.format(args.uri))
+            return
+        if not response.ok:
+            self.error(504, 'Error retrieving data from {}'.format(args.uri))
+            return
+        try:
+            metrics = response.json()['metrics']
+        except ValueError:
+            self.error(500, 'Error parsing metrics JSON data')
+            return
         # iterate over all metrics
         for k in metrics:
             metric_name = re.sub('\.|-|\s', '_', k).lower()
@@ -141,10 +158,21 @@ class StellarCoreHandler(BaseHTTPRequestHandler):
                 c.labels(*self.labels).inc(metrics[k]['count'])
 
         # Export metrics from the info endpoint
-        response = requests.get(args.info_uri)
-        info = response.json()['info']
+        try:
+            response = requests.get(args.info_uri)
+        except requests.ConnectionError:
+            self.error(504, 'Error retrieving data from {}'.format(info.uri))
+            return
+        if not response.ok:
+            self.error(504, 'Error retrieving data from {}'.format(info.uri))
+            return
+        try:
+            info = response.json()['info']
+        except ValueError:
+            self.error(500, 'Error parsing info JSON data')
+            return
         if not all([i in info for i in self.info_keys]):
-            print('WARNING: info endpoint did not return all required fields')
+            self.error(500, 'Info endpoint did not return all required fields')
             return
 
         # Ledger metrics
@@ -167,6 +195,10 @@ class StellarCoreHandler(BaseHTTPRequestHandler):
             tmp = info['quorum']['qset']
         else:
             tmp = info['quorum'].values()[0]
+        if not tmp:
+            self.error(500, 'Missing quorum data')
+            return
+
         for metric in self.quorum_metrics:
             g = Gauge('stellar_core_quorum_{}'.format(metric),
                       'Stellar core quorum metric: {}'.format(metric),
@@ -217,6 +249,9 @@ class StellarCoreHandler(BaseHTTPRequestHandler):
         g.labels(*self.labels).set(int(date.strftime('%s')))
 
         output = generate_latest(self.registry)
+        if not output:
+            self.error(500, 'Error - no metrics were genereated')
+            return
         self.send_response(200)
         self.send_header('Content-Type', CONTENT_TYPE_LATEST)
         self.end_headers()
