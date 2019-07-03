@@ -7,6 +7,7 @@ import re
 import time
 import threading
 from datetime import datetime
+from os import environ
 
 # Prometheus client library
 from prometheus_client import CollectorRegistry
@@ -25,15 +26,14 @@ except ImportError:
 
 
 parser = argparse.ArgumentParser(description='simple stellar-core Prometheus exporter/scraper')
-parser.add_argument('--uri', type=str,
-                    help='core metrics uri, default: http://127.0.0.1:11626/metrics',
-                    default='http://127.0.0.1:11626/metrics')
-parser.add_argument('--info-uri', type=str,
-                    help='info endpoint uri, default: http://127.0.0.1:11626/info',
-                    default='http://127.0.0.1:11626/info')
+parser.add_argument('--stellar-core-address', type=str,
+                    help='Stellar core address. Defaults to STELLAR_CORE_ADDRESS environment '
+                         'variable or if not set to http://127.0.0.1:11626',
+                    default=environ.get('STELLAR_CORE_ADDRESS', 'http://127.0.0.1:11626'))
 parser.add_argument('--port', type=int,
-                    help='HTTP bind port, default: 9473',
-                    default=9473)
+                    help='HTTP bind port. Defaults to PORT environment variable '
+                         'or if not set to 9473',
+                    default=int(environ.get('PORT', '9473')))
 args = parser.parse_args()
 
 
@@ -49,7 +49,7 @@ class StellarCoreHandler(BaseHTTPRequestHandler):
 
     def get_labels(self):
         try:
-            response = requests.get(args.info_uri)
+            response = requests.get(self.info_url)
             json = response.json()
             build = json['info']['build']
         except Exception:
@@ -83,6 +83,8 @@ class StellarCoreHandler(BaseHTTPRequestHandler):
         return eval(time_units_to_seconds[duration_unit])
 
     def set_vars(self):
+        self.info_url = args.stellar_core_address + '/info'
+        self.metrics_url = args.stellar_core_address + '/metrics'
         self.info_keys = ['ledger', 'peers', 'protocol_version', 'quorum', 'startedOn', 'state']
         self.ledger_metrics = {'age': 'age', 'baseFee': 'base_fee', 'baseReserve': 'base_reserve',
                                'closeTime': 'close_time', 'maxTxSetSize': 'max_tx_set_size',
@@ -107,12 +109,12 @@ class StellarCoreHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         self.set_vars()
         try:
-            response = requests.get(args.uri)
+            response = requests.get(self.metrics_url)
         except requests.ConnectionError:
-            self.error(504, 'Error retrieving data from {}'.format(args.uri))
+            self.error(504, 'Error retrieving data from {}'.format(self.metrics_url))
             return
         if not response.ok:
-            self.error(504, 'Error retrieving data from {}'.format(args.uri))
+            self.error(504, 'Error retrieving data from {}'.format(self.metrics_url))
             return
         try:
             metrics = response.json()['metrics']
@@ -175,12 +177,12 @@ class StellarCoreHandler(BaseHTTPRequestHandler):
 
         # Export metrics from the info endpoint
         try:
-            response = requests.get(args.info_uri)
+            response = requests.get(self.info_url)
         except requests.ConnectionError:
-            self.error(504, 'Error retrieving data from {}'.format(args.info_uri))
+            self.error(504, 'Error retrieving data from {}'.format(self.info_url))
             return
         if not response.ok:
-            self.error(504, 'Error retrieving data from {}'.format(args.info_uri))
+            self.error(504, 'Error retrieving data from {}'.format(self.info_url))
             return
         try:
             info = response.json()['info']
@@ -188,7 +190,7 @@ class StellarCoreHandler(BaseHTTPRequestHandler):
             self.error(500, 'Error parsing info JSON data')
             return
         if not all([i in info for i in self.info_keys]):
-            self.error(500, 'Info endpoint did not return all required fields')
+            self.error(500, 'Error - info endpoint did not return all required fields')
             return
 
         # Ledger metrics
@@ -212,7 +214,7 @@ class StellarCoreHandler(BaseHTTPRequestHandler):
         else:
             tmp = info['quorum'].values()[0]
         if not tmp:
-            self.error(500, 'Missing quorum data')
+            self.error(500, 'Error - missing quorum data')
             return
 
         for metric in self.quorum_metrics:
