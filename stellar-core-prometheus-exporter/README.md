@@ -14,3 +14,10 @@ For list of supported options run the exporter with --help switch
 
 Grafana can be used to visualise data. Example dashboard is shipped with this
 package. Latest version is also available on [grafana.com](https://grafana.com/dashboards/10334)
+
+# Docker image
+
+Included Dockerfile uses apt package to deploy the exporter. Example build command:
+```
+docker build -t stellar-core-prometheus-exporter:latest .
+```
