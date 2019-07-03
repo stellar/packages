@@ -1,0 +1,5 @@
+# /etc/default/stellar-core-prometheus-exporter
+#
+
+#STELLAR_CORE_ADDRESS=http://127.0.0.1:11626
+#PORT=9473

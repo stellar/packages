@@ -10,6 +10,7 @@ LimitNOFILE=8192
 StandardOutput=syslog
 StandardError=syslog
 SyslogIdentifier=stellar-core-prometheus-exporter
+EnvironmentFile=-/etc/default/stellar-core-prometheus-exporter
 ExecStart=/usr/bin/stellar-core-prometheus-exporter.py
 KillMode=process
 Restart=on-failure
