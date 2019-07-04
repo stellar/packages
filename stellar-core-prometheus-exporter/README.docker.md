@@ -1,6 +1,7 @@
 The Stellar Core Prometheus Exporter reads metrics exposed by the
 stellar-core daemon and exposes them in prometheus format
 
+Source code and documentation are available in [github](https://github.com/stellar/packages/tree/master/stellar-core-prometheus-exporter)
 
 # Configuration
 
