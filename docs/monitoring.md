@@ -15,7 +15,9 @@
 ### Monitoring
 Monitoring `stellar-core` using Prometheus is by far the simplest solution, especially if you already have a Prometheus server within your infrastructure. Prometheus is a free and open source time-series database with a simple yet incredibly powerful query language `PromQL`, Prometheus is also tightly integrated with Grafana and enables us to render complex visualisations with ease.
 
-In order for Prometheus to scrape `stellar-core` application metrics, you will need to install the stellar-core-prometheus-exporter (`apt-get install stellar-core-prometheus-exporter`) and configure your Prometheus server to scrape this exporter (default port: `9473`).
+In order for Prometheus to scrape `stellar-core` application metrics, you will need to install the stellar-core-prometheus-exporter (`apt-get install stellar-core-prometheus-exporter`) and configure your Prometheus server to scrape this exporter (default port: `9473`). On top of that grafana can be used to visualize metrics.
+
+![Stellar Core Monitoring Reference Architecture](../images/stellar-core-monitoring-reference-architecture.png)
 
 #### Install a Prometheus server within your infrastructure
 Installing and configuring a Prometheus server is out of scope of this document, however it is a fairly simple process, Prometheus is a single Go binary which you can download from https://prometheus.io/docs/prometheus/latest/installation/.
