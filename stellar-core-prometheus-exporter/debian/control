@@ -8,5 +8,6 @@ Homepage: https://www.stellar.org/
 
 Package: stellar-core-prometheus-exporter
 Architecture: any
-Depends: stellar-core, python-prometheus-client, python-requests
+Depends: python-prometheus-client, python-requests
+Recommends: stellar-core
 Description: This package deploys and configures a prometheus exporter for scraping stellar-core metrics
