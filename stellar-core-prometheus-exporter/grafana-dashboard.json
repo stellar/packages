@@ -59,7 +59,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1560342594884,
+  "iteration": 1562340192139,
   "links": [],
   "panels": [
     {
@@ -242,87 +242,6 @@
       "colorBackground": true,
       "colorValue": false,
       "colors": [
-        "#299c46",
-        "rgba(237, 129, 40, 0.89)",
-        "#d44a3a"
-      ],
-      "description": "Age of the oldest ledger among monitored nodes.\nIf this value is high it means some nodes are may be behind.",
-      "format": "s",
-      "gauge": {
-        "maxValue": 100,
-        "minValue": 0,
-        "show": false,
-        "thresholdLabels": false,
-        "thresholdMarkers": true
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 4,
-        "x": 8,
-        "y": 1
-      },
-      "id": 5,
-      "interval": null,
-      "links": [],
-      "mappingType": 1,
-      "mappingTypes": [
-        {
-          "name": "value to text",
-          "value": 1
-        },
-        {
-          "name": "range to text",
-          "value": 2
-        }
-      ],
-      "maxDataPoints": 100,
-      "nullPointMode": "connected",
-      "nullText": null,
-      "postfix": "",
-      "postfixFontSize": "50%",
-      "prefix": "",
-      "prefixFontSize": "50%",
-      "rangeMaps": [
-        {
-          "from": "null",
-          "text": "N/A",
-          "to": "null"
-        }
-      ],
-      "sparkline": {
-        "fillColor": "rgba(31, 118, 189, 0.18)",
-        "full": false,
-        "lineColor": "rgb(31, 120, 193)",
-        "show": false
-      },
-      "tableColumn": "",
-      "targets": [
-        {
-          "expr": "max(stellar_core_ledger_age{environment=~\"$environment\",instance=~\"$instance\"})",
-          "format": "time_series",
-          "instant": true,
-          "intervalFactor": 1,
-          "refId": "A"
-        }
-      ],
-      "thresholds": "10,30",
-      "title": "Oldest Ledger Age",
-      "type": "singlestat",
-      "valueFontSize": "100%",
-      "valueMaps": [
-        {
-          "op": "=",
-          "text": "Can't find targets in the \".*stellar.core.*\" job",
-          "value": "null"
-        }
-      ],
-      "valueName": "current"
-    },
-    {
-      "cacheTimeout": null,
-      "colorBackground": true,
-      "colorValue": false,
-      "colors": [
         "#d44a3a",
         "rgba(237, 129, 40, 0.89)",
         "#299c46"
@@ -340,7 +259,7 @@
       "gridPos": {
         "h": 3,
         "w": 4,
-        "x": 12,
+        "x": 8,
         "y": 1
       },
       "id": 13,
@@ -422,7 +341,7 @@
       "gridPos": {
         "h": 3,
         "w": 4,
-        "x": 16,
+        "x": 12,
         "y": 1
       },
       "id": 617,
@@ -480,6 +399,81 @@
           "value": "null"
         }
       ],
+      "valueName": "current"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": true,
+      "colorValue": false,
+      "colors": [
+        "#299c46",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "description": "Number of nodes without quorum intersection",
+      "format": "none",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 16,
+        "y": 1
+      },
+      "id": 713,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "expr": "count(stellar_core_quorum_transitive_intersection{environment=~\"$environment\",instance=~\"$instance\"}==0) or vector(0)",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "refId": "A"
+        }
+      ],
+      "thresholds": "1,1",
+      "title": "Nodes without quorum intersection",
+      "type": "singlestat",
+      "valueFontSize": "80%",
+      "valueMaps": [],
       "valueName": "current"
     },
     {
@@ -738,9 +732,8 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "decimals": null,
-      "description": "Out of Sync Nodes\n\nExpected value is 0",
-      "format": "none",
+      "description": "Age of the oldest ledger among monitored nodes.\nIf this value is high it means some nodes are may be behind.",
+      "format": "s",
       "gauge": {
         "maxValue": 100,
         "minValue": 0,
@@ -754,7 +747,7 @@
         "x": 8,
         "y": 4
       },
-      "id": 24,
+      "id": 5,
       "interval": null,
       "links": [],
       "mappingType": 1,
@@ -791,22 +784,21 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "count(stellar_core_synced{environment=~\"$environment\",instance=~\"$instance\"} == 0) or vector(0)",
+          "expr": "max(stellar_core_ledger_age{environment=~\"$environment\",instance=~\"$instance\"})",
           "format": "time_series",
           "instant": true,
           "intervalFactor": 1,
-          "legendFormat": "",
           "refId": "A"
         }
       ],
-      "thresholds": "1,1",
-      "title": "Out of Sync Nodes",
+      "thresholds": "10,30",
+      "title": "Oldest Ledger Age",
       "type": "singlestat",
       "valueFontSize": "100%",
       "valueMaps": [
         {
           "op": "=",
-          "text": "Error",
+          "text": "Can't find targets in the \".*stellar.core.*\" job",
           "value": "null"
         }
       ],
@@ -902,7 +894,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "description": "Max supported protocol version",
+      "description": "Ledger version",
       "format": "none",
       "gauge": {
         "maxValue": 100,
@@ -917,7 +909,7 @@
         "x": 16,
         "y": 4
       },
-      "id": 713,
+      "id": 790,
       "interval": null,
       "links": [],
       "mappingType": 1,
@@ -954,7 +946,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "max(stellar_core_protocol_version{environment=~\"$environment\",instance=~\"$instance\"})",
+          "expr": "max(stellar_core_ledger_version{environment=~\"$environment\",instance=~\"$instance\"})",
           "format": "time_series",
           "instant": true,
           "intervalFactor": 1,
@@ -962,7 +954,7 @@
         }
       ],
       "thresholds": "",
-      "title": "Max Supported Protocol",
+      "title": "Ledger version",
       "type": "singlestat",
       "valueFontSize": "80%",
       "valueMaps": [
@@ -998,7 +990,7 @@
         "x": 20,
         "y": 4
       },
-      "id": 714,
+      "id": 793,
       "interval": null,
       "links": [],
       "mappingType": 1,
@@ -1056,12 +1048,171 @@
       "valueName": "current"
     },
     {
+      "cacheTimeout": null,
+      "colorBackground": true,
+      "colorValue": false,
+      "colors": [
+        "#299c46",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "description": "Number of quorum changes in the last hour on host with the highest number of changes",
+      "format": "none",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 0,
+        "y": 7
+      },
+      "id": 714,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "expr": "max(changes(stellar_core_quorum_transitive_last_check_ledger{environment=\"$environment\", instance=~\"$instance\"}[1h])) or vector(0)",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "thresholds": "3,5",
+      "title": "Quorum changes last hour (max)",
+      "type": "singlestat",
+      "valueFontSize": "80%",
+      "valueMaps": [],
+      "valueName": "current"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": true,
+      "colorValue": false,
+      "colors": [
+        "#299c46",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "decimals": null,
+      "description": "Out of Sync Nodes\n\nExpected value is 0",
+      "format": "none",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 4,
+        "y": 7
+      },
+      "id": 24,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "expr": "count(stellar_core_synced{environment=~\"$environment\",instance=~\"$instance\"} == 0) or vector(0)",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "thresholds": "1,1",
+      "title": "Out of Sync Nodes",
+      "type": "singlestat",
+      "valueFontSize": "100%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "Error",
+          "value": "null"
+        }
+      ],
+      "valueName": "current"
+    },
+    {
       "collapsed": true,
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 7
+        "y": 10
       },
       "id": 612,
       "panels": [
@@ -1078,7 +1229,7 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 8
+            "y": 11
           },
           "id": 614,
           "links": [],
@@ -1153,7 +1304,7 @@
               "hide": false,
               "instant": true,
               "intervalFactor": 1,
-              "legendFormat": "{{instance}} ({{ver_major}}.{{ver_minor}}.{{ver_patch}} {{ver_extra}})",
+              "legendFormat": "{{instance}} ({{build}})",
               "refId": "A"
             }
           ],
@@ -1174,7 +1325,7 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 8
+            "y": 11
           },
           "id": 615,
           "links": [],
@@ -1249,7 +1400,7 @@
               "hide": false,
               "instant": true,
               "intervalFactor": 1,
-              "legendFormat": "{{instance}} ({{ver_major}}.{{ver_minor}}.{{ver_patch}} {{ver_extra}})",
+              "legendFormat": "{{instance}} ({{build}})",
               "refId": "A"
             }
           ],
@@ -1267,7 +1418,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 8
+        "y": 11
       },
       "id": 9,
       "panels": [
@@ -1279,12 +1430,12 @@
           "description": "Ledger age",
           "fill": 0,
           "gridPos": {
-            "h": 8,
+            "h": 9,
             "w": 24,
             "x": 0,
-            "y": 9
+            "y": 3
           },
-          "id": 19,
+          "id": 794,
           "legend": {
             "avg": false,
             "current": false,
@@ -1373,13 +1524,223 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
+          "description": "Ledger Operation Count",
+          "fill": 0,
+          "gridPos": {
+            "h": 8,
+            "w": 24,
+            "x": 0,
+            "y": 12
+          },
+          "id": 19,
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": true,
+            "max": true,
+            "min": true,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [
+            {
+              "alias": "Average (5min rolling)",
+              "linewidth": 3
+            }
+          ],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "avg(stellar_core_ledger_operation_count_sum{environment=~\"$environment\",instance=~\"$instance\"} / stellar_core_ledger_operation_count_count{environment=~\"$environment\",instance=~\"$instance\"})",
+              "format": "time_series",
+              "intervalFactor": 1,
+              "legendFormat": "Average",
+              "refId": "A"
+            },
+            {
+              "expr": "avg(stellar_core_ledger_operation_count{environment=~\"$environment\",instance=~\"$instance\",quantile=\"0.75\"})",
+              "format": "time_series",
+              "intervalFactor": 1,
+              "legendFormat": "P75",
+              "refId": "B"
+            },
+            {
+              "expr": "avg(stellar_core_ledger_operation_count{environment=~\"$environment\",instance=~\"$instance\",quantile=\"0.99\"})",
+              "format": "time_series",
+              "intervalFactor": 1,
+              "legendFormat": "P99",
+              "refId": "C"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
+          "title": "Ledger Operation Count",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": "0",
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "description": "Ledger Transaction Count",
+          "fill": 0,
+          "gridPos": {
+            "h": 8,
+            "w": 24,
+            "x": 0,
+            "y": 20
+          },
+          "id": 797,
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": true,
+            "max": true,
+            "min": true,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [
+            {
+              "alias": "Average (5min rolling)",
+              "linewidth": 3
+            }
+          ],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "avg(stellar_core_ledger_transaction_count_sum{environment=~\"$environment\",instance=~\"$instance\"} / stellar_core_ledger_transaction_count_count{environment=~\"$environment\",instance=~\"$instance\"})",
+              "format": "time_series",
+              "intervalFactor": 1,
+              "legendFormat": "Average",
+              "refId": "A"
+            },
+            {
+              "expr": "avg(stellar_core_ledger_transaction_count{environment=~\"$environment\",instance=~\"$instance\",quantile=\"0.75\"})",
+              "format": "time_series",
+              "intervalFactor": 1,
+              "legendFormat": "P75",
+              "refId": "B"
+            },
+            {
+              "expr": "avg(stellar_core_ledger_transaction_count{environment=~\"$environment\",instance=~\"$instance\",quantile=\"0.99\"})",
+              "format": "time_series",
+              "intervalFactor": 1,
+              "legendFormat": "P99",
+              "refId": "C"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
+          "title": "Ledger Transaction Count",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": "0",
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
           "description": "Ledger Age Closed",
           "fill": 0,
           "gridPos": {
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 17
+            "y": 28
           },
           "id": 203,
           "legend": {
@@ -1481,7 +1842,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 25
+            "y": 36
           },
           "id": 186,
           "legend": {
@@ -1583,7 +1944,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 33
+            "y": 44
           },
           "id": 184,
           "legend": {
@@ -1685,7 +2046,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 41
+            "y": 52
           },
           "id": 185,
           "legend": {
@@ -1786,10 +2147,184 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 9
+        "y": 12
       },
       "id": 15,
       "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "description": "Quorum transitive node count",
+          "fill": 0,
+          "gridPos": {
+            "h": 9,
+            "w": 24,
+            "x": 0,
+            "y": 13
+          },
+          "id": 17,
+          "legend": {
+            "alignAsTable": true,
+            "avg": false,
+            "current": true,
+            "max": true,
+            "min": true,
+            "rightSide": true,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "stellar_core_quorum_transitive_node_count{environment=~\"$environment\",instance=~\"$instance\"}",
+              "format": "time_series",
+              "intervalFactor": 1,
+              "legendFormat": "{{instance}}",
+              "refId": "A"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
+          "title": "Quorum transitive node count",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": "0",
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": false
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "description": "Quorum transitive changes",
+          "fill": 0,
+          "gridPos": {
+            "h": 9,
+            "w": 24,
+            "x": 0,
+            "y": 22
+          },
+          "id": 792,
+          "legend": {
+            "alignAsTable": true,
+            "avg": false,
+            "current": true,
+            "max": true,
+            "min": true,
+            "rightSide": true,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": false,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": true,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "changes(stellar_core_quorum_transitive_last_check_ledger{environment=~\"$environment\",instance=~\"$instance\"}[5m]) > 0",
+              "format": "time_series",
+              "intervalFactor": 1,
+              "legendFormat": "{{instance}}",
+              "refId": "A"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
+          "title": "Quorum transitive changes",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": "0",
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": false
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        },
         {
           "aliasColors": {},
           "bars": false,
@@ -1801,9 +2336,9 @@
             "h": 9,
             "w": 24,
             "x": 0,
-            "y": 10
+            "y": 31
           },
-          "id": 17,
+          "id": 791,
           "legend": {
             "alignAsTable": true,
             "avg": false,
@@ -1895,7 +2430,7 @@
             "h": 9,
             "w": 24,
             "x": 0,
-            "y": 19
+            "y": 40
           },
           "id": 589,
           "legend": {
@@ -1982,7 +2517,7 @@
             "h": 9,
             "w": 24,
             "x": 0,
-            "y": 28
+            "y": 49
           },
           "id": 590,
           "legend": {
@@ -2068,7 +2603,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 10
+        "y": 13
       },
       "id": 221,
       "panels": [
@@ -2083,7 +2618,7 @@
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 7
+            "y": 5
           },
           "id": 223,
           "legend": {
@@ -2185,7 +2720,7 @@
             "h": 8,
             "w": 12,
             "x": 12,
-            "y": 7
+            "y": 5
           },
           "id": 224,
           "legend": {
@@ -2281,13 +2816,217 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
+          "description": "Consensus Timeout Nominate",
+          "fill": 0,
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 13
+          },
+          "id": 798,
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": true,
+            "max": true,
+            "min": true,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "avg(\n  stellar_core_scp_timeout_nominate_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_scp_timeout_nominate_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "format": "time_series",
+              "intervalFactor": 1,
+              "legendFormat": "Average",
+              "refId": "A"
+            },
+            {
+              "expr": "avg(stellar_core_scp_timeout_nominate{environment=~\"$environment\",instance=~\"$instance\",quantile=\"0.75\"})",
+              "format": "time_series",
+              "hide": false,
+              "intervalFactor": 1,
+              "legendFormat": "P75",
+              "refId": "B"
+            },
+            {
+              "expr": "avg(stellar_core_scp_timeout_nominate{environment=~\"$environment\",instance=~\"$instance\",quantile=\"0.99\"})",
+              "format": "time_series",
+              "hide": false,
+              "intervalFactor": 1,
+              "legendFormat": "P99",
+              "refId": "C"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
+          "title": "Consensus Timeout Nominate",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "s",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": "0",
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": false
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "description": "Consensus Timeout Prepare",
+          "fill": 0,
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 13
+          },
+          "id": 799,
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": true,
+            "max": true,
+            "min": true,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "avg(\n  stellar_core_scp_timeout_prepare_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_scp_timeout_prepare_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "format": "time_series",
+              "intervalFactor": 1,
+              "legendFormat": "Average",
+              "refId": "A"
+            },
+            {
+              "expr": "avg(stellar_core_scp_timeout_prepare{environment=~\"$environment\",instance=~\"$instance\",quantile=\"0.75\"})",
+              "format": "time_series",
+              "hide": false,
+              "intervalFactor": 1,
+              "legendFormat": "P75",
+              "refId": "B"
+            },
+            {
+              "expr": "avg(stellar_core_scp_timeout_prepare{environment=~\"$environment\",instance=~\"$instance\",quantile=\"0.99\"})",
+              "format": "time_series",
+              "hide": false,
+              "intervalFactor": 1,
+              "legendFormat": "P99",
+              "refId": "C"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
+          "title": "Consensus Timeout Prepare",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "s",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": "0",
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": false
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
           "description": "Consensus Envelopes",
           "fill": 0,
           "gridPos": {
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 15
+            "y": 21
           },
           "id": 241,
           "legend": {
@@ -2402,7 +3141,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 23
+            "y": 29
           },
           "id": 392,
           "legend": {
@@ -2510,7 +3249,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 31
+            "y": 37
           },
           "id": 393,
           "legend": {
@@ -2621,7 +3360,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 39
+            "y": 45
           },
           "id": 394,
           "legend": {
@@ -2630,7 +3369,7 @@
             "current": true,
             "max": true,
             "min": true,
-            "rightSide": true,
+            "rightSide": false,
             "show": true,
             "total": false,
             "values": true
@@ -2707,7 +3446,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 11
+        "y": 14
       },
       "id": 21,
       "panels": [
@@ -2812,7 +3551,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 12
+        "y": 15
       },
       "id": 396,
       "panels": [
@@ -2933,7 +3672,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 13
+        "y": 16
       },
       "id": 400,
       "panels": [
@@ -3323,7 +4062,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 14
+        "y": 17
       },
       "id": 592,
       "panels": [
@@ -3443,7 +4182,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 15
+        "y": 18
       },
       "id": 596,
       "panels": [
@@ -4791,7 +5530,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 16
+        "y": 19
       },
       "id": 27,
       "panels": [
@@ -13544,7 +14283,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 17
+        "y": 20
       },
       "id": 98,
       "panels": [
@@ -15656,5 +16395,5 @@
   "timezone": "",
   "title": "Stellar Core Full",
   "uid": "DCQsHZ7Wk",
-  "version": 64
+  "version": 65
 }
