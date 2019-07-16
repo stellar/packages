@@ -1,0 +1,84 @@
+# Example alerting rules for stellar-core
+#
+# Review and adjust accordingly before using in production
+#
+# Some critical alerts use 35% threshold for number of nodes
+# that can suffer problems without triggering alerts.
+# This allows for single node failure in 3, 4 and 5 node clusters.
+# Clusters with 6 or more nodes allow for 2 or more failures.
+# This may not be suitable for all use cases, please review
+# the 35% threshold to make sure it's suitable for your deployment
+groups:
+- name: stellar-core-quorum.rules
+  rules:
+  - alert: node-quorum-fail-at
+    # Warn when any nodes that have low quorum resilience.
+    # fail_at of 1 indicates single peer failure will result in quorum failure
+    expr: stellar_core_quorum_fail_at{environment="prd"} <= 1
+    for: 1m  # 1m grace period
+    labels:
+      severity: warning
+    annotations:
+      description: 'Quorum fail_at is "{{ $value }}" for instance {{ $labels.instance }}. Risk of quorum failure'
+  - alert: cluster-quorum-fail-at
+    # Critical if more than 35% of nodes have low quorum resilience
+    expr: >
+      (
+        count(stellar_core_quorum_fail_at{environment="prd"} <= 1) /
+        count(stellar_core_quorum_fail_at{environment="prd"}) * 100
+      ) > 35
+    for: 1m  # 1m grace period
+    labels:
+      severity: critical
+    annotations:
+      description: 'Quorum is at risk on more than 35% of monitored hosts'
+  - alert: quorum-intersection-lost
+    # No quorum intersection is critical failure
+    expr: stellar_core_quorum_transitive_intersection{environment="prd"} == 0
+    labels:
+      severity: critical
+    annotations:
+      description: 'Quorum intersection lost on {{ $labels.instance }}'
+- name: stellar-core-ledger.rules
+  rules:
+  - alert: node-ledger-age
+    # Warn about any nodes that are are consistently more then 10s behind
+    expr: stellar_core_ledger_age{environment="prd"} > 10
+    for: 1m  # 1m grace period
+    labels:
+      severity: warning
+    annotations:
+      description: 'Ledger age is {{ $value }} on {{ $labels.instance }}'
+  - alert: cluster-ledger-age
+    # If more than 35% of nodes have ledgers over 10s old it indicates
+    # significant problem
+    expr: >
+      (
+        count(stellar_core_ledger_age{environment="prd"} > 10) /
+        count(stellar_core_ledger_age{environment="prd"}) * 100
+      ) > 35
+    labels:
+      severity: critical
+    annotations:
+      description: 'Ledger age over 10s on more than 35% of nodes'
+- name: stellar-core-main.rules
+  rules:
+  - alert: node-out-of-sync
+    # Warn about nodes that are out of sync. Single nodes going
+    # out of sync is not critical failure
+    expr: stellar_core_synced{environment="prd"} == 0
+    labels:
+      severity: warning
+    annotations:
+      description: 'Node {{ $labels.instance }} is out of sync'
+  - alert: cluster-out-of-sync
+    # Critical if more than 35% of nodes are out of sync
+    expr: >
+      (
+        count(stellar_core_synced{environment="prd"} == 0) /
+        count(stellar_core_synced{environment="prd"}) * 100
+      ) > 35
+    labels:
+      severity: critical
+    annotations:
+      description: 'More than 35% of monitored nodes are out of sync'
