@@ -18,7 +18,7 @@ Running your own distributed Horizon setup is **highly** recommended for product
 
 **reminder:** the SDF horizon cluster does not have an SLA!
 
-How you achieve this **distributed environment** is dependent on your internal infrastructure. If possible, using managed services such as AWS (ELB,RDS,EC2) or other cloud providers will greatly simplify your environment.
+How you achieve this **distributed environment** is dependent on your internal infrastructure. If possible, using managed services such as AWS (ELB,RDS,EC2) or other cloud providers will greatly simplify your environment. All nodes should be monitored. The [Monitoring](monitoring.md) describes recommended tooling and provides configuration examples.
 
 Given this, the following principles should apply to most hosting environments.
 
@@ -30,7 +30,7 @@ Given this, the following principles should apply to most hosting environments.
   * Horizon needs access to stellar-core on port 11626
   * Horizon needs access to stellar-core's PostgreSQL database on port 5432
 * run a standby **non-validating** `stellar-core` instance which the Horizon cluster can failover to for ingestion and transaction submission
-* use a floating IP or virtual IP to manage failovers to the standby core when required
+* use a floating IP (also called "virtual IP" or "VIP") to manage failovers to the standby core when required
   * during failover the `core-db` and `stellar-core` instance accessed by Horizon need to be updated, we suggest using a DNS record to avoid having to update configuration files
 
 ![Generic Distributed Horizon Cluster](../images/generic-distributed-horizon-active-standby-core.png)

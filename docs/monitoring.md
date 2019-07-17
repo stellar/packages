@@ -76,6 +76,56 @@ Pointing your Prometheus instance to the exporter can be achieved by manually co
     target_label: application
 ```
 
+#### Create Alerting Rules
+
+Once prometheus scrapes metrics we can add alerting rules. Recommended rules are [here](stellar-core-alerting.rules) (require prometheus 2.0 or later). Copy rules to /etc/prometheus/stellar-core-alerting.rules on the prometheus server and add the following to the prometheus configuration file to include the file:
+```yaml
+rule_files:
+- "/etc/prometheus/stellar-core-alerting.rules"
+```
+
+Rules are documented in-line and we strongly recommend that you review and verify all of them as every environment is different.
+
+#### Configure Notifications Using Alertmanager
+
+Alertmanager is responsible for sending notifications. Installing and configuring an Alertmanager server is out of scope of this document, however it is a fairly simple process, official documentation is [here](https://github.com/prometheus/alertmanager/).
+
+All recommended alerting rules have "severity" label:
+* **critical** - normally require immediate attention. They indicate an ongoing or very likely outage. We recommend that critical alerts notify administrators 24x7
+* **warning** - normally can wait until working hours. Warnings indicate problems that likely do not have production impact but may lead to critical alerts or outages if left unhandled
+
+The following example alertmanager configuration demonstrates how to send notifications using different methods based on severity label:
+
+```yaml
+global:
+  smtp_smarthost: localhost:25
+  smtp_from: alertmanager@example.com
+route:
+  receiver: default-receiver
+  group_by: [alertname]
+  group_wait: 30s
+  group_interval: 5m
+  repeat_interval: 1h
+  - receiver: critical-alerts
+    match:
+      severity: critical
+  - receiver: warning-alerts
+    match:
+      severity: warning
+receivers:
+- name: critical-alerts
+  pagerduty_configs:
+  - routing_key: <PD routing key>
+- name: warning-alerts
+  slack_configs:
+  - api_url: https://hooks.slack.com/services/slack/warning/channel/webhook
+- name: default-receiver
+  email_configs:
+  - to: alerts-fallback@example.com
+```
+
+In the above examples alerts with severity "critical" are sent to pagerduty and warnings are sent to slack
+
 #### Useful Exporters
 
 You may find the below exporters useful for monitoring your infrastructure as they provide incredible insight into your operating system and database metrics. Unfortunately installing and configuring these exporters is out of the scope of this document but should be relatively straightforward.
@@ -83,7 +133,7 @@ You may find the below exporters useful for monitoring your infrastructure as th
 * [node_exporter](https://prometheus.io/docs/guides/node-exporter/) can be used to track all operating system metrics.
 * [postgresql_exporter](https://github.com/wrouesnel/postgres_exporter) can be used to monitor the local stellar-core database.
 
-#### Install a Grafana server within your infrastructure
+#### Visualize metrics using Grafana
 Now that you have configured Prometheus to scrape and store your stellar-core metrics, you will want a nice way to render this data for human consumption. Grafana offers the simplest and most effective way to achieve this. Again installing Grafana is out of scope of this document but is a very simple process, especially when using the prebuilt apt packages (https://grafana.com/docs/installation/debian/#apt-repository)
 
 ##### Stellar Core Full dashboard
