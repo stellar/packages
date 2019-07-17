@@ -14,31 +14,31 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "5.4.3"
+      "version": "6.2.5"
     },
     {
       "type": "panel",
       "id": "graph",
       "name": "Graph",
-      "version": "5.0.0"
+      "version": ""
     },
     {
       "type": "datasource",
       "id": "prometheus",
       "name": "Prometheus",
-      "version": "5.0.0"
+      "version": "1.0.0"
     },
     {
       "type": "panel",
       "id": "singlestat",
       "name": "Singlestat",
-      "version": "5.0.0"
+      "version": ""
     },
     {
       "type": "panel",
       "id": "table",
       "name": "Table",
-      "version": "5.0.0"
+      "version": ""
     }
   ],
   "annotations": {
@@ -59,8 +59,18 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1562340192139,
-  "links": [],
+  "iteration": 1563264039427,
+  "links": [
+    {
+      "icon": "external link",
+      "includeVars": true,
+      "keepTime": true,
+      "tags": [
+        "stellar-core"
+      ],
+      "type": "dashboards"
+    }
+  ],
   "panels": [
     {
       "collapsed": false,
@@ -116,6 +126,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -197,6 +208,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -279,6 +291,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -361,6 +374,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -442,6 +456,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -517,6 +532,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -599,6 +615,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -682,6 +699,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -764,6 +782,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -845,6 +864,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -926,6 +946,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -1007,6 +1028,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -1088,6 +1110,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -1165,6 +1188,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -1233,6 +1257,7 @@
           },
           "id": 614,
           "links": [],
+          "options": {},
           "pageSize": null,
           "scroll": true,
           "showHeader": true,
@@ -1329,6 +1354,7 @@
           },
           "id": 615,
           "links": [],
+          "options": {},
           "pageSize": null,
           "scroll": true,
           "showHeader": true,
@@ -1433,7 +1459,7 @@
             "h": 9,
             "w": 24,
             "x": 0,
-            "y": 3
+            "y": 12
           },
           "id": 794,
           "legend": {
@@ -1449,6 +1475,7 @@
           "linewidth": 1,
           "links": [],
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
@@ -1498,7 +1525,7 @@
           },
           "yaxes": [
             {
-              "format": "short",
+              "format": "s",
               "label": null,
               "logBase": 1,
               "max": null,
@@ -1530,7 +1557,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 12
+            "y": 21
           },
           "id": 19,
           "legend": {
@@ -1547,6 +1574,7 @@
           "linewidth": 1,
           "links": [],
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
@@ -1635,7 +1663,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 20
+            "y": 29
           },
           "id": 797,
           "legend": {
@@ -1652,6 +1680,7 @@
           "linewidth": 1,
           "links": [],
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
@@ -1740,7 +1769,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 28
+            "y": 37
           },
           "id": 203,
           "legend": {
@@ -1757,6 +1786,7 @@
           "linewidth": 1,
           "links": [],
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
@@ -1842,7 +1872,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 36
+            "y": 45
           },
           "id": 186,
           "legend": {
@@ -1859,6 +1889,7 @@
           "linewidth": 1,
           "links": [],
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
@@ -1944,7 +1975,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 44
+            "y": 53
           },
           "id": 184,
           "legend": {
@@ -1961,6 +1992,7 @@
           "linewidth": 1,
           "links": [],
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
@@ -2046,7 +2078,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 52
+            "y": 61
           },
           "id": 185,
           "legend": {
@@ -2063,6 +2095,7 @@
           "linewidth": 1,
           "links": [],
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
@@ -2136,6 +2169,354 @@
             "align": false,
             "alignLevel": null
           }
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "description": "Ledger Invariant Failure",
+          "fill": 0,
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 69
+          },
+          "id": 943,
+          "legend": {
+            "alignAsTable": false,
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "options": {},
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "stellar_core_ledger_invariant_failure{environment=~\"$environment\",instance=~\"$instance\"}",
+              "format": "time_series",
+              "intervalFactor": 1,
+              "legendFormat": "{{instance}}",
+              "refId": "A"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
+          "title": "Ledger Invariant Failure",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "none",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": "0",
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": false
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "description": "Memory Queued Ledgers",
+          "fill": 0,
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 69
+          },
+          "id": 944,
+          "legend": {
+            "alignAsTable": false,
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "options": {},
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "stellar_core_ledger_memory_queued_ledgers{environment=~\"$environment\",instance=~\"$instance\"}",
+              "format": "time_series",
+              "intervalFactor": 1,
+              "legendFormat": "{{instance}}",
+              "refId": "A"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
+          "title": "Memory Queued Ledgers",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "none",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": "0",
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": false
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "description": "Memory Prefetch Hit Rage",
+          "fill": 0,
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 77
+          },
+          "id": 945,
+          "legend": {
+            "alignAsTable": false,
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "options": {},
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "stellar_core_ledger_prefetch_hit_rate{environment=~\"$environment\",instance=~\"$instance\"}",
+              "format": "time_series",
+              "intervalFactor": 1,
+              "legendFormat": "{{instance}}",
+              "refId": "A"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
+          "title": "Memory Prefetch Hit Rate",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "none",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": "0",
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": false
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "description": "Transaction Internal Error",
+          "fill": 0,
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 77
+          },
+          "id": 946,
+          "legend": {
+            "alignAsTable": false,
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "options": {},
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "stellar_core_ledger_transaction_internal_error{environment=~\"$environment\",instance=~\"$instance\"}",
+              "format": "time_series",
+              "intervalFactor": 1,
+              "legendFormat": "{{instance}}",
+              "refId": "A"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
+          "title": "Transaction Internal Error",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "none",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": "0",
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": false
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
         }
       ],
       "title": "Ledger",
@@ -2180,6 +2561,7 @@
           "linewidth": 1,
           "links": [],
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
@@ -2267,6 +2649,7 @@
           "linewidth": 1,
           "links": [],
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": true,
@@ -2354,6 +2737,7 @@
           "linewidth": 1,
           "links": [],
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
@@ -2448,6 +2832,7 @@
           "linewidth": 1,
           "links": [],
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
@@ -2535,6 +2920,7 @@
           "linewidth": 1,
           "links": [],
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
@@ -2618,7 +3004,7 @@
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 5
+            "y": 14
           },
           "id": 223,
           "legend": {
@@ -2635,6 +3021,7 @@
           "linewidth": 1,
           "links": [],
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
@@ -2720,7 +3107,7 @@
             "h": 8,
             "w": 12,
             "x": 12,
-            "y": 5
+            "y": 14
           },
           "id": 224,
           "legend": {
@@ -2737,6 +3124,7 @@
           "linewidth": 1,
           "links": [],
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
@@ -2822,7 +3210,7 @@
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 13
+            "y": 22
           },
           "id": 798,
           "legend": {
@@ -2839,6 +3227,7 @@
           "linewidth": 1,
           "links": [],
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
@@ -2924,7 +3313,7 @@
             "h": 8,
             "w": 12,
             "x": 12,
-            "y": 13
+            "y": 22
           },
           "id": 799,
           "legend": {
@@ -2941,6 +3330,7 @@
           "linewidth": 1,
           "links": [],
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
@@ -3026,7 +3416,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 21
+            "y": 30
           },
           "id": 241,
           "legend": {
@@ -3044,6 +3434,7 @@
           "linewidth": 1,
           "links": [],
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
@@ -3141,7 +3532,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 29
+            "y": 38
           },
           "id": 392,
           "legend": {
@@ -3159,6 +3550,7 @@
           "linewidth": 1,
           "links": [],
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
@@ -3249,7 +3641,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 37
+            "y": 46
           },
           "id": 393,
           "legend": {
@@ -3267,6 +3659,7 @@
           "linewidth": 1,
           "links": [],
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
@@ -3360,7 +3753,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 45
+            "y": 54
           },
           "id": 394,
           "legend": {
@@ -3378,6 +3771,7 @@
           "linewidth": 1,
           "links": [],
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
@@ -3460,7 +3854,7 @@
             "h": 9,
             "w": 19,
             "x": 0,
-            "y": 8
+            "y": 15
           },
           "id": 23,
           "legend": {
@@ -3476,6 +3870,7 @@
           "linewidth": 1,
           "links": [],
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
@@ -3560,12 +3955,12 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "fill": 1,
+          "fill": 0,
           "gridPos": {
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 6
+            "y": 16
           },
           "id": 398,
           "legend": {
@@ -3583,6 +3978,7 @@
           "linewidth": 1,
           "links": [],
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
@@ -3687,7 +4083,7 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 7
+            "y": 17
           },
           "id": 402,
           "legend": {
@@ -3705,6 +4101,7 @@
           "linewidth": 1,
           "links": [],
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
@@ -3788,7 +4185,7 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 7
+            "y": 17
           },
           "id": 403,
           "legend": {
@@ -3806,6 +4203,7 @@
           "linewidth": 1,
           "links": [],
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
@@ -3889,7 +4287,7 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 16
+            "y": 26
           },
           "id": 404,
           "legend": {
@@ -3907,6 +4305,7 @@
           "linewidth": 1,
           "links": [],
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
@@ -3976,7 +4375,7 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 16
+            "y": 26
           },
           "id": 405,
           "legend": {
@@ -3994,6 +4393,7 @@
           "linewidth": 1,
           "links": [],
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
@@ -4077,7 +4477,7 @@
             "h": 9,
             "w": 24,
             "x": 0,
-            "y": 8
+            "y": 18
           },
           "id": 594,
           "legend": {
@@ -4093,6 +4493,7 @@
           "linewidth": 1,
           "links": [],
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
@@ -4197,7 +4598,7 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 9
+            "y": 19
           },
           "id": 598,
           "legend": {
@@ -4214,6 +4615,7 @@
           "linewidth": 1,
           "links": [],
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
@@ -4290,7 +4692,7 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 9
+            "y": 19
           },
           "id": 601,
           "legend": {
@@ -4307,6 +4709,7 @@
           "linewidth": 1,
           "links": [],
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
@@ -4383,7 +4786,7 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 18
+            "y": 28
           },
           "id": 602,
           "legend": {
@@ -4400,6 +4803,7 @@
           "linewidth": 1,
           "links": [],
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
@@ -4476,7 +4880,7 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 18
+            "y": 28
           },
           "id": 600,
           "legend": {
@@ -4492,6 +4896,7 @@
           "linewidth": 1,
           "links": [],
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
@@ -4561,7 +4966,7 @@
             "h": 9,
             "w": 24,
             "x": 0,
-            "y": 27
+            "y": 37
           },
           "id": 599,
           "legend": {
@@ -4579,6 +4984,7 @@
           "linewidth": 1,
           "links": [],
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
@@ -4683,7 +5089,7 @@
             "h": 9,
             "w": 24,
             "x": 0,
-            "y": 36
+            "y": 46
           },
           "id": 603,
           "legend": {
@@ -4701,6 +5107,7 @@
           "linewidth": 1,
           "links": [],
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
@@ -4798,7 +5205,7 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 45
+            "y": 55
           },
           "id": 604,
           "legend": {
@@ -4814,8 +5221,9 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
@@ -4901,9 +5309,9 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 45
+            "y": 55
           },
-          "id": 605,
+          "id": 1014,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -4917,15 +5325,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560254655576,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 604,
           "scopedVars": {
             "archive_metric": {
@@ -5006,9 +5415,9 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 54
+            "y": 64
           },
-          "id": 606,
+          "id": 1015,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -5022,15 +5431,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560254655576,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 604,
           "scopedVars": {
             "archive_metric": {
@@ -5111,9 +5521,9 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 54
+            "y": 64
           },
-          "id": 607,
+          "id": 1016,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -5127,15 +5537,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560254655576,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 604,
           "scopedVars": {
             "archive_metric": {
@@ -5216,9 +5627,9 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 63
+            "y": 73
           },
-          "id": 608,
+          "id": 1017,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -5232,15 +5643,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560254655576,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 604,
           "scopedVars": {
             "archive_metric": {
@@ -5321,9 +5733,9 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 63
+            "y": 73
           },
-          "id": 609,
+          "id": 1018,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -5337,126 +5749,22 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560254655576,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 604,
           "scopedVars": {
             "archive_metric": {
               "selected": false,
               "text": "h3",
               "value": "h3"
-            }
-          },
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "expr": "avg(rate(stellar_core_history_archive_${archive_metric}_success{environment=~\"$environment\",instance=~\"$instance\"}[1m]))",
-              "format": "time_series",
-              "intervalFactor": 1,
-              "legendFormat": "Success",
-              "refId": "A"
-            },
-            {
-              "expr": "avg(rate(stellar_core_history_archive_${archive_metric}_failure{environment=~\"$environment\",instance=~\"$instance\"}[1m]))",
-              "format": "time_series",
-              "intervalFactor": 1,
-              "legendFormat": "Failure",
-              "refId": "B"
-            }
-          ],
-          "thresholds": [],
-          "timeFrom": null,
-          "timeRegions": [],
-          "timeShift": null,
-          "title": "History archive $archive_metric",
-          "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "type": "graph",
-          "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "format": "ops",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            },
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            }
-          ],
-          "yaxis": {
-            "align": false,
-            "alignLevel": null
-          }
-        },
-        {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "description": "History archive $archive_metric",
-          "fill": 1,
-          "gridPos": {
-            "h": 9,
-            "w": 12,
-            "x": 0,
-            "y": 72
-          },
-          "id": 610,
-          "legend": {
-            "alignAsTable": true,
-            "avg": true,
-            "current": true,
-            "max": true,
-            "min": true,
-            "show": true,
-            "total": false,
-            "values": true
-          },
-          "lines": true,
-          "linewidth": 1,
-          "links": [],
-          "minSpan": 12,
-          "nullPointMode": "null",
-          "percentage": false,
-          "pointradius": 5,
-          "points": false,
-          "renderer": "flot",
-          "repeat": null,
-          "repeatDirection": "h",
-          "repeatIteration": 1560254655576,
-          "repeatPanelId": 604,
-          "scopedVars": {
-            "archive_metric": {
-              "selected": false,
-              "text": "local",
-              "value": "local"
             }
           },
           "seriesOverrides": [],
@@ -5532,8 +5840,491 @@
         "x": 0,
         "y": 19
       },
+      "id": 937,
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "fill": 0,
+          "gridPos": {
+            "h": 9,
+            "w": 12,
+            "x": 0,
+            "y": 20
+          },
+          "id": 942,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "options": {},
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "stellar_core_app_state_current{environment=~\"$environment\",instance=~\"$instance\"}",
+              "format": "time_series",
+              "intervalFactor": 1,
+              "legendFormat": "{{instance}}",
+              "refId": "A"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
+          "title": "App State",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "none",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "fill": 0,
+          "gridPos": {
+            "h": 9,
+            "w": 12,
+            "x": 12,
+            "y": 20
+          },
+          "id": 940,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "options": {},
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "avg(\n  stellar_core_app_post_on_background_thread_delay_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}/\n  stellar_core_app_post_on_background_thread_delay_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "format": "time_series",
+              "intervalFactor": 1,
+              "legendFormat": "Average",
+              "refId": "A"
+            },
+            {
+              "expr": "avg(\n  stellar_core_app_post_on_background_thread_delay_seconds{environment=~\"$environment\",instance=~\"$instance\",quantile=\"0.75\"}\n)",
+              "format": "time_series",
+              "intervalFactor": 1,
+              "legendFormat": "P75",
+              "refId": "B"
+            },
+            {
+              "expr": "avg(\n  stellar_core_app_post_on_background_thread_delay_seconds{environment=~\"$environment\",instance=~\"$instance\",quantile=\"0.99\"}\n)",
+              "format": "time_series",
+              "intervalFactor": 1,
+              "legendFormat": "P99",
+              "refId": "C"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
+          "title": "App Post on Background Thread Delay",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "s",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "fill": 0,
+          "gridPos": {
+            "h": 9,
+            "w": 12,
+            "x": 0,
+            "y": 29
+          },
+          "id": 939,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "options": {},
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "avg(\n  stellar_core_app_post_on_main_thread_delay_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}/\n  stellar_core_app_post_on_main_thread_delay_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "format": "time_series",
+              "intervalFactor": 1,
+              "legendFormat": "Average",
+              "refId": "A"
+            },
+            {
+              "expr": "avg(\n  stellar_core_app_post_on_main_thread_delay_seconds{environment=~\"$environment\",instance=~\"$instance\",quantile=\"0.75\"}\n)",
+              "format": "time_series",
+              "intervalFactor": 1,
+              "legendFormat": "P75",
+              "refId": "B"
+            },
+            {
+              "expr": "avg(\n  stellar_core_app_post_on_main_thread_delay_seconds{environment=~\"$environment\",instance=~\"$instance\",quantile=\"0.99\"}\n)",
+              "format": "time_series",
+              "intervalFactor": 1,
+              "legendFormat": "P99",
+              "refId": "C"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
+          "title": "App Post on Main Thread Delay",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "s",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "fill": 0,
+          "gridPos": {
+            "h": 9,
+            "w": 12,
+            "x": 12,
+            "y": 29
+          },
+          "id": 941,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "options": {},
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "avg(\n  stellar_core_app_post_on_main_thread_with_delay_delay_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}/\n  stellar_core_app_post_on_main_thread_with_delay_delay_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "format": "time_series",
+              "intervalFactor": 1,
+              "legendFormat": "Average",
+              "refId": "A"
+            },
+            {
+              "expr": "avg(\n  stellar_core_app_post_on_main_thread_with_delay_delay_seconds{environment=~\"$environment\",instance=~\"$instance\",quantile=\"0.75\"}\n)",
+              "format": "time_series",
+              "intervalFactor": 1,
+              "legendFormat": "P75",
+              "refId": "B"
+            },
+            {
+              "expr": "avg(\n  stellar_core_app_post_on_main_thread_with_delay_delay_seconds{environment=~\"$environment\",instance=~\"$instance\",quantile=\"0.99\"}\n)",
+              "format": "time_series",
+              "intervalFactor": 1,
+              "legendFormat": "P99",
+              "refId": "C"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
+          "title": "App Post on Main Thread With Delay Delay",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "s",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        }
+      ],
+      "title": "App",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 20
+      },
       "id": 27,
       "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "description": "Database query exec rate",
+          "fill": 0,
+          "gridPos": {
+            "h": 9,
+            "w": 24,
+            "x": 0,
+            "y": 21
+          },
+          "id": 868,
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": true,
+            "max": true,
+            "min": true,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "options": {},
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "avg(rate(stellar_core_database_query_exec[1m]))",
+              "format": "time_series",
+              "intervalFactor": 1,
+              "legendFormat": "Average",
+              "refId": "A"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
+          "title": "Database query exec rate",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "ops",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        },
         {
           "aliasColors": {},
           "bars": false,
@@ -5545,7 +6336,7 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 17
+            "y": 30
           },
           "id": 29,
           "legend": {
@@ -5561,8 +6352,9 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
@@ -5658,9 +6450,9 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 17
+            "y": 30
           },
-          "id": 715,
+          "id": 1019,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -5674,15 +6466,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -5773,9 +6566,9 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 26
+            "y": 39
           },
-          "id": 716,
+          "id": 1020,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -5789,15 +6582,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -5888,9 +6682,9 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 26
+            "y": 39
           },
-          "id": 717,
+          "id": 1021,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -5904,15 +6698,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -6003,9 +6798,9 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 35
+            "y": 48
           },
-          "id": 718,
+          "id": 1022,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -6019,130 +6814,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
-          "repeatPanelId": 29,
-          "scopedVars": {
-            "db_metric": {
-              "selected": false,
-              "text": "delete_ledger_header_history",
-              "value": "delete_ledger_header_history"
-            }
-          },
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
-              "format": "time_series",
-              "hide": false,
-              "intervalFactor": 1,
-              "legendFormat": "Duration",
-              "refId": "A"
-            },
-            {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds{environment=~\"$environment\",instance=~\"$instance\", quantile=\"0.75\"}\n)",
-              "format": "time_series",
-              "hide": false,
-              "intervalFactor": 1,
-              "legendFormat": "P75",
-              "refId": "B"
-            },
-            {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds{environment=~\"$environment\",instance=~\"$instance\", quantile=\"0.99\"}\n)",
-              "format": "time_series",
-              "hide": false,
-              "intervalFactor": 1,
-              "legendFormat": "P99",
-              "refId": "C"
-            }
-          ],
-          "thresholds": [],
-          "timeFrom": null,
-          "timeRegions": [],
-          "timeShift": null,
-          "title": "Average duration: $db_metric",
-          "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "type": "graph",
-          "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "format": "s",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            },
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            }
-          ],
-          "yaxis": {
-            "align": false,
-            "alignLevel": null
-          }
-        },
-        {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "description": "Average duration across selected nodes to perform DB operation $db_metric",
-          "fill": 0,
-          "gridPos": {
-            "h": 9,
-            "w": 12,
-            "x": 12,
-            "y": 35
-          },
-          "id": 719,
-          "legend": {
-            "alignAsTable": true,
-            "avg": true,
-            "current": true,
-            "max": true,
-            "min": true,
-            "show": true,
-            "total": false,
-            "values": true
-          },
-          "lines": true,
-          "linewidth": 1,
-          "links": [],
-          "minSpan": 12,
-          "nullPointMode": "null",
-          "percentage": false,
-          "pointradius": 5,
-          "points": false,
-          "renderer": "flot",
-          "repeat": null,
-          "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -6232,10 +6913,10 @@
           "gridPos": {
             "h": 9,
             "w": 12,
-            "x": 0,
-            "y": 44
+            "x": 12,
+            "y": 48
           },
-          "id": 720,
+          "id": 1023,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -6249,15 +6930,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -6347,125 +7029,10 @@
           "gridPos": {
             "h": 9,
             "w": 12,
-            "x": 12,
-            "y": 44
-          },
-          "id": 721,
-          "legend": {
-            "alignAsTable": true,
-            "avg": true,
-            "current": true,
-            "max": true,
-            "min": true,
-            "show": true,
-            "total": false,
-            "values": true
-          },
-          "lines": true,
-          "linewidth": 1,
-          "links": [],
-          "minSpan": 12,
-          "nullPointMode": "null",
-          "percentage": false,
-          "pointradius": 5,
-          "points": false,
-          "renderer": "flot",
-          "repeat": null,
-          "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
-          "repeatPanelId": 29,
-          "scopedVars": {
-            "db_metric": {
-              "selected": false,
-              "text": "delete_publishqueue",
-              "value": "delete_publishqueue"
-            }
-          },
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
-              "format": "time_series",
-              "hide": false,
-              "intervalFactor": 1,
-              "legendFormat": "Duration",
-              "refId": "A"
-            },
-            {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds{environment=~\"$environment\",instance=~\"$instance\", quantile=\"0.75\"}\n)",
-              "format": "time_series",
-              "hide": false,
-              "intervalFactor": 1,
-              "legendFormat": "P75",
-              "refId": "B"
-            },
-            {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds{environment=~\"$environment\",instance=~\"$instance\", quantile=\"0.99\"}\n)",
-              "format": "time_series",
-              "hide": false,
-              "intervalFactor": 1,
-              "legendFormat": "P99",
-              "refId": "C"
-            }
-          ],
-          "thresholds": [],
-          "timeFrom": null,
-          "timeRegions": [],
-          "timeShift": null,
-          "title": "Average duration: $db_metric",
-          "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "type": "graph",
-          "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "format": "s",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            },
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            }
-          ],
-          "yaxis": {
-            "align": false,
-            "alignLevel": null
-          }
-        },
-        {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "description": "Average duration across selected nodes to perform DB operation $db_metric",
-          "fill": 0,
-          "gridPos": {
-            "h": 9,
-            "w": 12,
             "x": 0,
-            "y": 53
+            "y": 57
           },
-          "id": 722,
+          "id": 1024,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -6479,15 +7046,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -6578,9 +7146,9 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 53
+            "y": 57
           },
-          "id": 723,
+          "id": 1025,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -6594,15 +7162,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -6693,9 +7262,9 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 62
+            "y": 66
           },
-          "id": 724,
+          "id": 1026,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -6709,15 +7278,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -6808,9 +7378,9 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 62
+            "y": 66
           },
-          "id": 725,
+          "id": 1027,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -6824,15 +7394,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -6923,9 +7494,9 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 71
+            "y": 75
           },
-          "id": 726,
+          "id": 1028,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -6939,15 +7510,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -7038,9 +7610,9 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 71
+            "y": 75
           },
-          "id": 727,
+          "id": 1029,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -7054,15 +7626,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -7153,9 +7726,9 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 80
+            "y": 84
           },
-          "id": 728,
+          "id": 1030,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -7169,15 +7742,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -7268,9 +7842,9 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 80
+            "y": 84
           },
-          "id": 729,
+          "id": 1031,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -7284,15 +7858,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -7383,9 +7958,9 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 89
+            "y": 93
           },
-          "id": 730,
+          "id": 1032,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -7399,15 +7974,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -7498,9 +8074,9 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 89
+            "y": 93
           },
-          "id": 731,
+          "id": 1033,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -7514,15 +8090,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -7613,9 +8190,9 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 98
+            "y": 102
           },
-          "id": 732,
+          "id": 1034,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -7629,15 +8206,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -7728,9 +8306,9 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 98
+            "y": 102
           },
-          "id": 733,
+          "id": 1035,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -7744,15 +8322,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -7843,9 +8422,9 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 107
+            "y": 111
           },
-          "id": 734,
+          "id": 1036,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -7859,15 +8438,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -7958,9 +8538,9 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 107
+            "y": 111
           },
-          "id": 735,
+          "id": 1037,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -7974,15 +8554,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -8073,9 +8654,9 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 116
+            "y": 120
           },
-          "id": 736,
+          "id": 1038,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -8089,130 +8670,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
-          "repeatPanelId": 29,
-          "scopedVars": {
-            "db_metric": {
-              "selected": false,
-              "text": "insert_ledger_header_history",
-              "value": "insert_ledger_header_history"
-            }
-          },
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
-              "format": "time_series",
-              "hide": false,
-              "intervalFactor": 1,
-              "legendFormat": "Duration",
-              "refId": "A"
-            },
-            {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds{environment=~\"$environment\",instance=~\"$instance\", quantile=\"0.75\"}\n)",
-              "format": "time_series",
-              "hide": false,
-              "intervalFactor": 1,
-              "legendFormat": "P75",
-              "refId": "B"
-            },
-            {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds{environment=~\"$environment\",instance=~\"$instance\", quantile=\"0.99\"}\n)",
-              "format": "time_series",
-              "hide": false,
-              "intervalFactor": 1,
-              "legendFormat": "P99",
-              "refId": "C"
-            }
-          ],
-          "thresholds": [],
-          "timeFrom": null,
-          "timeRegions": [],
-          "timeShift": null,
-          "title": "Average duration: $db_metric",
-          "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "type": "graph",
-          "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "format": "s",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            },
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            }
-          ],
-          "yaxis": {
-            "align": false,
-            "alignLevel": null
-          }
-        },
-        {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "description": "Average duration across selected nodes to perform DB operation $db_metric",
-          "fill": 0,
-          "gridPos": {
-            "h": 9,
-            "w": 12,
-            "x": 12,
-            "y": 116
-          },
-          "id": 737,
-          "legend": {
-            "alignAsTable": true,
-            "avg": true,
-            "current": true,
-            "max": true,
-            "min": true,
-            "show": true,
-            "total": false,
-            "values": true
-          },
-          "lines": true,
-          "linewidth": 1,
-          "links": [],
-          "minSpan": 12,
-          "nullPointMode": "null",
-          "percentage": false,
-          "pointradius": 5,
-          "points": false,
-          "renderer": "flot",
-          "repeat": null,
-          "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -8302,10 +8769,10 @@
           "gridPos": {
             "h": 9,
             "w": 12,
-            "x": 0,
-            "y": 125
+            "x": 12,
+            "y": 120
           },
-          "id": 738,
+          "id": 1039,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -8319,15 +8786,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -8417,125 +8885,10 @@
           "gridPos": {
             "h": 9,
             "w": 12,
-            "x": 12,
-            "y": 125
-          },
-          "id": 739,
-          "legend": {
-            "alignAsTable": true,
-            "avg": true,
-            "current": true,
-            "max": true,
-            "min": true,
-            "show": true,
-            "total": false,
-            "values": true
-          },
-          "lines": true,
-          "linewidth": 1,
-          "links": [],
-          "minSpan": 12,
-          "nullPointMode": "null",
-          "percentage": false,
-          "pointradius": 5,
-          "points": false,
-          "renderer": "flot",
-          "repeat": null,
-          "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
-          "repeatPanelId": 29,
-          "scopedVars": {
-            "db_metric": {
-              "selected": false,
-              "text": "insert_publishqueue",
-              "value": "insert_publishqueue"
-            }
-          },
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
-              "format": "time_series",
-              "hide": false,
-              "intervalFactor": 1,
-              "legendFormat": "Duration",
-              "refId": "A"
-            },
-            {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds{environment=~\"$environment\",instance=~\"$instance\", quantile=\"0.75\"}\n)",
-              "format": "time_series",
-              "hide": false,
-              "intervalFactor": 1,
-              "legendFormat": "P75",
-              "refId": "B"
-            },
-            {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds{environment=~\"$environment\",instance=~\"$instance\", quantile=\"0.99\"}\n)",
-              "format": "time_series",
-              "hide": false,
-              "intervalFactor": 1,
-              "legendFormat": "P99",
-              "refId": "C"
-            }
-          ],
-          "thresholds": [],
-          "timeFrom": null,
-          "timeRegions": [],
-          "timeShift": null,
-          "title": "Average duration: $db_metric",
-          "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "type": "graph",
-          "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "format": "s",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            },
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            }
-          ],
-          "yaxis": {
-            "align": false,
-            "alignLevel": null
-          }
-        },
-        {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "description": "Average duration across selected nodes to perform DB operation $db_metric",
-          "fill": 0,
-          "gridPos": {
-            "h": 9,
-            "w": 12,
             "x": 0,
-            "y": 134
+            "y": 129
           },
-          "id": 740,
+          "id": 1040,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -8549,15 +8902,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -8648,9 +9002,9 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 134
+            "y": 129
           },
-          "id": 741,
+          "id": 1041,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -8664,15 +9018,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -8763,9 +9118,9 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 143
+            "y": 138
           },
-          "id": 742,
+          "id": 1042,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -8779,15 +9134,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -8878,9 +9234,9 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 143
+            "y": 138
           },
-          "id": 743,
+          "id": 1043,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -8894,15 +9250,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -8993,9 +9350,9 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 152
+            "y": 147
           },
-          "id": 744,
+          "id": 1044,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -9009,15 +9366,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -9108,9 +9466,9 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 152
+            "y": 147
           },
-          "id": 745,
+          "id": 1045,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -9124,15 +9482,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -9223,9 +9582,9 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 161
+            "y": 156
           },
-          "id": 746,
+          "id": 1046,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -9239,15 +9598,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -9338,9 +9698,9 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 161
+            "y": 156
           },
-          "id": 747,
+          "id": 1047,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -9354,15 +9714,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -9453,9 +9814,9 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 170
+            "y": 165
           },
-          "id": 748,
+          "id": 1048,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -9469,15 +9830,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -9568,9 +9930,9 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 170
+            "y": 165
           },
-          "id": 749,
+          "id": 1049,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -9584,15 +9946,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -9683,9 +10046,9 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 179
+            "y": 174
           },
-          "id": 750,
+          "id": 1050,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -9699,15 +10062,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -9798,9 +10162,9 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 179
+            "y": 174
           },
-          "id": 751,
+          "id": 1051,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -9814,15 +10178,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -9913,9 +10278,9 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 188
+            "y": 183
           },
-          "id": 752,
+          "id": 1052,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -9929,15 +10294,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -10028,9 +10394,9 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 188
+            "y": 183
           },
-          "id": 753,
+          "id": 1053,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -10044,15 +10410,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -10143,9 +10510,9 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 197
+            "y": 192
           },
-          "id": 754,
+          "id": 1054,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -10159,130 +10526,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
-          "repeatPanelId": 29,
-          "scopedVars": {
-            "db_metric": {
-              "selected": false,
-              "text": "select_ledger_header_history",
-              "value": "select_ledger_header_history"
-            }
-          },
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
-              "format": "time_series",
-              "hide": false,
-              "intervalFactor": 1,
-              "legendFormat": "Duration",
-              "refId": "A"
-            },
-            {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds{environment=~\"$environment\",instance=~\"$instance\", quantile=\"0.75\"}\n)",
-              "format": "time_series",
-              "hide": false,
-              "intervalFactor": 1,
-              "legendFormat": "P75",
-              "refId": "B"
-            },
-            {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds{environment=~\"$environment\",instance=~\"$instance\", quantile=\"0.99\"}\n)",
-              "format": "time_series",
-              "hide": false,
-              "intervalFactor": 1,
-              "legendFormat": "P99",
-              "refId": "C"
-            }
-          ],
-          "thresholds": [],
-          "timeFrom": null,
-          "timeRegions": [],
-          "timeShift": null,
-          "title": "Average duration: $db_metric",
-          "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "type": "graph",
-          "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "format": "s",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            },
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            }
-          ],
-          "yaxis": {
-            "align": false,
-            "alignLevel": null
-          }
-        },
-        {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "description": "Average duration across selected nodes to perform DB operation $db_metric",
-          "fill": 0,
-          "gridPos": {
-            "h": 9,
-            "w": 12,
-            "x": 12,
-            "y": 197
-          },
-          "id": 755,
-          "legend": {
-            "alignAsTable": true,
-            "avg": true,
-            "current": true,
-            "max": true,
-            "min": true,
-            "show": true,
-            "total": false,
-            "values": true
-          },
-          "lines": true,
-          "linewidth": 1,
-          "links": [],
-          "minSpan": 12,
-          "nullPointMode": "null",
-          "percentage": false,
-          "pointradius": 5,
-          "points": false,
-          "renderer": "flot",
-          "repeat": null,
-          "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -10372,10 +10625,10 @@
           "gridPos": {
             "h": 9,
             "w": 12,
-            "x": 0,
-            "y": 206
+            "x": 12,
+            "y": 192
           },
-          "id": 756,
+          "id": 1055,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -10389,15 +10642,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -10487,125 +10741,10 @@
           "gridPos": {
             "h": 9,
             "w": 12,
-            "x": 12,
-            "y": 206
-          },
-          "id": 757,
-          "legend": {
-            "alignAsTable": true,
-            "avg": true,
-            "current": true,
-            "max": true,
-            "min": true,
-            "show": true,
-            "total": false,
-            "values": true
-          },
-          "lines": true,
-          "linewidth": 1,
-          "links": [],
-          "minSpan": 12,
-          "nullPointMode": "null",
-          "percentage": false,
-          "pointradius": 5,
-          "points": false,
-          "renderer": "flot",
-          "repeat": null,
-          "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
-          "repeatPanelId": 29,
-          "scopedVars": {
-            "db_metric": {
-              "selected": false,
-              "text": "select_publishqueue",
-              "value": "select_publishqueue"
-            }
-          },
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
-              "format": "time_series",
-              "hide": false,
-              "intervalFactor": 1,
-              "legendFormat": "Duration",
-              "refId": "A"
-            },
-            {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds{environment=~\"$environment\",instance=~\"$instance\", quantile=\"0.75\"}\n)",
-              "format": "time_series",
-              "hide": false,
-              "intervalFactor": 1,
-              "legendFormat": "P75",
-              "refId": "B"
-            },
-            {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds{environment=~\"$environment\",instance=~\"$instance\", quantile=\"0.99\"}\n)",
-              "format": "time_series",
-              "hide": false,
-              "intervalFactor": 1,
-              "legendFormat": "P99",
-              "refId": "C"
-            }
-          ],
-          "thresholds": [],
-          "timeFrom": null,
-          "timeRegions": [],
-          "timeShift": null,
-          "title": "Average duration: $db_metric",
-          "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "type": "graph",
-          "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "format": "s",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            },
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            }
-          ],
-          "yaxis": {
-            "align": false,
-            "alignLevel": null
-          }
-        },
-        {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "description": "Average duration across selected nodes to perform DB operation $db_metric",
-          "fill": 0,
-          "gridPos": {
-            "h": 9,
-            "w": 12,
             "x": 0,
-            "y": 215
+            "y": 201
           },
-          "id": 758,
+          "id": 1056,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -10619,15 +10758,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -10718,9 +10858,9 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 215
+            "y": 201
           },
-          "id": 759,
+          "id": 1057,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -10734,15 +10874,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -10833,9 +10974,9 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 224
+            "y": 210
           },
-          "id": 760,
+          "id": 1058,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -10849,15 +10990,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -10948,9 +11090,9 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 224
+            "y": 210
           },
-          "id": 761,
+          "id": 1059,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -10964,15 +11106,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -11063,9 +11206,9 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 233
+            "y": 219
           },
-          "id": 762,
+          "id": 1060,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -11079,15 +11222,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -11178,9 +11322,9 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 233
+            "y": 219
           },
-          "id": 763,
+          "id": 1061,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -11194,15 +11338,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -11293,9 +11438,9 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 242
+            "y": 228
           },
-          "id": 764,
+          "id": 1062,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -11309,15 +11454,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -11408,9 +11554,9 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 242
+            "y": 228
           },
-          "id": 765,
+          "id": 1063,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -11424,15 +11570,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -11523,9 +11670,9 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 251
+            "y": 237
           },
-          "id": 766,
+          "id": 1064,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -11539,15 +11686,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -11638,9 +11786,9 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 251
+            "y": 237
           },
-          "id": 767,
+          "id": 1065,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -11654,15 +11802,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -11753,9 +11902,9 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 260
+            "y": 246
           },
-          "id": 768,
+          "id": 1066,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -11769,15 +11918,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -11868,9 +12018,9 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 260
+            "y": 246
           },
-          "id": 769,
+          "id": 1067,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -11884,15 +12034,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -11983,9 +12134,9 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 269
+            "y": 255
           },
-          "id": 770,
+          "id": 1068,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -11999,15 +12150,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -12098,9 +12250,9 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 269
+            "y": 255
           },
-          "id": 771,
+          "id": 1069,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -12114,15 +12266,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -12213,9 +12366,9 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 278
+            "y": 264
           },
-          "id": 772,
+          "id": 1070,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -12229,130 +12382,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
-          "repeatPanelId": 29,
-          "scopedVars": {
-            "db_metric": {
-              "selected": false,
-              "text": "update_ledger_header_history",
-              "value": "update_ledger_header_history"
-            }
-          },
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
-              "format": "time_series",
-              "hide": false,
-              "intervalFactor": 1,
-              "legendFormat": "Duration",
-              "refId": "A"
-            },
-            {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds{environment=~\"$environment\",instance=~\"$instance\", quantile=\"0.75\"}\n)",
-              "format": "time_series",
-              "hide": false,
-              "intervalFactor": 1,
-              "legendFormat": "P75",
-              "refId": "B"
-            },
-            {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds{environment=~\"$environment\",instance=~\"$instance\", quantile=\"0.99\"}\n)",
-              "format": "time_series",
-              "hide": false,
-              "intervalFactor": 1,
-              "legendFormat": "P99",
-              "refId": "C"
-            }
-          ],
-          "thresholds": [],
-          "timeFrom": null,
-          "timeRegions": [],
-          "timeShift": null,
-          "title": "Average duration: $db_metric",
-          "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "type": "graph",
-          "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "format": "s",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            },
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            }
-          ],
-          "yaxis": {
-            "align": false,
-            "alignLevel": null
-          }
-        },
-        {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "description": "Average duration across selected nodes to perform DB operation $db_metric",
-          "fill": 0,
-          "gridPos": {
-            "h": 9,
-            "w": 12,
-            "x": 12,
-            "y": 278
-          },
-          "id": 773,
-          "legend": {
-            "alignAsTable": true,
-            "avg": true,
-            "current": true,
-            "max": true,
-            "min": true,
-            "show": true,
-            "total": false,
-            "values": true
-          },
-          "lines": true,
-          "linewidth": 1,
-          "links": [],
-          "minSpan": 12,
-          "nullPointMode": "null",
-          "percentage": false,
-          "pointradius": 5,
-          "points": false,
-          "renderer": "flot",
-          "repeat": null,
-          "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -12442,10 +12481,10 @@
           "gridPos": {
             "h": 9,
             "w": 12,
-            "x": 0,
-            "y": 287
+            "x": 12,
+            "y": 264
           },
-          "id": 774,
+          "id": 1071,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -12459,15 +12498,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -12557,125 +12597,10 @@
           "gridPos": {
             "h": 9,
             "w": 12,
-            "x": 12,
-            "y": 287
-          },
-          "id": 775,
-          "legend": {
-            "alignAsTable": true,
-            "avg": true,
-            "current": true,
-            "max": true,
-            "min": true,
-            "show": true,
-            "total": false,
-            "values": true
-          },
-          "lines": true,
-          "linewidth": 1,
-          "links": [],
-          "minSpan": 12,
-          "nullPointMode": "null",
-          "percentage": false,
-          "pointradius": 5,
-          "points": false,
-          "renderer": "flot",
-          "repeat": null,
-          "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
-          "repeatPanelId": 29,
-          "scopedVars": {
-            "db_metric": {
-              "selected": false,
-              "text": "update_publishqueue",
-              "value": "update_publishqueue"
-            }
-          },
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
-              "format": "time_series",
-              "hide": false,
-              "intervalFactor": 1,
-              "legendFormat": "Duration",
-              "refId": "A"
-            },
-            {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds{environment=~\"$environment\",instance=~\"$instance\", quantile=\"0.75\"}\n)",
-              "format": "time_series",
-              "hide": false,
-              "intervalFactor": 1,
-              "legendFormat": "P75",
-              "refId": "B"
-            },
-            {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds{environment=~\"$environment\",instance=~\"$instance\", quantile=\"0.99\"}\n)",
-              "format": "time_series",
-              "hide": false,
-              "intervalFactor": 1,
-              "legendFormat": "P99",
-              "refId": "C"
-            }
-          ],
-          "thresholds": [],
-          "timeFrom": null,
-          "timeRegions": [],
-          "timeShift": null,
-          "title": "Average duration: $db_metric",
-          "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "type": "graph",
-          "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "format": "s",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            },
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            }
-          ],
-          "yaxis": {
-            "align": false,
-            "alignLevel": null
-          }
-        },
-        {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "description": "Average duration across selected nodes to perform DB operation $db_metric",
-          "fill": 0,
-          "gridPos": {
-            "h": 9,
-            "w": 12,
             "x": 0,
-            "y": 296
+            "y": 273
           },
-          "id": 776,
+          "id": 1072,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -12689,15 +12614,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -12788,9 +12714,9 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 296
+            "y": 273
           },
-          "id": 777,
+          "id": 1073,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -12804,15 +12730,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -12903,9 +12830,9 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 305
+            "y": 282
           },
-          "id": 778,
+          "id": 1074,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -12919,15 +12846,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -13018,9 +12946,9 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 305
+            "y": 282
           },
-          "id": 779,
+          "id": 1075,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -13034,15 +12962,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -13133,9 +13062,9 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 314
+            "y": 291
           },
-          "id": 780,
+          "id": 1076,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -13149,15 +13078,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -13248,9 +13178,9 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 314
+            "y": 291
           },
-          "id": 781,
+          "id": 1077,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -13264,15 +13194,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -13363,9 +13294,9 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 323
+            "y": 300
           },
-          "id": 782,
+          "id": 1078,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -13379,15 +13310,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -13478,9 +13410,9 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 323
+            "y": 300
           },
-          "id": 783,
+          "id": 1079,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -13494,15 +13426,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -13593,9 +13526,9 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 332
+            "y": 309
           },
-          "id": 784,
+          "id": 1080,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -13609,15 +13542,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -13708,9 +13642,9 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 332
+            "y": 309
           },
-          "id": 785,
+          "id": 1081,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -13724,15 +13658,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -13823,9 +13758,9 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 341
+            "y": 318
           },
-          "id": 786,
+          "id": 1082,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -13839,15 +13774,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -13938,9 +13874,9 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 341
+            "y": 318
           },
-          "id": 787,
+          "id": 1083,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -13954,15 +13890,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -14053,9 +13990,9 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 350
+            "y": 327
           },
-          "id": 788,
+          "id": 1084,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -14069,15 +14006,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -14168,9 +14106,9 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 350
+            "y": 327
           },
-          "id": 789,
+          "id": 1085,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -14184,15 +14122,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560336374412,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -14283,7 +14222,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 20
+        "y": 21
       },
       "id": 98,
       "panels": [
@@ -14298,7 +14237,7 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 18
+            "y": 22
           },
           "id": 167,
           "legend": {
@@ -14314,8 +14253,9 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
@@ -14411,9 +14351,9 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 18
+            "y": 22
           },
-          "id": 618,
+          "id": 1086,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -14427,15 +14367,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560257338108,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 167,
           "scopedVars": {
             "overlay_metric": {
@@ -14526,9 +14467,9 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 27
+            "y": 31
           },
-          "id": 619,
+          "id": 1087,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -14542,15 +14483,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560257338108,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 167,
           "scopedVars": {
             "overlay_metric": {
@@ -14641,9 +14583,9 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 27
+            "y": 31
           },
-          "id": 620,
+          "id": 1088,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -14657,15 +14599,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560257338108,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 167,
           "scopedVars": {
             "overlay_metric": {
@@ -14756,9 +14699,9 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 36
+            "y": 40
           },
-          "id": 621,
+          "id": 1089,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -14772,15 +14715,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560257338108,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 167,
           "scopedVars": {
             "overlay_metric": {
@@ -14871,9 +14815,9 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 36
+            "y": 40
           },
-          "id": 622,
+          "id": 1090,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -14887,15 +14831,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560257338108,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 167,
           "scopedVars": {
             "overlay_metric": {
@@ -14986,9 +14931,9 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 45
+            "y": 49
           },
-          "id": 623,
+          "id": 1091,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -15002,15 +14947,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560257338108,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 167,
           "scopedVars": {
             "overlay_metric": {
@@ -15101,9 +15047,9 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 45
+            "y": 49
           },
-          "id": 624,
+          "id": 1092,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -15117,15 +15063,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560257338108,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 167,
           "scopedVars": {
             "overlay_metric": {
@@ -15216,9 +15163,9 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 54
+            "y": 58
           },
-          "id": 625,
+          "id": 1093,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -15232,15 +15179,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560257338108,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 167,
           "scopedVars": {
             "overlay_metric": {
@@ -15331,9 +15279,9 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 54
+            "y": 58
           },
-          "id": 626,
+          "id": 1094,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -15347,15 +15295,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560257338108,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 167,
           "scopedVars": {
             "overlay_metric": {
@@ -15446,9 +15395,9 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 63
+            "y": 67
           },
-          "id": 627,
+          "id": 1095,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -15462,15 +15411,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560257338108,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 167,
           "scopedVars": {
             "overlay_metric": {
@@ -15561,9 +15511,9 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 63
+            "y": 67
           },
-          "id": 628,
+          "id": 1096,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -15577,15 +15527,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560257338108,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 167,
           "scopedVars": {
             "overlay_metric": {
@@ -15676,9 +15627,9 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 72
+            "y": 76
           },
-          "id": 629,
+          "id": 1097,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -15692,15 +15643,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560257338108,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 167,
           "scopedVars": {
             "overlay_metric": {
@@ -15791,9 +15743,9 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 72
+            "y": 76
           },
-          "id": 630,
+          "id": 1098,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -15807,15 +15759,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560257338108,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 167,
           "scopedVars": {
             "overlay_metric": {
@@ -15906,9 +15859,9 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 81
+            "y": 85
           },
-          "id": 631,
+          "id": 1099,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -15922,15 +15875,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560257338108,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 167,
           "scopedVars": {
             "overlay_metric": {
@@ -16021,9 +15975,9 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 81
+            "y": 85
           },
-          "id": 632,
+          "id": 1100,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -16037,15 +15991,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560257338108,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 167,
           "scopedVars": {
             "overlay_metric": {
@@ -16136,9 +16091,9 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 90
+            "y": 94
           },
-          "id": 633,
+          "id": 1101,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -16152,15 +16107,16 @@
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "minSpan": 12,
+          "maxPerRow": 2,
           "nullPointMode": "null",
+          "options": {},
           "percentage": false,
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1560257338108,
+          "repeatIteration": 1563206986569,
           "repeatPanelId": 167,
           "scopedVars": {
             "overlay_metric": {
@@ -16246,9 +16202,11 @@
     }
   ],
   "refresh": false,
-  "schemaVersion": 16,
+  "schemaVersion": 18,
   "style": "dark",
-  "tags": [],
+  "tags": [
+    "stellar-core"
+  ],
   "templating": {
     "list": [
       {
@@ -16395,5 +16353,5 @@
   "timezone": "",
   "title": "Stellar Core Full",
   "uid": "DCQsHZ7Wk",
-  "version": 65
+  "version": 66
 }
