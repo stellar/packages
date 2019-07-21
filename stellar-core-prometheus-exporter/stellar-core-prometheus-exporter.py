@@ -86,10 +86,12 @@ class StellarCoreHandler(BaseHTTPRequestHandler):
         self.info_url = args.stellar_core_address + '/info'
         self.metrics_url = args.stellar_core_address + '/metrics'
         self.info_keys = ['ledger', 'peers', 'protocol_version', 'quorum', 'startedOn', 'state']
+        self.state_metrics = ['booting', 'joining scp', 'connected', 'catching up', 'synced', 'stopping']
         self.ledger_metrics = {'age': 'age', 'baseFee': 'base_fee', 'baseReserve': 'base_reserve',
                                'closeTime': 'close_time', 'maxTxSetSize': 'max_tx_set_size',
                                'num': 'num', 'version': 'version'}
         self.quorum_metrics = ['agree', 'delayed', 'disagree', 'fail_at', 'missing']
+        self.quorum_phase_metrics = ['unknown', 'prepare', 'confirm', 'externalize']
         # Examples:
         #   "stellar-core 11.1.0-unstablerc2 (324c1bd61b0e9bada63e0d696d799421b00a7950)"
         #   "stellar-core 11.1.0 (324c1bd61b0e9bada63e0d696d799421b00a7950)"
@@ -223,6 +225,15 @@ class StellarCoreHandler(BaseHTTPRequestHandler):
                       self.label_names, registry=self.registry)
             g.labels(*self.labels).set(tmp[metric])
 
+        for metric in self.quorum_phase_metrics:
+            g = Gauge('stellar_core_quorum_phase_{}'.format(metric),
+                      'Stellar core quorum phase {}'.format(metric),
+                      self.label_names, registry=self.registry)
+            if tmp['phase'].lower() == metric:
+                g.labels(*self.labels).set(1)
+            else:
+                g.labels(*self.labels).set(0)
+
         # Versions >=11.2.0 expose more info about quorum
         if 'transitive' in info['quorum']:
             g = Gauge('stellar_core_quorum_transitive_intersection',
@@ -256,11 +267,15 @@ class StellarCoreHandler(BaseHTTPRequestHandler):
                   self.label_names, registry=self.registry)
         g.labels(*self.labels).set(info['protocol_version'])
 
-        g = Gauge('stellar_core_synced', 'Stellar core sync status', self.label_names, registry=self.registry)
-        if info['state'] == 'Synced!':
-            g.labels(*self.labels).set(1)
-        else:
-            g.labels(*self.labels).set(0)
+        for metric in self.state_metrics:
+            name = re.sub('\s', '_', metric)
+            g = Gauge('stellar_core_{}'.format(name),
+                      'Stellar core state {}'.format(metric),
+                      self.label_names, registry=self.registry)
+            if info['state'].lower().startswith(metric):  # Use startswith to work around "!"
+                g.labels(*self.labels).set(1)
+            else:
+                g.labels(*self.labels).set(0)
 
         g = Gauge('stellar_core_started_on', 'Stellar core start time in epoch', self.label_names, registry=self.registry)
         date = datetime.strptime(info['startedOn'], "%Y-%m-%dT%H:%M:%SZ")
