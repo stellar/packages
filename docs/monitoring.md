@@ -78,7 +78,7 @@ Pointing your Prometheus instance to the exporter can be achieved by manually co
 
 #### Create Alerting Rules
 
-Once prometheus scrapes metrics we can add alerting rules. Recommended rules are [here](stellar-core-alerting.rules) (require prometheus 2.0 or later). Copy rules to /etc/prometheus/stellar-core-alerting.rules on the prometheus server and add the following to the prometheus configuration file to include the file:
+Once prometheus scrapes metrics we can add alerting rules. Recommended rules are [**here**](stellar-core-alerting.rules) (require prometheus 2.0 or later). Copy rules to */etc/prometheus/stellar-core-alerting.rules* on the prometheus server and add the following to the prometheus configuration file to include the file:
 ```yaml
 rule_files:
 - "/etc/prometheus/stellar-core-alerting.rules"
@@ -136,11 +136,6 @@ You may find the below exporters useful for monitoring your infrastructure as th
 #### Visualize metrics using Grafana
 Now that you have configured Prometheus to scrape and store your stellar-core metrics, you will want a nice way to render this data for human consumption. Grafana offers the simplest and most effective way to achieve this. Again installing Grafana is out of scope of this document but is a very simple process, especially when using the prebuilt apt packages (https://grafana.com/docs/installation/debian/#apt-repository)
 
-##### Stellar Core Full dashboard
-We have created a `Stellar Core Full` Grafana dashboard which exposes a simple health summary as well as all `stellar-core-prometheus-exporter` metrics. This dashboard is available for installation at https://grafana.com/dashboards/10334.
-
-###### Health Summary
-![Stellar Core Full Health Summary](../images/stellar-core-full-health-summary.png)
-
-###### Overlay Metrics
-![Stellar Core Full Overlay Metrics](../images/stellar-core-full-overlay-metrics.png)
+We recommend that administrators import the following two dashboards into their grafana deployments:
+* [**Stellar Core Monitoring**](https://grafana.com/grafana/dashboards/10603) - shows the most important metrics, node status and tries to surface common problems. It's a good troubleshooting starting point
+* [**Stellar Core Full**](https://grafana.com/grafana/dashboards/10334) - shows a simple health summary as well as all metrics exposed by the `stellar-core-prometheus-exporter`. It's much more detailed than the *Stellar Core Monitoring* and might be useful during in-depth troubleshooting
