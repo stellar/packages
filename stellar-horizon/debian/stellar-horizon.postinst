@@ -42,11 +42,13 @@ case "$1" in
           if echo "SELECT 'horizon' FROM information_schema.tables WHERE table_schema = 'public' AND table_name = 'history_ledgers';" | runuser -l ${ROLE} -c "psql '${db_connection_string}' -tA" 2>&1 | grep 'horizon' > /dev/null; then
             sudo -u ${ROLE} stellar-horizon --db-url "$db_connection_string" db migrate up && echo 'info: migrated database'
           else
-            echo "warning: no migrations run"
-            echo "warning: db has not yet been initialised, try running 'stellar-horizon-cmd db init'"
+            echo "warning: the horizon database is not yet initialised, try running 'stellar-horizon-cmd db init'"
+            echo "warning: migrations have not been run; won't attempt to start horizon"
+            exit 0
           fi
         else
-          echo "warning: it appears the horizon database is not configured yet, migrations have not been run"
+          echo "warning: the stellar postgresql role doesn't exist yet; won't attempt to start horizon"
+          exit 0
         fi
       fi
     fi
