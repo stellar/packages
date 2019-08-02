@@ -47,7 +47,7 @@ case "$1" in
             exit 0
           fi
         else
-          echo "warning: the stellar postgresql role doesn't exist yet; won't attempt to start horizon"
+          echo "warning: either the stellar postgresql role and/or the horizon database doesn't exist yet; won't attempt to start horizon"
           exit 0
         fi
       fi
