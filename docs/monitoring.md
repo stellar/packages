@@ -106,6 +106,7 @@ route:
   group_wait: 30s
   group_interval: 5m
   repeat_interval: 1h
+  routes:
   - receiver: critical-alerts
     match:
       severity: critical
