@@ -52,7 +52,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1563965343060,
+  "iteration": 1566383087969,
   "links": [
     {
       "icon": "external link",
@@ -1185,7 +1185,7 @@
             "h": 9,
             "w": 24,
             "x": 0,
-            "y": 39
+            "y": 3
           },
           "id": 26,
           "legend": {
@@ -1234,7 +1234,7 @@
               "refId": "B"
             },
             {
-              "expr": "avg(\n  stellar_core_bucket_batch_addtime_seconds_sum{environment=~\"$environment\", instance=~\"$instance\"} / \n  stellar_core_bucket_batch_addtime_seconds_count{environment=~\"$environment\", instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_bucket_batch_addtime_seconds_sum{environment=~\"$environment\", instance=~\"$instance\"}[1m])\n  / irate(stellar_core_bucket_batch_addtime_seconds_count{environment=~\"$environment\", instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "Average",
@@ -1302,7 +1302,7 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 48
+            "y": 12
           },
           "id": 28,
           "legend": {
@@ -1411,7 +1411,7 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 48
+            "y": 12
           },
           "id": 27,
           "legend": {
@@ -1533,7 +1533,7 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 40
+            "y": 4
           },
           "id": 34,
           "legend": {
@@ -1641,7 +1641,7 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 40
+            "y": 4
           },
           "id": 35,
           "legend": {
@@ -1749,7 +1749,7 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 49
+            "y": 13
           },
           "id": 36,
           "legend": {
@@ -1857,7 +1857,7 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 49
+            "y": 13
           },
           "id": 37,
           "legend": {
@@ -1970,7 +1970,7 @@
             "h": 9,
             "w": 24,
             "x": 0,
-            "y": 41
+            "y": 5
           },
           "id": 41,
           "legend": {
@@ -2005,7 +2005,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_app_post_on_main_thread_delay_seconds_sum{environment=~\"$environment\", instance=~\"$instance\"} / \n  stellar_core_app_post_on_main_thread_delay_seconds_count{environment=~\"$environment\", instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_app_post_on_main_thread_delay_seconds_sum{environment=~\"$environment\", instance=~\"$instance\"}[1m])\n  / irate(stellar_core_app_post_on_main_thread_delay_seconds_count{environment=~\"$environment\", instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "Average",
@@ -2087,7 +2087,7 @@
             "h": 9,
             "w": 24,
             "x": 0,
-            "y": 50
+            "y": 14
           },
           "id": 42,
           "legend": {
@@ -2122,7 +2122,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_app_post_on_background_thread_delay_seconds_sum{environment=~\"$environment\", instance=~\"$instance\"} / \n  stellar_core_app_post_on_background_thread_delay_seconds_count{environment=~\"$environment\", instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_app_post_on_background_thread_delay_seconds_sum{environment=~\"$environment\", instance=~\"$instance\"}[1m])\n  / irate(stellar_core_app_post_on_background_thread_delay_seconds_count{environment=~\"$environment\", instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "Average",
@@ -2218,7 +2218,7 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 42
+            "y": 6
           },
           "id": 39,
           "legend": {
@@ -2252,7 +2252,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "stellar_core_crypto_verify_hit{environment=~\"$environment\",instance=~\"$instance\"}\n/ stellar_core_crypto_verify_total{environment=~\"$environment\",instance=~\"$instance\"}\n* 100",
+              "expr": "irate(stellar_core_crypto_verify_hit{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n/ irate(stellar_core_crypto_verify_total{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n* 100",
               "format": "time_series",
               "hide": false,
               "interval": "",
@@ -2261,7 +2261,7 @@
               "refId": "A"
             },
             {
-              "expr": "avg(\n  stellar_core_crypto_verify_hit{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_crypto_verify_total{environment=~\"$environment\",instance=~\"$instance\"}\n  * 100\n)",
+              "expr": "avg(\n  irate(stellar_core_crypto_verify_hit{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_crypto_verify_total{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  * 100\n)",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "Average",
@@ -2408,5 +2408,5 @@
   "timezone": "",
   "title": "Stellar Core Monitoring",
   "uid": "KJw_1BHZz",
-  "version": 2
+  "version": 3
 }

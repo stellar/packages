@@ -59,7 +59,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1563264039427,
+  "iteration": 1566383072719,
   "links": [
     {
       "icon": "external link",
@@ -1590,7 +1590,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(stellar_core_ledger_operation_count_sum{environment=~\"$environment\",instance=~\"$instance\"} / stellar_core_ledger_operation_count_count{environment=~\"$environment\",instance=~\"$instance\"})",
+              "expr": "avg(irate(stellar_core_ledger_operation_count_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m]) / irate(stellar_core_ledger_operation_count_count{environment=~\"$environment\",instance=~\"$instance\"}[1m]))",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "Average",
@@ -1696,7 +1696,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(stellar_core_ledger_transaction_count_sum{environment=~\"$environment\",instance=~\"$instance\"} / stellar_core_ledger_transaction_count_count{environment=~\"$environment\",instance=~\"$instance\"})",
+              "expr": "avg(irate(stellar_core_ledger_transaction_count_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m]) / irate(stellar_core_ledger_transaction_count_count{environment=~\"$environment\",instance=~\"$instance\"}[1m]))",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "Average",
@@ -1797,7 +1797,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_ledger_age_closed_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_ledger_age_closed_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_ledger_age_closed_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_ledger_age_closed_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "Average",
@@ -1900,7 +1900,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_ledger_ledger_close_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_ledger_ledger_close_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_ledger_ledger_close_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_ledger_ledger_close_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "Average",
@@ -2003,7 +2003,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_ledger_operation_apply_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_ledger_operation_apply_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_ledger_operation_apply_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_ledger_operation_apply_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "Average",
@@ -2106,7 +2106,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_ledger_transaction_apply_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_ledger_transaction_apply_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_ledger_transaction_apply_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_ledger_transaction_apply_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "Average",
@@ -3032,7 +3032,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_scp_timing_externalized_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_scp_timing_externalized_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_scp_timing_externalized_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_scp_timing_externalized_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "Average",
@@ -3135,7 +3135,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_scp_timing_nominated_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_scp_timing_nominated_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_scp_timing_nominated_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_scp_timing_nominated_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "Average",
@@ -3238,7 +3238,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_scp_timeout_nominate_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_scp_timeout_nominate_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_scp_timeout_nominate_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_scp_timeout_nominate_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "Average",
@@ -3341,7 +3341,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_scp_timeout_prepare_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_scp_timeout_prepare_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_scp_timeout_prepare_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_scp_timeout_prepare_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "Average",
@@ -3854,7 +3854,7 @@
             "h": 9,
             "w": 19,
             "x": 0,
-            "y": 15
+            "y": 108
           },
           "id": 23,
           "legend": {
@@ -3986,6 +3986,7 @@
           "seriesOverrides": [
             {
               "alias": "Hit %",
+              "linewidth": 2,
               "yaxis": 2
             }
           ],
@@ -4010,7 +4011,7 @@
               "refId": "B"
             },
             {
-              "expr": "avg(\n  stellar_core_crypto_verify_hit{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_crypto_verify_total{environment=~\"$environment\",instance=~\"$instance\"}\n  * 100\n)",
+              "expr": "avg(\n  irate(stellar_core_crypto_verify_hit{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_crypto_verify_total{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  * 100\n)",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "Hit %",
@@ -4112,7 +4113,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_bucket_batch_addtime_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_bucket_batch_addtime_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_bucket_batch_addtime_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_bucket_batch_addtime_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "Average",
@@ -4214,7 +4215,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_bucket_snap_merge_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_bucket_snap_merge_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_bucket_snap_merge_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_bucket_snap_merge_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "Average",
@@ -5311,7 +5312,7 @@
             "x": 12,
             "y": 55
           },
-          "id": 1014,
+          "id": 1370,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -5334,7 +5335,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 604,
           "scopedVars": {
             "archive_metric": {
@@ -5417,7 +5418,7 @@
             "x": 0,
             "y": 64
           },
-          "id": 1015,
+          "id": 1371,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -5440,7 +5441,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 604,
           "scopedVars": {
             "archive_metric": {
@@ -5523,7 +5524,7 @@
             "x": 12,
             "y": 64
           },
-          "id": 1016,
+          "id": 1372,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -5546,7 +5547,325 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
+          "repeatPanelId": 604,
+          "scopedVars": {
+            "archive_metric": {
+              "selected": false,
+              "text": "core_testnet_001",
+              "value": "core_testnet_001"
+            }
+          },
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "avg(rate(stellar_core_history_archive_${archive_metric}_success{environment=~\"$environment\",instance=~\"$instance\"}[1m]))",
+              "format": "time_series",
+              "intervalFactor": 1,
+              "legendFormat": "Success",
+              "refId": "A"
+            },
+            {
+              "expr": "avg(rate(stellar_core_history_archive_${archive_metric}_failure{environment=~\"$environment\",instance=~\"$instance\"}[1m]))",
+              "format": "time_series",
+              "intervalFactor": 1,
+              "legendFormat": "Failure",
+              "refId": "B"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
+          "title": "History archive $archive_metric",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "ops",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "description": "History archive $archive_metric",
+          "fill": 1,
+          "gridPos": {
+            "h": 9,
+            "w": 12,
+            "x": 0,
+            "y": 73
+          },
+          "id": 1373,
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": true,
+            "max": true,
+            "min": true,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "maxPerRow": 2,
+          "nullPointMode": "null",
+          "options": {},
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "repeat": null,
+          "repeatDirection": "h",
+          "repeatIteration": 1566299571580,
+          "repeatPanelId": 604,
+          "scopedVars": {
+            "archive_metric": {
+              "selected": false,
+              "text": "core_testnet_002",
+              "value": "core_testnet_002"
+            }
+          },
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "avg(rate(stellar_core_history_archive_${archive_metric}_success{environment=~\"$environment\",instance=~\"$instance\"}[1m]))",
+              "format": "time_series",
+              "intervalFactor": 1,
+              "legendFormat": "Success",
+              "refId": "A"
+            },
+            {
+              "expr": "avg(rate(stellar_core_history_archive_${archive_metric}_failure{environment=~\"$environment\",instance=~\"$instance\"}[1m]))",
+              "format": "time_series",
+              "intervalFactor": 1,
+              "legendFormat": "Failure",
+              "refId": "B"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
+          "title": "History archive $archive_metric",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "ops",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "description": "History archive $archive_metric",
+          "fill": 1,
+          "gridPos": {
+            "h": 9,
+            "w": 12,
+            "x": 12,
+            "y": 73
+          },
+          "id": 1374,
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": true,
+            "max": true,
+            "min": true,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "maxPerRow": 2,
+          "nullPointMode": "null",
+          "options": {},
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "repeat": null,
+          "repeatDirection": "h",
+          "repeatIteration": 1566299571580,
+          "repeatPanelId": 604,
+          "scopedVars": {
+            "archive_metric": {
+              "selected": false,
+              "text": "core_testnet_003",
+              "value": "core_testnet_003"
+            }
+          },
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "avg(rate(stellar_core_history_archive_${archive_metric}_success{environment=~\"$environment\",instance=~\"$instance\"}[1m]))",
+              "format": "time_series",
+              "intervalFactor": 1,
+              "legendFormat": "Success",
+              "refId": "A"
+            },
+            {
+              "expr": "avg(rate(stellar_core_history_archive_${archive_metric}_failure{environment=~\"$environment\",instance=~\"$instance\"}[1m]))",
+              "format": "time_series",
+              "intervalFactor": 1,
+              "legendFormat": "Failure",
+              "refId": "B"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
+          "title": "History archive $archive_metric",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "ops",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "description": "History archive $archive_metric",
+          "fill": 1,
+          "gridPos": {
+            "h": 9,
+            "w": 12,
+            "x": 0,
+            "y": 82
+          },
+          "id": 1375,
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": true,
+            "max": true,
+            "min": true,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "maxPerRow": 2,
+          "nullPointMode": "null",
+          "options": {},
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "repeat": null,
+          "repeatDirection": "h",
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 604,
           "scopedVars": {
             "archive_metric": {
@@ -5626,10 +5945,10 @@
           "gridPos": {
             "h": 9,
             "w": 12,
-            "x": 0,
-            "y": 73
+            "x": 12,
+            "y": 82
           },
-          "id": 1017,
+          "id": 1376,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -5652,7 +5971,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 604,
           "scopedVars": {
             "archive_metric": {
@@ -5732,10 +6051,10 @@
           "gridPos": {
             "h": 9,
             "w": 12,
-            "x": 12,
-            "y": 73
+            "x": 0,
+            "y": 91
           },
-          "id": 1018,
+          "id": 1377,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -5758,13 +6077,331 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 604,
           "scopedVars": {
             "archive_metric": {
               "selected": false,
               "text": "h3",
               "value": "h3"
+            }
+          },
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "avg(rate(stellar_core_history_archive_${archive_metric}_success{environment=~\"$environment\",instance=~\"$instance\"}[1m]))",
+              "format": "time_series",
+              "intervalFactor": 1,
+              "legendFormat": "Success",
+              "refId": "A"
+            },
+            {
+              "expr": "avg(rate(stellar_core_history_archive_${archive_metric}_failure{environment=~\"$environment\",instance=~\"$instance\"}[1m]))",
+              "format": "time_series",
+              "intervalFactor": 1,
+              "legendFormat": "Failure",
+              "refId": "B"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
+          "title": "History archive $archive_metric",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "ops",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "description": "History archive $archive_metric",
+          "fill": 1,
+          "gridPos": {
+            "h": 9,
+            "w": 12,
+            "x": 12,
+            "y": 91
+          },
+          "id": 1378,
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": true,
+            "max": true,
+            "min": true,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "maxPerRow": 2,
+          "nullPointMode": "null",
+          "options": {},
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "repeat": null,
+          "repeatDirection": "h",
+          "repeatIteration": 1566299571580,
+          "repeatPanelId": 604,
+          "scopedVars": {
+            "archive_metric": {
+              "selected": false,
+              "text": "sdf_testnet_1",
+              "value": "sdf_testnet_1"
+            }
+          },
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "avg(rate(stellar_core_history_archive_${archive_metric}_success{environment=~\"$environment\",instance=~\"$instance\"}[1m]))",
+              "format": "time_series",
+              "intervalFactor": 1,
+              "legendFormat": "Success",
+              "refId": "A"
+            },
+            {
+              "expr": "avg(rate(stellar_core_history_archive_${archive_metric}_failure{environment=~\"$environment\",instance=~\"$instance\"}[1m]))",
+              "format": "time_series",
+              "intervalFactor": 1,
+              "legendFormat": "Failure",
+              "refId": "B"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
+          "title": "History archive $archive_metric",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "ops",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "description": "History archive $archive_metric",
+          "fill": 1,
+          "gridPos": {
+            "h": 9,
+            "w": 12,
+            "x": 0,
+            "y": 100
+          },
+          "id": 1379,
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": true,
+            "max": true,
+            "min": true,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "maxPerRow": 2,
+          "nullPointMode": "null",
+          "options": {},
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "repeat": null,
+          "repeatDirection": "h",
+          "repeatIteration": 1566299571580,
+          "repeatPanelId": 604,
+          "scopedVars": {
+            "archive_metric": {
+              "selected": false,
+              "text": "sdf_testnet_2",
+              "value": "sdf_testnet_2"
+            }
+          },
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "avg(rate(stellar_core_history_archive_${archive_metric}_success{environment=~\"$environment\",instance=~\"$instance\"}[1m]))",
+              "format": "time_series",
+              "intervalFactor": 1,
+              "legendFormat": "Success",
+              "refId": "A"
+            },
+            {
+              "expr": "avg(rate(stellar_core_history_archive_${archive_metric}_failure{environment=~\"$environment\",instance=~\"$instance\"}[1m]))",
+              "format": "time_series",
+              "intervalFactor": 1,
+              "legendFormat": "Failure",
+              "refId": "B"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
+          "title": "History archive $archive_metric",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "ops",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "description": "History archive $archive_metric",
+          "fill": 1,
+          "gridPos": {
+            "h": 9,
+            "w": 12,
+            "x": 12,
+            "y": 100
+          },
+          "id": 1380,
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": true,
+            "max": true,
+            "min": true,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "maxPerRow": 2,
+          "nullPointMode": "null",
+          "options": {},
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "repeat": null,
+          "repeatDirection": "h",
+          "repeatIteration": 1566299571580,
+          "repeatPanelId": 604,
+          "scopedVars": {
+            "archive_metric": {
+              "selected": false,
+              "text": "sdf_testnet_3",
+              "value": "sdf_testnet_3"
             }
           },
           "seriesOverrides": [],
@@ -5964,7 +6601,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_app_post_on_background_thread_delay_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}/\n  stellar_core_app_post_on_background_thread_delay_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_app_post_on_background_thread_delay_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_app_post_on_background_thread_delay_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "Average",
@@ -6063,7 +6700,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_app_post_on_main_thread_delay_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}/\n  stellar_core_app_post_on_main_thread_delay_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_app_post_on_main_thread_delay_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_app_post_on_main_thread_delay_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "Average",
@@ -6162,7 +6799,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_app_post_on_main_thread_with_delay_delay_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}/\n  stellar_core_app_post_on_main_thread_with_delay_delay_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_app_post_on_main_thread_with_delay_delay_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_app_post_on_main_thread_with_delay_delay_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "Average",
@@ -6374,11 +7011,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -6452,7 +7089,7 @@
             "x": 12,
             "y": 30
           },
-          "id": 1019,
+          "id": 1472,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -6475,7 +7112,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -6490,11 +7127,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -6568,7 +7205,7 @@
             "x": 0,
             "y": 39
           },
-          "id": 1020,
+          "id": 1473,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -6591,7 +7228,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -6606,11 +7243,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -6684,7 +7321,7 @@
             "x": 12,
             "y": 39
           },
-          "id": 1021,
+          "id": 1474,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -6707,7 +7344,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -6722,11 +7359,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -6800,7 +7437,7 @@
             "x": 0,
             "y": 48
           },
-          "id": 1022,
+          "id": 1475,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -6823,7 +7460,123 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
+          "repeatPanelId": 29,
+          "scopedVars": {
+            "db_metric": {
+              "selected": false,
+              "text": "delete_ledger_header_history",
+              "value": "delete_ledger_header_history"
+            }
+          },
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
+              "format": "time_series",
+              "hide": false,
+              "intervalFactor": 1,
+              "legendFormat": "Average",
+              "refId": "A"
+            },
+            {
+              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds{environment=~\"$environment\",instance=~\"$instance\", quantile=\"0.75\"}\n)",
+              "format": "time_series",
+              "hide": false,
+              "intervalFactor": 1,
+              "legendFormat": "P75",
+              "refId": "B"
+            },
+            {
+              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds{environment=~\"$environment\",instance=~\"$instance\", quantile=\"0.99\"}\n)",
+              "format": "time_series",
+              "hide": false,
+              "intervalFactor": 1,
+              "legendFormat": "P99",
+              "refId": "C"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
+          "title": "Average duration: $db_metric",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "s",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "description": "Average duration across selected nodes to perform DB operation $db_metric",
+          "fill": 0,
+          "gridPos": {
+            "h": 9,
+            "w": 12,
+            "x": 12,
+            "y": 48
+          },
+          "id": 1476,
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": true,
+            "max": true,
+            "min": true,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "maxPerRow": 2,
+          "nullPointMode": "null",
+          "options": {},
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "repeat": null,
+          "repeatDirection": "h",
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -6838,11 +7591,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -6913,10 +7666,10 @@
           "gridPos": {
             "h": 9,
             "w": 12,
-            "x": 12,
-            "y": 48
+            "x": 0,
+            "y": 57
           },
-          "id": 1023,
+          "id": 1477,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -6939,7 +7692,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -6954,11 +7707,127 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
+              "refId": "A"
+            },
+            {
+              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds{environment=~\"$environment\",instance=~\"$instance\", quantile=\"0.75\"}\n)",
+              "format": "time_series",
+              "hide": false,
+              "intervalFactor": 1,
+              "legendFormat": "P75",
+              "refId": "B"
+            },
+            {
+              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds{environment=~\"$environment\",instance=~\"$instance\", quantile=\"0.99\"}\n)",
+              "format": "time_series",
+              "hide": false,
+              "intervalFactor": 1,
+              "legendFormat": "P99",
+              "refId": "C"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
+          "title": "Average duration: $db_metric",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "s",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "description": "Average duration across selected nodes to perform DB operation $db_metric",
+          "fill": 0,
+          "gridPos": {
+            "h": 9,
+            "w": 12,
+            "x": 12,
+            "y": 57
+          },
+          "id": 1478,
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": true,
+            "max": true,
+            "min": true,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "maxPerRow": 2,
+          "nullPointMode": "null",
+          "options": {},
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "repeat": null,
+          "repeatDirection": "h",
+          "repeatIteration": 1566299571580,
+          "repeatPanelId": 29,
+          "scopedVars": {
+            "db_metric": {
+              "selected": false,
+              "text": "delete_publishqueue",
+              "value": "delete_publishqueue"
+            }
+          },
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
+              "format": "time_series",
+              "hide": false,
+              "intervalFactor": 1,
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -7030,9 +7899,9 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 57
+            "y": 66
           },
-          "id": 1024,
+          "id": 1479,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -7055,7 +7924,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -7070,11 +7939,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -7146,9 +8015,9 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 57
+            "y": 66
           },
-          "id": 1025,
+          "id": 1480,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -7171,7 +8040,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -7186,11 +8055,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -7262,9 +8131,9 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 66
+            "y": 75
           },
-          "id": 1026,
+          "id": 1481,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -7287,7 +8156,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -7302,11 +8171,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -7378,9 +8247,9 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 66
+            "y": 75
           },
-          "id": 1027,
+          "id": 1482,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -7403,7 +8272,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -7418,11 +8287,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -7494,9 +8363,9 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 75
+            "y": 84
           },
-          "id": 1028,
+          "id": 1483,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -7519,7 +8388,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -7534,11 +8403,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -7610,9 +8479,9 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 75
+            "y": 84
           },
-          "id": 1029,
+          "id": 1484,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -7635,7 +8504,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -7650,11 +8519,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -7726,9 +8595,9 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 84
+            "y": 93
           },
-          "id": 1030,
+          "id": 1485,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -7751,7 +8620,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -7766,11 +8635,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -7842,9 +8711,9 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 84
+            "y": 93
           },
-          "id": 1031,
+          "id": 1486,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -7867,7 +8736,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -7882,11 +8751,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -7958,9 +8827,9 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 93
+            "y": 102
           },
-          "id": 1032,
+          "id": 1487,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -7983,7 +8852,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -7998,11 +8867,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -8074,9 +8943,9 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 93
+            "y": 102
           },
-          "id": 1033,
+          "id": 1488,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -8099,7 +8968,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -8114,11 +8983,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -8190,9 +9059,9 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 102
+            "y": 111
           },
-          "id": 1034,
+          "id": 1489,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -8215,7 +9084,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -8230,11 +9099,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -8306,9 +9175,9 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 102
+            "y": 111
           },
-          "id": 1035,
+          "id": 1490,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -8331,7 +9200,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -8346,11 +9215,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -8422,9 +9291,9 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 111
+            "y": 120
           },
-          "id": 1036,
+          "id": 1491,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -8447,7 +9316,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -8462,11 +9331,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -8538,9 +9407,9 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 111
+            "y": 120
           },
-          "id": 1037,
+          "id": 1492,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -8563,7 +9432,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -8578,11 +9447,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -8654,9 +9523,9 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 120
+            "y": 129
           },
-          "id": 1038,
+          "id": 1493,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -8679,7 +9548,123 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
+          "repeatPanelId": 29,
+          "scopedVars": {
+            "db_metric": {
+              "selected": false,
+              "text": "insert_ledger_header_history",
+              "value": "insert_ledger_header_history"
+            }
+          },
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
+              "format": "time_series",
+              "hide": false,
+              "intervalFactor": 1,
+              "legendFormat": "Average",
+              "refId": "A"
+            },
+            {
+              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds{environment=~\"$environment\",instance=~\"$instance\", quantile=\"0.75\"}\n)",
+              "format": "time_series",
+              "hide": false,
+              "intervalFactor": 1,
+              "legendFormat": "P75",
+              "refId": "B"
+            },
+            {
+              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds{environment=~\"$environment\",instance=~\"$instance\", quantile=\"0.99\"}\n)",
+              "format": "time_series",
+              "hide": false,
+              "intervalFactor": 1,
+              "legendFormat": "P99",
+              "refId": "C"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
+          "title": "Average duration: $db_metric",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "s",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "description": "Average duration across selected nodes to perform DB operation $db_metric",
+          "fill": 0,
+          "gridPos": {
+            "h": 9,
+            "w": 12,
+            "x": 12,
+            "y": 129
+          },
+          "id": 1494,
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": true,
+            "max": true,
+            "min": true,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "maxPerRow": 2,
+          "nullPointMode": "null",
+          "options": {},
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "repeat": null,
+          "repeatDirection": "h",
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -8694,11 +9679,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -8769,10 +9754,10 @@
           "gridPos": {
             "h": 9,
             "w": 12,
-            "x": 12,
-            "y": 120
+            "x": 0,
+            "y": 138
           },
-          "id": 1039,
+          "id": 1495,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -8795,7 +9780,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -8810,11 +9795,127 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
+              "refId": "A"
+            },
+            {
+              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds{environment=~\"$environment\",instance=~\"$instance\", quantile=\"0.75\"}\n)",
+              "format": "time_series",
+              "hide": false,
+              "intervalFactor": 1,
+              "legendFormat": "P75",
+              "refId": "B"
+            },
+            {
+              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds{environment=~\"$environment\",instance=~\"$instance\", quantile=\"0.99\"}\n)",
+              "format": "time_series",
+              "hide": false,
+              "intervalFactor": 1,
+              "legendFormat": "P99",
+              "refId": "C"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
+          "title": "Average duration: $db_metric",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "s",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "description": "Average duration across selected nodes to perform DB operation $db_metric",
+          "fill": 0,
+          "gridPos": {
+            "h": 9,
+            "w": 12,
+            "x": 12,
+            "y": 138
+          },
+          "id": 1496,
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": true,
+            "max": true,
+            "min": true,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "maxPerRow": 2,
+          "nullPointMode": "null",
+          "options": {},
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "repeat": null,
+          "repeatDirection": "h",
+          "repeatIteration": 1566299571580,
+          "repeatPanelId": 29,
+          "scopedVars": {
+            "db_metric": {
+              "selected": false,
+              "text": "insert_publishqueue",
+              "value": "insert_publishqueue"
+            }
+          },
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
+              "format": "time_series",
+              "hide": false,
+              "intervalFactor": 1,
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -8886,9 +9987,9 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 129
+            "y": 147
           },
-          "id": 1040,
+          "id": 1497,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -8911,7 +10012,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -8926,11 +10027,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -9002,9 +10103,9 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 129
+            "y": 147
           },
-          "id": 1041,
+          "id": 1498,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -9027,7 +10128,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -9042,11 +10143,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -9118,9 +10219,9 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 138
+            "y": 156
           },
-          "id": 1042,
+          "id": 1499,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -9143,7 +10244,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -9158,11 +10259,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -9234,9 +10335,9 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 138
+            "y": 156
           },
-          "id": 1043,
+          "id": 1500,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -9259,7 +10360,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -9274,11 +10375,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -9350,9 +10451,9 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 147
+            "y": 165
           },
-          "id": 1044,
+          "id": 1501,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -9375,7 +10476,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -9390,11 +10491,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -9466,9 +10567,9 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 147
+            "y": 165
           },
-          "id": 1045,
+          "id": 1502,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -9491,7 +10592,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -9506,11 +10607,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -9582,9 +10683,9 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 156
+            "y": 174
           },
-          "id": 1046,
+          "id": 1503,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -9607,7 +10708,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -9622,11 +10723,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -9698,9 +10799,9 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 156
+            "y": 174
           },
-          "id": 1047,
+          "id": 1504,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -9723,7 +10824,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -9738,11 +10839,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -9814,9 +10915,9 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 165
+            "y": 183
           },
-          "id": 1048,
+          "id": 1505,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -9839,7 +10940,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -9854,11 +10955,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -9930,9 +11031,9 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 165
+            "y": 183
           },
-          "id": 1049,
+          "id": 1506,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -9955,7 +11056,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -9970,11 +11071,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -10046,9 +11147,9 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 174
+            "y": 192
           },
-          "id": 1050,
+          "id": 1507,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -10071,7 +11172,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -10086,11 +11187,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -10162,9 +11263,9 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 174
+            "y": 192
           },
-          "id": 1051,
+          "id": 1508,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -10187,7 +11288,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -10202,11 +11303,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -10278,9 +11379,9 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 183
+            "y": 201
           },
-          "id": 1052,
+          "id": 1509,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -10303,7 +11404,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -10318,11 +11419,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -10394,9 +11495,9 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 183
+            "y": 201
           },
-          "id": 1053,
+          "id": 1510,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -10419,7 +11520,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -10434,11 +11535,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -10510,9 +11611,9 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 192
+            "y": 210
           },
-          "id": 1054,
+          "id": 1511,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -10535,7 +11636,123 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
+          "repeatPanelId": 29,
+          "scopedVars": {
+            "db_metric": {
+              "selected": false,
+              "text": "select_ledger_header_history",
+              "value": "select_ledger_header_history"
+            }
+          },
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
+              "format": "time_series",
+              "hide": false,
+              "intervalFactor": 1,
+              "legendFormat": "Average",
+              "refId": "A"
+            },
+            {
+              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds{environment=~\"$environment\",instance=~\"$instance\", quantile=\"0.75\"}\n)",
+              "format": "time_series",
+              "hide": false,
+              "intervalFactor": 1,
+              "legendFormat": "P75",
+              "refId": "B"
+            },
+            {
+              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds{environment=~\"$environment\",instance=~\"$instance\", quantile=\"0.99\"}\n)",
+              "format": "time_series",
+              "hide": false,
+              "intervalFactor": 1,
+              "legendFormat": "P99",
+              "refId": "C"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
+          "title": "Average duration: $db_metric",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "s",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "description": "Average duration across selected nodes to perform DB operation $db_metric",
+          "fill": 0,
+          "gridPos": {
+            "h": 9,
+            "w": 12,
+            "x": 12,
+            "y": 210
+          },
+          "id": 1512,
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": true,
+            "max": true,
+            "min": true,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "maxPerRow": 2,
+          "nullPointMode": "null",
+          "options": {},
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "repeat": null,
+          "repeatDirection": "h",
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -10550,11 +11767,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -10625,10 +11842,10 @@
           "gridPos": {
             "h": 9,
             "w": 12,
-            "x": 12,
-            "y": 192
+            "x": 0,
+            "y": 219
           },
-          "id": 1055,
+          "id": 1513,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -10651,7 +11868,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -10666,11 +11883,127 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
+              "refId": "A"
+            },
+            {
+              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds{environment=~\"$environment\",instance=~\"$instance\", quantile=\"0.75\"}\n)",
+              "format": "time_series",
+              "hide": false,
+              "intervalFactor": 1,
+              "legendFormat": "P75",
+              "refId": "B"
+            },
+            {
+              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds{environment=~\"$environment\",instance=~\"$instance\", quantile=\"0.99\"}\n)",
+              "format": "time_series",
+              "hide": false,
+              "intervalFactor": 1,
+              "legendFormat": "P99",
+              "refId": "C"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
+          "title": "Average duration: $db_metric",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "s",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "description": "Average duration across selected nodes to perform DB operation $db_metric",
+          "fill": 0,
+          "gridPos": {
+            "h": 9,
+            "w": 12,
+            "x": 12,
+            "y": 219
+          },
+          "id": 1514,
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": true,
+            "max": true,
+            "min": true,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "maxPerRow": 2,
+          "nullPointMode": "null",
+          "options": {},
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "repeat": null,
+          "repeatDirection": "h",
+          "repeatIteration": 1566299571580,
+          "repeatPanelId": 29,
+          "scopedVars": {
+            "db_metric": {
+              "selected": false,
+              "text": "select_publishqueue",
+              "value": "select_publishqueue"
+            }
+          },
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
+              "format": "time_series",
+              "hide": false,
+              "intervalFactor": 1,
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -10742,9 +12075,9 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 201
+            "y": 228
           },
-          "id": 1056,
+          "id": 1515,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -10767,7 +12100,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -10782,11 +12115,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -10858,9 +12191,9 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 201
+            "y": 228
           },
-          "id": 1057,
+          "id": 1516,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -10883,7 +12216,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -10898,11 +12231,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -10974,9 +12307,9 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 210
+            "y": 237
           },
-          "id": 1058,
+          "id": 1517,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -10999,7 +12332,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -11014,11 +12347,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -11090,9 +12423,9 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 210
+            "y": 237
           },
-          "id": 1059,
+          "id": 1518,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -11115,7 +12448,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -11130,11 +12463,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -11206,9 +12539,9 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 219
+            "y": 246
           },
-          "id": 1060,
+          "id": 1519,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -11231,7 +12564,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -11246,11 +12579,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -11322,9 +12655,9 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 219
+            "y": 246
           },
-          "id": 1061,
+          "id": 1520,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -11347,7 +12680,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -11362,11 +12695,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -11438,9 +12771,9 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 228
+            "y": 255
           },
-          "id": 1062,
+          "id": 1521,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -11463,7 +12796,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -11478,11 +12811,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -11554,9 +12887,9 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 228
+            "y": 255
           },
-          "id": 1063,
+          "id": 1522,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -11579,7 +12912,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -11594,11 +12927,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -11670,9 +13003,9 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 237
+            "y": 264
           },
-          "id": 1064,
+          "id": 1523,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -11695,7 +13028,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -11710,11 +13043,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -11786,9 +13119,9 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 237
+            "y": 264
           },
-          "id": 1065,
+          "id": 1524,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -11811,7 +13144,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -11826,11 +13159,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -11902,9 +13235,9 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 246
+            "y": 273
           },
-          "id": 1066,
+          "id": 1525,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -11927,7 +13260,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -11942,11 +13275,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -12018,9 +13351,9 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 246
+            "y": 273
           },
-          "id": 1067,
+          "id": 1526,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -12043,7 +13376,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -12058,11 +13391,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -12134,9 +13467,9 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 255
+            "y": 282
           },
-          "id": 1068,
+          "id": 1527,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -12159,7 +13492,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -12174,11 +13507,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -12250,9 +13583,9 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 255
+            "y": 282
           },
-          "id": 1069,
+          "id": 1528,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -12275,7 +13608,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -12290,11 +13623,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -12366,9 +13699,9 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 264
+            "y": 291
           },
-          "id": 1070,
+          "id": 1529,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -12391,7 +13724,123 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
+          "repeatPanelId": 29,
+          "scopedVars": {
+            "db_metric": {
+              "selected": false,
+              "text": "update_ledger_header_history",
+              "value": "update_ledger_header_history"
+            }
+          },
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
+              "format": "time_series",
+              "hide": false,
+              "intervalFactor": 1,
+              "legendFormat": "Average",
+              "refId": "A"
+            },
+            {
+              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds{environment=~\"$environment\",instance=~\"$instance\", quantile=\"0.75\"}\n)",
+              "format": "time_series",
+              "hide": false,
+              "intervalFactor": 1,
+              "legendFormat": "P75",
+              "refId": "B"
+            },
+            {
+              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds{environment=~\"$environment\",instance=~\"$instance\", quantile=\"0.99\"}\n)",
+              "format": "time_series",
+              "hide": false,
+              "intervalFactor": 1,
+              "legendFormat": "P99",
+              "refId": "C"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
+          "title": "Average duration: $db_metric",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "s",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "description": "Average duration across selected nodes to perform DB operation $db_metric",
+          "fill": 0,
+          "gridPos": {
+            "h": 9,
+            "w": 12,
+            "x": 12,
+            "y": 291
+          },
+          "id": 1530,
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": true,
+            "max": true,
+            "min": true,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "maxPerRow": 2,
+          "nullPointMode": "null",
+          "options": {},
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "repeat": null,
+          "repeatDirection": "h",
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -12406,11 +13855,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -12481,10 +13930,10 @@
           "gridPos": {
             "h": 9,
             "w": 12,
-            "x": 12,
-            "y": 264
+            "x": 0,
+            "y": 300
           },
-          "id": 1071,
+          "id": 1531,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -12507,7 +13956,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -12522,11 +13971,127 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
+              "refId": "A"
+            },
+            {
+              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds{environment=~\"$environment\",instance=~\"$instance\", quantile=\"0.75\"}\n)",
+              "format": "time_series",
+              "hide": false,
+              "intervalFactor": 1,
+              "legendFormat": "P75",
+              "refId": "B"
+            },
+            {
+              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds{environment=~\"$environment\",instance=~\"$instance\", quantile=\"0.99\"}\n)",
+              "format": "time_series",
+              "hide": false,
+              "intervalFactor": 1,
+              "legendFormat": "P99",
+              "refId": "C"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
+          "title": "Average duration: $db_metric",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "s",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "description": "Average duration across selected nodes to perform DB operation $db_metric",
+          "fill": 0,
+          "gridPos": {
+            "h": 9,
+            "w": 12,
+            "x": 12,
+            "y": 300
+          },
+          "id": 1532,
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": true,
+            "max": true,
+            "min": true,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "maxPerRow": 2,
+          "nullPointMode": "null",
+          "options": {},
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "repeat": null,
+          "repeatDirection": "h",
+          "repeatIteration": 1566299571580,
+          "repeatPanelId": 29,
+          "scopedVars": {
+            "db_metric": {
+              "selected": false,
+              "text": "update_publishqueue",
+              "value": "update_publishqueue"
+            }
+          },
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
+              "format": "time_series",
+              "hide": false,
+              "intervalFactor": 1,
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -12598,9 +14163,9 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 273
+            "y": 309
           },
-          "id": 1072,
+          "id": 1533,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -12623,7 +14188,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -12638,11 +14203,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -12714,9 +14279,9 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 273
+            "y": 309
           },
-          "id": 1073,
+          "id": 1534,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -12739,7 +14304,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -12754,11 +14319,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -12830,9 +14395,9 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 282
+            "y": 318
           },
-          "id": 1074,
+          "id": 1535,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -12855,7 +14420,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -12870,11 +14435,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -12946,9 +14511,9 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 282
+            "y": 318
           },
-          "id": 1075,
+          "id": 1536,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -12971,7 +14536,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -12986,11 +14551,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -13062,9 +14627,9 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 291
+            "y": 327
           },
-          "id": 1076,
+          "id": 1537,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -13087,7 +14652,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -13102,11 +14667,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -13178,9 +14743,9 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 291
+            "y": 327
           },
-          "id": 1077,
+          "id": 1538,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -13203,7 +14768,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -13218,11 +14783,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -13294,9 +14859,9 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 300
+            "y": 336
           },
-          "id": 1078,
+          "id": 1539,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -13319,7 +14884,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -13334,11 +14899,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -13410,9 +14975,9 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 300
+            "y": 336
           },
-          "id": 1079,
+          "id": 1540,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -13435,7 +15000,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -13450,11 +15015,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -13526,9 +15091,9 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 309
+            "y": 345
           },
-          "id": 1080,
+          "id": 1541,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -13551,7 +15116,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -13566,11 +15131,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -13642,9 +15207,9 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 309
+            "y": 345
           },
-          "id": 1081,
+          "id": 1542,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -13667,7 +15232,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -13682,11 +15247,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -13758,9 +15323,9 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 318
+            "y": 354
           },
-          "id": 1082,
+          "id": 1543,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -13783,7 +15348,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -13798,11 +15363,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -13874,9 +15439,9 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 318
+            "y": 354
           },
-          "id": 1083,
+          "id": 1544,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -13899,7 +15464,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -13914,11 +15479,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -13990,9 +15555,9 @@
             "h": 9,
             "w": 12,
             "x": 0,
-            "y": 327
+            "y": 363
           },
-          "id": 1084,
+          "id": 1545,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -14015,7 +15580,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -14030,11 +15595,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -14106,9 +15671,9 @@
             "h": 9,
             "w": 12,
             "x": 12,
-            "y": 327
+            "y": 363
           },
-          "id": 1085,
+          "id": 1546,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -14131,7 +15696,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 29,
           "scopedVars": {
             "db_metric": {
@@ -14146,11 +15711,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_database_${db_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_database_${db_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -14275,11 +15840,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_overlay_${overlay_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_overlay_${overlay_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_overlay_${overlay_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_overlay_${overlay_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -14303,7 +15868,7 @@
           "timeFrom": null,
           "timeRegions": [],
           "timeShift": null,
-          "title": "Average duration: $overlay_metric",
+          "title": "Average Duration: $overlay_metric",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -14353,7 +15918,7 @@
             "x": 12,
             "y": 22
           },
-          "id": 1086,
+          "id": 1456,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -14376,7 +15941,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 167,
           "scopedVars": {
             "overlay_metric": {
@@ -14391,11 +15956,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_overlay_${overlay_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_overlay_${overlay_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_overlay_${overlay_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_overlay_${overlay_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -14419,7 +15984,7 @@
           "timeFrom": null,
           "timeRegions": [],
           "timeShift": null,
-          "title": "Average duration: $overlay_metric",
+          "title": "Average Duration: $overlay_metric",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -14469,7 +16034,7 @@
             "x": 0,
             "y": 31
           },
-          "id": 1087,
+          "id": 1457,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -14492,7 +16057,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 167,
           "scopedVars": {
             "overlay_metric": {
@@ -14507,11 +16072,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_overlay_${overlay_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_overlay_${overlay_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_overlay_${overlay_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_overlay_${overlay_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -14535,7 +16100,7 @@
           "timeFrom": null,
           "timeRegions": [],
           "timeShift": null,
-          "title": "Average duration: $overlay_metric",
+          "title": "Average Duration: $overlay_metric",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -14585,7 +16150,7 @@
             "x": 12,
             "y": 31
           },
-          "id": 1088,
+          "id": 1458,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -14608,7 +16173,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 167,
           "scopedVars": {
             "overlay_metric": {
@@ -14623,11 +16188,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_overlay_${overlay_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_overlay_${overlay_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_overlay_${overlay_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_overlay_${overlay_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -14651,7 +16216,7 @@
           "timeFrom": null,
           "timeRegions": [],
           "timeShift": null,
-          "title": "Average duration: $overlay_metric",
+          "title": "Average Duration: $overlay_metric",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -14701,7 +16266,7 @@
             "x": 0,
             "y": 40
           },
-          "id": 1089,
+          "id": 1459,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -14724,7 +16289,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 167,
           "scopedVars": {
             "overlay_metric": {
@@ -14739,11 +16304,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_overlay_${overlay_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_overlay_${overlay_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_overlay_${overlay_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_overlay_${overlay_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -14767,7 +16332,7 @@
           "timeFrom": null,
           "timeRegions": [],
           "timeShift": null,
-          "title": "Average duration: $overlay_metric",
+          "title": "Average Duration: $overlay_metric",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -14817,7 +16382,7 @@
             "x": 12,
             "y": 40
           },
-          "id": 1090,
+          "id": 1460,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -14840,7 +16405,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 167,
           "scopedVars": {
             "overlay_metric": {
@@ -14855,11 +16420,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_overlay_${overlay_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_overlay_${overlay_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_overlay_${overlay_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_overlay_${overlay_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -14883,7 +16448,7 @@
           "timeFrom": null,
           "timeRegions": [],
           "timeShift": null,
-          "title": "Average duration: $overlay_metric",
+          "title": "Average Duration: $overlay_metric",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -14933,7 +16498,7 @@
             "x": 0,
             "y": 49
           },
-          "id": 1091,
+          "id": 1461,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -14956,7 +16521,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 167,
           "scopedVars": {
             "overlay_metric": {
@@ -14971,11 +16536,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_overlay_${overlay_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_overlay_${overlay_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_overlay_${overlay_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_overlay_${overlay_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -14999,7 +16564,7 @@
           "timeFrom": null,
           "timeRegions": [],
           "timeShift": null,
-          "title": "Average duration: $overlay_metric",
+          "title": "Average Duration: $overlay_metric",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -15049,7 +16614,7 @@
             "x": 12,
             "y": 49
           },
-          "id": 1092,
+          "id": 1462,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -15072,7 +16637,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 167,
           "scopedVars": {
             "overlay_metric": {
@@ -15087,11 +16652,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_overlay_${overlay_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_overlay_${overlay_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_overlay_${overlay_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_overlay_${overlay_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -15115,7 +16680,7 @@
           "timeFrom": null,
           "timeRegions": [],
           "timeShift": null,
-          "title": "Average duration: $overlay_metric",
+          "title": "Average Duration: $overlay_metric",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -15165,7 +16730,7 @@
             "x": 0,
             "y": 58
           },
-          "id": 1093,
+          "id": 1463,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -15188,7 +16753,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 167,
           "scopedVars": {
             "overlay_metric": {
@@ -15203,11 +16768,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_overlay_${overlay_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_overlay_${overlay_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_overlay_${overlay_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_overlay_${overlay_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -15231,7 +16796,7 @@
           "timeFrom": null,
           "timeRegions": [],
           "timeShift": null,
-          "title": "Average duration: $overlay_metric",
+          "title": "Average Duration: $overlay_metric",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -15281,7 +16846,7 @@
             "x": 12,
             "y": 58
           },
-          "id": 1094,
+          "id": 1464,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -15304,7 +16869,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 167,
           "scopedVars": {
             "overlay_metric": {
@@ -15319,11 +16884,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_overlay_${overlay_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_overlay_${overlay_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_overlay_${overlay_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_overlay_${overlay_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -15347,7 +16912,7 @@
           "timeFrom": null,
           "timeRegions": [],
           "timeShift": null,
-          "title": "Average duration: $overlay_metric",
+          "title": "Average Duration: $overlay_metric",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -15397,7 +16962,7 @@
             "x": 0,
             "y": 67
           },
-          "id": 1095,
+          "id": 1465,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -15420,7 +16985,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 167,
           "scopedVars": {
             "overlay_metric": {
@@ -15435,11 +17000,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_overlay_${overlay_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_overlay_${overlay_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_overlay_${overlay_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_overlay_${overlay_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -15463,7 +17028,7 @@
           "timeFrom": null,
           "timeRegions": [],
           "timeShift": null,
-          "title": "Average duration: $overlay_metric",
+          "title": "Average Duration: $overlay_metric",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -15513,7 +17078,7 @@
             "x": 12,
             "y": 67
           },
-          "id": 1096,
+          "id": 1466,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -15536,7 +17101,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 167,
           "scopedVars": {
             "overlay_metric": {
@@ -15551,11 +17116,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_overlay_${overlay_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_overlay_${overlay_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_overlay_${overlay_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_overlay_${overlay_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -15579,7 +17144,7 @@
           "timeFrom": null,
           "timeRegions": [],
           "timeShift": null,
-          "title": "Average duration: $overlay_metric",
+          "title": "Average Duration: $overlay_metric",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -15629,7 +17194,7 @@
             "x": 0,
             "y": 76
           },
-          "id": 1097,
+          "id": 1467,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -15652,7 +17217,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 167,
           "scopedVars": {
             "overlay_metric": {
@@ -15667,11 +17232,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_overlay_${overlay_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_overlay_${overlay_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_overlay_${overlay_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_overlay_${overlay_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -15695,7 +17260,7 @@
           "timeFrom": null,
           "timeRegions": [],
           "timeShift": null,
-          "title": "Average duration: $overlay_metric",
+          "title": "Average Duration: $overlay_metric",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -15745,7 +17310,7 @@
             "x": 12,
             "y": 76
           },
-          "id": 1098,
+          "id": 1468,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -15768,7 +17333,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 167,
           "scopedVars": {
             "overlay_metric": {
@@ -15783,11 +17348,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_overlay_${overlay_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_overlay_${overlay_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_overlay_${overlay_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_overlay_${overlay_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -15811,7 +17376,7 @@
           "timeFrom": null,
           "timeRegions": [],
           "timeShift": null,
-          "title": "Average duration: $overlay_metric",
+          "title": "Average Duration: $overlay_metric",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -15861,7 +17426,7 @@
             "x": 0,
             "y": 85
           },
-          "id": 1099,
+          "id": 1469,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -15884,7 +17449,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 167,
           "scopedVars": {
             "overlay_metric": {
@@ -15899,11 +17464,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_overlay_${overlay_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_overlay_${overlay_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_overlay_${overlay_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_overlay_${overlay_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -15927,7 +17492,7 @@
           "timeFrom": null,
           "timeRegions": [],
           "timeShift": null,
-          "title": "Average duration: $overlay_metric",
+          "title": "Average Duration: $overlay_metric",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -15977,7 +17542,7 @@
             "x": 12,
             "y": 85
           },
-          "id": 1100,
+          "id": 1470,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -16000,7 +17565,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 167,
           "scopedVars": {
             "overlay_metric": {
@@ -16015,11 +17580,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_overlay_${overlay_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_overlay_${overlay_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_overlay_${overlay_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_overlay_${overlay_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -16043,7 +17608,7 @@
           "timeFrom": null,
           "timeRegions": [],
           "timeShift": null,
-          "title": "Average duration: $overlay_metric",
+          "title": "Average Duration: $overlay_metric",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -16093,7 +17658,7 @@
             "x": 0,
             "y": 94
           },
-          "id": 1101,
+          "id": 1471,
           "legend": {
             "alignAsTable": true,
             "avg": true,
@@ -16116,7 +17681,7 @@
           "renderer": "flot",
           "repeat": null,
           "repeatDirection": "h",
-          "repeatIteration": 1563206986569,
+          "repeatIteration": 1566299571580,
           "repeatPanelId": 167,
           "scopedVars": {
             "overlay_metric": {
@@ -16131,11 +17696,11 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "avg(\n  stellar_core_overlay_${overlay_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}\n  / stellar_core_overlay_${overlay_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}\n)",
+              "expr": "avg(\n  irate(stellar_core_overlay_${overlay_metric}_seconds_sum{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n  / irate(stellar_core_overlay_${overlay_metric}_seconds_count{environment=~\"$environment\",instance=~\"$instance\"}[1m])\n)",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Duration",
+              "legendFormat": "Average",
               "refId": "A"
             },
             {
@@ -16159,7 +17724,7 @@
           "timeFrom": null,
           "timeRegions": [],
           "timeShift": null,
-          "title": "Average duration: $overlay_metric",
+          "title": "Average Duration: $overlay_metric",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -16353,5 +17918,5 @@
   "timezone": "",
   "title": "Stellar Core Full",
   "uid": "DCQsHZ7Wk",
-  "version": 66
+  "version": 68
 }
