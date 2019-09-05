@@ -1,0 +1,6 @@
+The Debian Package stellar-account-prometheus-exporter
+----------------------------
+
+This package deploys and configures a prometheus exporter that exposes stellar account details in prometheus format
+
+ -- Package Maintainer <packages@stellar.org>  Wed, 21 Aug 2019 14:30:00 +0000
