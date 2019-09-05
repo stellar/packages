@@ -251,6 +251,15 @@ class StellarCoreHandler(BaseHTTPRequestHandler):
                       'Stellar core quorum transitive node_count',
                       self.label_names, registry=self.registry)
             g.labels(*self.labels).set(info['quorum']['transitive']['node_count'])
+            # Versions >=11.3.0 expose "critical" key
+            if 'critical' in info['quorum']['transitive']:
+                g = Gauge('stellar_core_quorum_transitive_critical',
+                          'Stellar core quorum transitive critical',
+                          self.label_names, registry=self.registry)
+                if info['quorum']['transitive']['critical']:
+                    g.labels(*self.labels).set(1)
+                else:
+                    g.labels(*self.labels).set(0)
 
         # Peers metrics
         g = Gauge('stellar_core_peers_authenticated_count',
