@@ -1,0 +1,16 @@
+#!/usr/bin/make -f
+# See debhelper(7) (uncomment to enable)
+# output every command that modifies files on the build system.
+#export DH_VERBOSE = 1
+
+# See pybuild(1)
+export PYBUILD_NAME=stellar-account-prometheus-exporter
+export PYBUILD_SYSTEM=distutils
+
+%:
+	dh $@ --with systemd --with python3 --buildsystem=pybuild
+
+override_dh_auto_test:
+
+override_dh_systemd_start:
+	dh_systemd_start --restart-after-upgrade

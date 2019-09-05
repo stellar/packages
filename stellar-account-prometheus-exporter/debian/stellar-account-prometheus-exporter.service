@@ -1,0 +1,12 @@
+[Unit]
+Description=SDF - stellar-account-prometheus-exporter
+
+[Service]
+Type=simple
+EnvironmentFile=-/etc/default/stellar-account-prometheus-exporter
+ExecStart=/usr/bin/stellar-account-prometheus-exporter $DAEMON_OPTS
+KillMode=process
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
