@@ -10,6 +10,6 @@ Homepage: https://github.com/stellar/stellar-account-prometheus-exporter
 
 Package: stellar-account-prometheus-exporter
 Architecture: any
-Depends: ${misc:Depends}, ${python3:Depends}
+Depends: ${misc:Depends}, ${python3:Depends}, python3-prometheus-client
 Description: This package deploys and configures a prometheus exporter
  that exposes stellar account details in prometheus format
