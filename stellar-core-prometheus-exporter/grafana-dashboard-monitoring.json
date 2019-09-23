@@ -52,7 +52,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1566383087969,
+  "iteration": 1568976847842,
   "links": [
     {
       "icon": "external link",
@@ -89,7 +89,7 @@
       "fontSize": "100%",
       "gridPos": {
         "h": 9,
-        "w": 12,
+        "w": 8,
         "x": 0,
         "y": 1
       },
@@ -186,8 +186,8 @@
       "fontSize": "100%",
       "gridPos": {
         "h": 9,
-        "w": 12,
-        "x": 12,
+        "w": 8,
+        "x": 8,
         "y": 1
       },
       "id": 9,
@@ -270,6 +270,97 @@
         }
       ],
       "title": "Quorum intersection",
+      "transform": "timeseries_aggregations",
+      "type": "table"
+    },
+    {
+      "columns": [
+        {
+          "text": "Current",
+          "value": "current"
+        }
+      ],
+      "description": "Quorum Transitive Critical Peers\nPer-instance details",
+      "fontSize": "100%",
+      "gridPos": {
+        "h": 9,
+        "w": 8,
+        "x": 16,
+        "y": 1
+      },
+      "id": 47,
+      "links": [],
+      "options": {},
+      "pageSize": null,
+      "scroll": true,
+      "showHeader": true,
+      "sort": {
+        "col": 0,
+        "desc": true
+      },
+      "styles": [
+        {
+          "alias": "Instance - peer name",
+          "colorMode": null,
+          "colors": [
+            "rgba(50, 172, 45, 0.97)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(245, 54, 54, 0.9)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "/Metric/",
+          "preserveFormat": false,
+          "thresholds": [
+            ""
+          ],
+          "type": "string",
+          "unit": "short"
+        },
+        {
+          "alias": "Critical",
+          "colorMode": "row",
+          "colors": [
+            "rgba(50, 172, 45, 0.97)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(245, 54, 54, 0.9)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 0,
+          "mappingType": 1,
+          "pattern": "/Current/",
+          "thresholds": [
+            "1",
+            "1"
+          ],
+          "type": "string",
+          "unit": "short",
+          "valueMaps": [
+            {
+              "text": "Yes",
+              "value": "1"
+            },
+            {
+              "text": "No",
+              "value": "0"
+            }
+          ]
+        }
+      ],
+      "targets": [
+        {
+          "expr": "stellar_core_quorum_transitive_critical{environment=~\"$environment\",instance=~\"$instance\"} == 1",
+          "format": "time_series",
+          "instant": true,
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - {{peer}}",
+          "refId": "A"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Quorum Transitive Critical Peers Details",
       "transform": "timeseries_aggregations",
       "type": "table"
     },
@@ -2353,7 +2444,7 @@
         "useTags": false
       },
       {
-        "allValue": null,
+        "allValue": ".*",
         "current": {},
         "datasource": "${DS_PROMETHEUS}",
         "definition": "label_values(stellar_core_started_on{environment=~\"$environment\"}, instance)",
@@ -2407,6 +2498,6 @@
   },
   "timezone": "",
   "title": "Stellar Core Monitoring",
-  "uid": "KJw_1BHZz",
-  "version": 3
+  "uid": "FkxF22IWk",
+  "version": 21
 }
