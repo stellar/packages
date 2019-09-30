@@ -52,20 +52,22 @@ class StellarCoreHandler(BaseHTTPRequestHandler):
             response = requests.get(self.info_url)
             json = response.json()
             build = json['info']['build']
+            network = json['info']['network']
         except Exception:
-            return ['unknown', 'unknown', 'unknown', 'unknown']
+            return ['unknown', 'unknown', 'unknown', 'unknown', 'unknown']
         match = self.build_regex.match(build)
         build = re.sub('\s', '_', build).lower()
         build = re.sub('\(|\)', '', build)
 
         if not match:
-            return ['unknown', 'unknown', 'unknown', build]
+            return ['unknown', 'unknown', 'unknown', build, network]
 
         labels = [
             match.group(2),
             match.group(3),
             match.group(4),
             build,
+            network,
         ]
         return labels
 
@@ -85,7 +87,7 @@ class StellarCoreHandler(BaseHTTPRequestHandler):
     def set_vars(self):
         self.info_url = args.stellar_core_address + '/info'
         self.metrics_url = args.stellar_core_address + '/metrics'
-        self.info_keys = ['ledger', 'peers', 'protocol_version', 'quorum', 'startedOn', 'state']
+        self.info_keys = ['ledger', 'network', 'peers', 'protocol_version', 'quorum', 'startedOn', 'state']
         self.state_metrics = ['booting', 'joining scp', 'connected', 'catching up', 'synced', 'stopping']
         self.ledger_metrics = {'age': 'age', 'baseFee': 'base_fee', 'baseReserve': 'base_reserve',
                                'closeTime': 'close_time', 'maxTxSetSize': 'max_tx_set_size',
@@ -99,7 +101,7 @@ class StellarCoreHandler(BaseHTTPRequestHandler):
         self.build_regex = re.compile('(stellar-core|v) ?(\d+)\.(\d+)\.(\d+).*$')
 
         self.registry = CollectorRegistry()
-        self.label_names = ["ver_major", "ver_minor", "ver_patch", "build"]
+        self.label_names = ["ver_major", "ver_minor", "ver_patch", "build", "network"]
         self.labels = self.get_labels()
 
     def error(self, code, msg):
