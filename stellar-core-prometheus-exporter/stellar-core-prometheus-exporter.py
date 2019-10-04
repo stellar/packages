@@ -257,14 +257,14 @@ class StellarCoreHandler(BaseHTTPRequestHandler):
             if 'critical' in info['quorum']['transitive']:
                 g = Gauge('stellar_core_quorum_transitive_critical',
                           'Stellar core quorum transitive critical',
-                          self.label_names + ['peer'], registry=self.registry)
+                          self.label_names + ['critical_validators'], registry=self.registry)
                 if info['quorum']['transitive']['critical']:
                     for peer_list in info['quorum']['transitive']['critical']:
-                        for peer in peer_list:  # critical peers are in a nested group
-                            l = self.labels + [peer]
-                            g.labels(*l).set(1)
+                        critical_peers = ','.join(sorted(peer_list))  # label value is comma separated listof peers
+                        l = self.labels + [critical_peers]
+                        g.labels(*l).set(1)
                 else:
-                    l = self.labels + ['']  # peer label set to empty string
+                    l = self.labels + ['']  # critical_validators label set to empty string
                     g.labels(*l).set(0)
 
         # Peers metrics
