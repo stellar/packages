@@ -10,13 +10,13 @@ or environment variables.
 
 For list of supported options run the exporter with --help switch
 
-# Grafana dashboard
+# Grafana dashboards
 
-Grafana can be used to visualise data. Example dashboards are shipped with this
-package. Latest versions is also available on [grafana.com](https://grafana.com/orgs/stellar/dashboards)
+Grafana can be used to visualise metrics. Recommended dashboards can be
+downloaded from [grafana.com](https://grafana.com/orgs/stellar/dashboards)
 
 Please refer to the [documentation](https://github.com/stellar/packages/blob/master/docs/monitoring.md)
-for details.
+for more details about monitoring Stellar Core.
 
 # Docker image
 
