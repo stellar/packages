@@ -52,7 +52,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1568976847842,
+  "iteration": 1571050158330,
   "links": [
     {
       "icon": "external link",
@@ -300,7 +300,7 @@
       },
       "styles": [
         {
-          "alias": "Instance - peer name",
+          "alias": "Instance (critical validators)",
           "colorMode": null,
           "colors": [
             "rgba(50, 172, 45, 0.97)",
@@ -354,13 +354,13 @@
           "format": "time_series",
           "instant": true,
           "intervalFactor": 1,
-          "legendFormat": "{{instance}} - {{peer}}",
+          "legendFormat": "{{instance}} ({{critical_validators}})",
           "refId": "A"
         }
       ],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Quorum Transitive Critical Peers Details",
+      "title": "Quorum Transitive Critical Peers",
       "transform": "timeseries_aggregations",
       "type": "table"
     },
@@ -2499,5 +2499,5 @@
   "timezone": "",
   "title": "Stellar Core Monitoring",
   "uid": "FkxF22IWk",
-  "version": 21
+  "version": 22
 }
