@@ -1,21 +1,14 @@
 [Unit]
 Description=SDF - stellar-core-prometheus-exporter
-Before=multi-user.target
-#PartOf=stellar.service
 
 [Service]
-User=stellar
-Group=stellar
+Type=simple
 LimitNOFILE=8192
-StandardOutput=syslog
-StandardError=syslog
-SyslogIdentifier=stellar-core-prometheus-exporter
 EnvironmentFile=-/etc/default/stellar-core-prometheus-exporter
-ExecStart=/usr/bin/stellar-core-prometheus-exporter.py
+ExecStart=/usr/bin/stellar-core-prometheus-exporter
 KillMode=process
 Restart=on-failure
 RestartPreventExitStatus=255
-Type=simple
 
 [Install]
 WantedBy=multi-user.target
