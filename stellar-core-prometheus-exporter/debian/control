@@ -2,12 +2,14 @@ Source: stellar-core-prometheus-exporter
 Section: web
 Priority: optional
 Maintainer: Package Maintainer <packages@stellar.org>
-Build-Depends: debhelper (>=9), dh-systemd (>= 1.5)
+Build-Depends: debhelper (>=9), dh-systemd (>= 1.5), dh-python, python3, python3-setuptools
 Standards-Version: 3.9.6
-Homepage: https://www.stellar.org/
+Vcs-Git: https://github.com/stellar/stellar-core-prometheus-exporter.git
+Vcs-Browser: https://github.com/stellar/stellar-core-prometheus-exporter
+Homepage: https://github.com/stellar/stellar-core-prometheus-exporter
 
 Package: stellar-core-prometheus-exporter
 Architecture: any
-Depends: python-prometheus-client, python-requests
+Depends: ${misc:Depends}, ${python3:Depends}, python3-prometheus-client
 Recommends: stellar-core
 Description: This package deploys and configures a prometheus exporter for scraping stellar-core metrics
