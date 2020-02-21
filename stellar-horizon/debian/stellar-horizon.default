@@ -3,10 +3,7 @@ NETWORK_PASSPHRASE="Test SDF Network ; September 2015"
 DATABASE_URL="dbname=horizon user=stellar host=/var/run/postgresql"
 STELLAR_CORE_DATABASE_URL="dbname=stellar user=stellar host=/var/run/postgresql"
 STELLAR_CORE_URL="http://127.0.0.1:11626"
-FRIENDBOT_SECRET=
+HISTORY_ARCHIVE_URLS="https://history.stellar.org/prd/core-testnet/core_testnet_001"
 PORT=8000
-SENTRY_DSN=
-LOGGLY_TOKEN=
 PER_HOUR_RATE_LIMIT=9000
 INGEST=true
-# ingestion is currently only supported on 1 Horizon instance
