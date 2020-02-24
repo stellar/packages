@@ -16,3 +16,5 @@ stellar-horizon-postgres/debian/files
 stellar-horizon-postgres/debian/stellar-horizon-postgres.debhelper.log
 stellar-horizon-postgres/debian/stellar-horizon-postgres.substvars
 stellar-horizon-postgres/debian/stellar-horizon-postgres/
+
+.vscode/
