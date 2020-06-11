@@ -29,7 +29,7 @@ wget -qO - https://apt.stellar.org/SDF.asc | sudo apt-key add -
 ### Save the repository definition to /etc/apt/sources.list.d/SDF.list:
 
 ```
-echo "deb https://apt.stellar.org/public stable/" | sudo tee -a /etc/apt/sources.list.d/SDF.list
+echo "deb https://apt.stellar.org xenial stable" | sudo tee -a /etc/apt/sources.list.d/SDF.list
 ```
 
 ## Adding the Bleeding Edge Unstable Repository
@@ -39,4 +39,4 @@ If you would like to install our Release Candidates and/or track the Master bran
 ### Save the `unstable` repository definition to /etc/apt/sources.list.d/SDF-unstable.list:
 
 ```
-echo "deb https://apt.stellar.org/public unstable/" | sudo tee -a /etc/apt/sources.list.d/SDF-unstable.list
+echo "deb https://apt.stellar.org xenial unstable" | sudo tee -a /etc/apt/sources.list.d/SDF-unstable.list
