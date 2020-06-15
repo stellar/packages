@@ -1,6 +1,6 @@
 stellar-core (_VERSION_-_BUILD_VERSION_) stable; urgency=medium
 
-  * use clang-5.0 and llvm's libc++
+  * use clang-8 and llvm's libc++
 
   * added libc++-dev libc++abi-dev Build-Depends
 
