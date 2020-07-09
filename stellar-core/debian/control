@@ -2,13 +2,13 @@ Source: stellar-core
 Section: web
 Priority: optional
 Maintainer: Package Maintainer <packages@stellar.org>
-Build-Depends: debhelper (>=9), autoconf (>=2.69), automake (>=1.15), binutils (>=2.26), bison (>=3.0.4), build-essential (>=12.1), clang-5.0 (>=5.0), libc++-dev, libc++abi-dev, devscripts (>=2.16.2), dh-autoreconf (>=11), dh-systemd (>=1.5), flex (>=2.6.0), git (>=2.7.4), libpq-dev (>=9.5.2), libtool (>=2.4.6), pandoc (>=1.16.0.2~dfsg-1), pkg-config (>=0.29.1), libsqlite3-0 (>=3.11.0), postgresql-common
+Build-Depends: debhelper (>=9), autoconf (>=2.69), automake (>=1.15), binutils (>=2.26), bison (>=3.0.4), build-essential (>=12.1), clang-8 (>=8), libc++-8-dev, libc++abi-8-dev, devscripts (>=2.16.2), dh-autoreconf (>=11), dh-systemd (>=1.5), flex (>=2.6.0), git (>=2.7.4), libpq-dev (>=9.5.2), libtool (>=2.4.6), pandoc (>=1.16.0.2~dfsg-1), pkg-config (>=0.29.1), libsqlite3-0 (>=3.11.0), postgresql-common
 Standards-Version: 3.9.6
 Homepage: https://www.stellar.org
 
 Package: stellar-core
 Architecture: any
-Depends: libc++1, libc++abi1, libpq5, libsqlite3-0 (>=3.11.0), stellar-core-utils
+Depends: libc++1-8, libc++abi1-8, libpq5, libsqlite3-0 (>=3.11.0), stellar-core-utils
 Recommends: stellar-core-utils, stellar-core-prometheus-exporter
 Description: Stellar  is  a  decentralized, federated peer-to-peer network
  Stellar  is  a  decentralized, federated peer-to-peer network that allows people to send payments in any asset anywhere in the world instantaneously, and with minimal fee.
