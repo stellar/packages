@@ -1,0 +1,12 @@
+Source: stellar-captive-core
+Section: web
+Priority: optional
+Maintainer: Package Maintainer <packages@stellar.org>
+Build-Depends: debhelper (>=9)
+Standards-Version: 3.9.6
+Homepage: https://www.stellar.org/
+
+Package: stellar-captive-core
+Architecture: any
+Depends: stellar-core-postgres, stellar-horizon
+Description: This package will install stellar core, and stellar horizon with captive core ingest

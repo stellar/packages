@@ -1,0 +1,14 @@
+Source: stellar-captive-core-api
+Section: web
+Priority: optional
+Maintainer: Package Maintainer <packages@stellar.org>
+Build-Depends: debhelper (>=9), dh-systemd (>=1.5)
+Standards-Version: 3.9.6
+Homepage: https://www.stellar.org/
+
+Package: stellar-captive-core-api
+Architecture: any
+Description: The Captive Stellar-Core API Server can run on a separate machine 
+from Horizon. The server will manage Stellar-Core as a subprocess and provide 
+an HTTP API which Horizon can use remotely to stream ledgers for the purpose 
+of ingestion.

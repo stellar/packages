@@ -1,0 +1,7 @@
+## /etc/default/stellar-captive-core-api
+STELLAR_CORE_BINARY_PATH=/usr/bin/stellar-core
+STELLAR_CORE_CONFIG_PATH=/etc/stellar/stellar-core.cfg
+NETWORK_PASSPHRASE="Test SDF Network ; September 2015"
+HISTORY_ARCHIVE_URLS="https://history.stellar.org/prd/core-testnet/core_testnet_001"
+CAPTIVE_CORE_PORT=8000
+CAPTIVE_CORE_LOG_LEVEL=info
