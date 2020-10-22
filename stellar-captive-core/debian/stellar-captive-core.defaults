@@ -18,4 +18,3 @@ PER_HOUR_RATE_LIMIT=9000
 INGEST=true
 HISTORY_ARCHIVE_URLS="https://history.stellar.org/prd/core-testnet/core_testnet_001"
 INTERNAL_PORT=4555
-# ingestion is currently only supported on 1 Horizon instance
