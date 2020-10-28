@@ -8,5 +8,5 @@ Homepage: https://www.stellar.org/
 
 Package: stellar-captive-core
 Architecture: any
-Depends: stellar-core-postgres, stellar-horizon
+Depends: stellar-core, stellar-horizon
 Description: This package will install stellar core, and stellar horizon with captive core ingest
