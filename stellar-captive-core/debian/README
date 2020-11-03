@@ -1,0 +1,6 @@
+The Debian Package stellar-captive-core
+----------------------------
+
+This package will configure stellar core and stellar horizon, using the captive core feature.
+
+ -- Package Maintainer <packages@stellar.org>  Fri, 16 Oct 2020 13:44:05 +0000

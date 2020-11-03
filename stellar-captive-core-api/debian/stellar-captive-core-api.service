@@ -1,0 +1,21 @@
+[Unit]
+Description=SDF - stellar-captive-core-api
+Before=multi-user.target
+
+[Service]
+User=stellar
+Group=stellar
+LimitNOFILE=8192
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=stellar-captive-core-api
+EnvironmentFile=/etc/default/stellar-captive-core-api
+ExecStart=/usr/bin/stellar-captive-core-api --stellar-core-binary-path ${STELLAR_CORE_BINARY_PATH} --stellar-core-config-path ${STELLAR_CORE_CONFIG_PATH} --history-archive-urls ${HISTORY_ARCHIVE_URLS} --log-level ${CAPTIVE_CORE_LOG_LEVEL} --network-passphrase ${NETWORK_PASSPHRASE} --port ${CAPTIVE_CORE_PORT}
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=process
+Restart=on-failure
+RestartPreventExitStatus=255
+Type=simple
+
+[Install]
+WantedBy=multi-user.target
