@@ -1,0 +1,11 @@
+#!/bin/sh
+
+set -e
+
+if [ -f /lib/systemd/system/stellar-core.service ]; then
+  /bin/systemctl disable stellar-core
+fi
+
+if [ -f /lib/systemd/system/stellar-horizon.service ]; then
+  /bin/systemctl stop stlelar-horizon
+fi
