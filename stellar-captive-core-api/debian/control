@@ -9,7 +9,6 @@ Homepage: https://www.stellar.org/
 
 Package: stellar-captive-core-api
 Architecture: any
-Description: The Captive Stellar-Core API Server can run on a separate machine 
-from Horizon. The server will manage Stellar-Core as a subprocess and provide 
-an HTTP API which Horizon can use remotely to stream ledgers for the purpose 
-of ingestion.
+Description: The Captive Stellar-Core API Server can run on a separate machine from Horizon. 
+ The server will manage Stellar-Core as a subprocess and provide an HTTP API which Horizon can 
+ use remotely to stream ledgers for the purpose of ingestion.
