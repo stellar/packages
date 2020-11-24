@@ -16,7 +16,7 @@ export DEB_CXXFLAGS_MAINT_PREPEND  = -stdlib=libc++ -fno-omit-frame-pointer -isy
 # set DEB_CONFIGURE_OPTS in your environment to override
 DEB_CONFIGURE_OPTS ?= --prefix=/usr --includedir=/usr/include --mandir=/usr/share/man --infodir=/usr/share/info --sysconfdir=/etc --localstatedir=/var
 
-# set EXTRA_DEB_CONFIGURE_OPTS in your environment to append options
+# set DEB_CONFIGURE_OPTS_APPEND in your environment to append options
 
 %:
 	dh $@ --with autoreconf --with systemd --parallel
@@ -27,7 +27,7 @@ override_dh_autoreconf:
 # dh_make generated override targets
 # This is example for Cmake (See https://bugs.debian.org/641051 )
 override_dh_auto_configure:
-	CC=clang-8 CXX=clang++-8 ./configure $(DEB_CONFIGURE_OPTS) $(EXTRA_DEB_CONFIGURE_OPTS)
+	CC=clang-8 CXX=clang++-8 ./configure $(DEB_CONFIGURE_OPTS) $(DEB_CONFIGURE_OPTS_APPEND)
 
 override_dh_systemd_start:
 	dh_systemd_start --restart-after-upgrade
