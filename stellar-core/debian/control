@@ -8,14 +8,14 @@ Homepage: https://www.stellar.org
 
 Package: stellar-core
 Architecture: any
-Depends: libc++1-8, libc++abi1-8, libpq5, libsqlite3-0 (>=3.11.0), stellar-core-utils
-Recommends: stellar-core-utils, stellar-core-prometheus-exporter
-Description: Stellar  is  a  decentralized, federated peer-to-peer network
- Stellar  is  a  decentralized, federated peer-to-peer network that allows people to send payments in any asset anywhere in the world instantaneously, and with minimal fee.
+Depends: libsqlite3-0 (>=3.11.0), stellar-core-utils, ${shlibs:Depends}, ${misc:Depends}
+Recommends: stellar-core-prometheus-exporter
+Description: Stellar is a decentralized, federated peer-to-peer network
+ Stellar is a decentralized, federated peer-to-peer network that allows people to send payments in any asset anywhere in the world instantaneously, and with minimal fee.
  Stellar-core is the core component of this network. Stellar-core is a C++ implementation of the Stellar Consensus Protocol configured to construct a chain of ledgers that are guaranteed to be in agreement across all the participating nodes at all times.
 
 Package: stellar-core-dbg
 Section: debug
 Architecture: any
-Depends: stellar-core (= ${Source-Version})
+Depends: stellar-core (= ${source:Version})
 Description: Debug symbols for stellar-core
