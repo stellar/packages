@@ -6,7 +6,7 @@ STELLAR_CORE_URL="http://127.0.0.1:11626"
 # Captive Core Ingestion Config
 ENABLE_CAPTIVE_CORE_INGESTION=true
 STELLAR_CORE_BINARY_PATH=/usr/bin/stellar-core
-STELLAR_CORE_CONFIG_PATH=/etc/stellar/stellar-core.cfg
+CAPTIVE_CORE_CONFIG_APPEND_PATH=/etc/stellar/stellar-core.cfg
 # end Captive Core
 
 PORT=8000
