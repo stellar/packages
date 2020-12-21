@@ -1,19 +1,15 @@
 ## /etc/default/stellar-horizon
 NETWORK_PASSPHRASE="Test SDF Network ; September 2015"
 DATABASE_URL="dbname=horizon user=stellar host=/var/run/postgresql"
-STELLAR_CORE_DATABASE_URL="dbname=stellar user=stellar host=/var/run/postgresql"
 STELLAR_CORE_URL="http://127.0.0.1:11626"
 
 # Captive Core Ingestion Config
 ENABLE_CAPTIVE_CORE_INGESTION=true
 STELLAR_CORE_BINARY_PATH=/usr/bin/stellar-core
-STELLAR_CORE_CONFIG_PATH=/etc/stellar/stellar-core.cfg
+CAPTIVE_CORE_CONFIG_APPEND_PATH=/etc/stellar/stellar-core.cfg
 # end Captive Core
 
-FRIENDBOT_SECRET=
 PORT=8000
-SENTRY_DSN=
-LOGGLY_TOKEN=
 PER_HOUR_RATE_LIMIT=9000
 INGEST=true
 HISTORY_ARCHIVE_URLS="https://history.stellar.org/prd/core-testnet/core_testnet_001"
