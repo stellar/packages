@@ -96,4 +96,4 @@ As with [accessing the database directly](#accessing-the-quickstart-databases), 
 
 Once you are comfortable with the various packages that `stellar-quickstart` brings in as dependencies, it is possible to install them individually.
 
-See [Running Horizon in production](#running-horizon-in-production) for a generic distributed Horizon cluster, you will need to configure **PostgreSQL** which unfortunately is out of the scope of this document.
+See [Running Horizon in production](running-horizon-in-production.md) for a generic distributed Horizon cluster, you will need to configure **PostgreSQL** which unfortunately is out of the scope of this document.
