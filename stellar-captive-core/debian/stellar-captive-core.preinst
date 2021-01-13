@@ -1,0 +1,9 @@
+#!/bin/sh
+
+set -e
+
+# ensure stellar-core.service is disabled and stopped, we do not want to clash with captive core mode
+if deb-systemd-helper --quiet was-enabled stellar-core.service; then
+  deb-systemd-helper disable stellar-core.service >/dev/null || true
+  invoke-rc.d stellar-core stop
+fi
