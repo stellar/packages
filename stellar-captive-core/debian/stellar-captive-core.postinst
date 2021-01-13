@@ -26,11 +26,6 @@ case "$1" in
       adduser --system --group --quiet --home /var/lib/stellar \
         --no-create-home --disabled-password --shell /bin/bash $ROLE;
     fi
-
-    # use testnet core configuration if none exists
-    if [ ! -e /etc/stellar/stellar-core.cfg ]; then
-      ln /etc/stellar/stellar-core_captive-testnet.cfg /etc/stellar/stellar-core.cfg
-    fi
   ;;
 
   abort-upgrade|abort-remove|abort-deconfigure)
