@@ -4,6 +4,7 @@
   rotate 14
   compress
   notifempty
-  copytruncate
-  create 0640 stellar stellar
+  postrotate
+    /usr/bin/stellar-core-cmd logrotate
+  endscript
 }
