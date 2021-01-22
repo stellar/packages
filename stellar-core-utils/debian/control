@@ -8,5 +8,5 @@ Homepage: https://www.stellar.org/
 
 Package: stellar-core-utils
 Architecture: any
-Depends: stellar-core
+Depends: stellar-core, curl
 Description: This package provides a common toolset for working with stellar-core
