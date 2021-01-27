@@ -94,6 +94,7 @@ As with [accessing the database directly](#accessing-the-quickstart-databases), 
 | stellar-horizon-postgres          | stellar-horizon, PostgreSQL | configures a PostgreSQL server, creates a horizon db and stellar role, system user |
 | stellar-quickstart                | stellar-core-postgres, stellar-horizon-postgres | pulls in required packages via it's dependencies               |
 | stellar-captive-core              | stellar-core, stellar-horizon | Adds configuration and dependencies to run horizon in captive core mode          |
+| stellar-captive-core-api          | none                        | installs the horizon captive core middleware which exposes captive core over http  |
 
 Once you are comfortable with the various packages that `stellar-quickstart` brings in as dependencies, it is possible to install them individually.
 
