@@ -29,14 +29,19 @@ wget -qO - https://apt.stellar.org/SDF.asc | sudo apt-key add -
 ### Save the repository definition to /etc/apt/sources.list.d/SDF.list:
 
 ```
-echo "deb https://apt.stellar.org xenial stable" | sudo tee -a /etc/apt/sources.list.d/SDF.list
+echo "deb https://apt.stellar.org $(lsb_release -cs) stable" | sudo tee -a /etc/apt/sources.list.d/SDF.list
 ```
 
-## Adding the Bleeding Edge Unstable Repository
+Please note we only support Ubuntu LTS releases.
 
-If you would like to install our Release Candidates and/or track the Master branch, you can do so by using our `unstable` repository. As the name indicates this repository and it's packages are not recommended for production deployments. Use at your own risk.
+## Adding the Bleeding Edge Testing Repository
 
-### Save the `unstable` repository definition to /etc/apt/sources.list.d/SDF-unstable.list:
+If you would like to install our Release Candidates and/or track the Master branch, you can do so by using our `testing` repository. As the name indicates this repository and it's packages are not recommended for production deployments. Use at your own risk.
+
+### Save the `testing` repository definition to /etc/apt/sources.list.d/SDF-testing.list:
 
 ```
-echo "deb https://apt.stellar.org xenial unstable" | sudo tee -a /etc/apt/sources.list.d/SDF-unstable.list
+echo "deb https://apt.stellar.org $(lsb_release -cs) testing" | sudo tee -a /etc/apt/sources.list.d/SDF-testing.list
+```
+
+Please note we only support Ubuntu LTS releases.
