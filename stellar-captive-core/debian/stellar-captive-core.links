@@ -1,1 +1,2 @@
 /etc/stellar/stellar-core_captive-testnet.cfg /etc/stellar/stellar-core.cfg
+/etc/default/stellar-captive-core /etc/default/stellar-horizon
