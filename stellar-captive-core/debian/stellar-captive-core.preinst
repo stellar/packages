@@ -7,3 +7,7 @@ if deb-systemd-helper --quiet was-enabled stellar-core.service; then
   deb-systemd-helper disable stellar-core.service >/dev/null || true
   invoke-rc.d stellar-core stop
 fi
+
+# stellar-captive-core package wants to manage /etc/default/stellar-horizon
+dpkg-divert --package stellar-captive-core --add --rename \
+  --divert /etc/default/stellar-horizon.orig /etc/default/stellar-horizon
