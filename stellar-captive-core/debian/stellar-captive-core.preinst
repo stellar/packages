@@ -8,6 +8,10 @@ if deb-systemd-helper --quiet was-enabled stellar-core.service; then
   invoke-rc.d stellar-core stop
 fi
 
+# stellar-captive-core package wants to manage /etc/stellar/stellar-core.cfg
+dpkg-divert --package stellar-captive-core --add --rename \
+  --divert /etc/stellar/stellar-core.cfg.orig /etc/stellar/stellar-core.cfg
+
 # stellar-captive-core package wants to manage /etc/default/stellar-horizon
 dpkg-divert --package stellar-captive-core --add --rename \
   --divert /etc/default/stellar-horizon.orig /etc/default/stellar-horizon
