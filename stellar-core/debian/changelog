@@ -1,5 +1,9 @@
 stellar-core (_VERSION_-_BUILD_VERSION_) stable; urgency=medium
 
+  * added libcapstone-dev libfreetype6-dev libglfw3-dev libgtk2.0-dev Build-Depends
+
+stellar-core (_VERSION_-_BUILD_VERSION_) stable; urgency=medium
+
   * use clang-8 and llvm's libc++
 
   * added libc++-dev libc++abi-dev Build-Depends
