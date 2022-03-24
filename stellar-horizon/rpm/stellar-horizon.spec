@@ -26,13 +26,11 @@ check the status of accounts, subscribe to event streams and more.
 %setup -q -b 1 -T -D -n  go-horizon-v%{version}
 
 %build
-# for debug proposes:
-# download sources according to the go.mod/go.sum
-#    go mod vendor
-# build with vendor dependencies only
-#    go build --mod vendor -o %{name} services/horizon/*.go
-# next onliner cmd do the same:
-go build --mod mod -ldflags="-s -w" -o %{name} services/horizon/*.go
+# the onliner bellow do the same as the next two rows
+# go build --mod mod -ldflags="-s -w" -o %{name} services/horizon/*.go
+# but I want to be sure that the tests use the same source code
+go mod vendor
+go build --mod vendor -ldflags="-s -w" -o %{name} services/horizon/*.go
 
 %install
 install -Dpm 0755 %{name}                                      %{buildroot}%{_bindir}/%{name}
@@ -40,7 +38,13 @@ install -Dpm 0644 %{st_pkg_assets}/rpm/%{name}.sysconfig       %{buildroot}%{_sy
 install -Dpm 0644 %{st_pkg_assets}/rpm/%{name}.service         %{buildroot}%{_unitdir}/%{name}.service
 
 %check
-# go test should be here... :)
+export PGDATA=`mktemp -d`
+initdb --locale=en_US.UTF-8 -E UTF8 -U postgres
+echo -e "logging_collector=off\nlog_min_messages=INFO\nunix_socket_directories='$PGDATA'\n" >> $PGDATA/postgresql.conf
+pg_ctl -l $PGDATA/log.txt start
+sleep 1
+go test -count=1 ./services/horizon/... || pg_ctl stop
+pg_ctl stop
 
 %post
 %systemd_post %{name}.service
