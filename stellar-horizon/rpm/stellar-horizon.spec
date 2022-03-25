@@ -1,5 +1,5 @@
 %global debug_package %{nil}
-%define st_pkg_assets %{_builddir}/stellar-packages/%{name}
+%define st_pkg_assets %{_builddir}/%{name}-%{version}/%{name}
 
 Name:           stellar-horizon
 Version:        2.15.1
@@ -12,6 +12,7 @@ Source1:        https://github.com/stellar/go/archive/refs/tags/horizon-v%{versi
 
 BuildRequires:  golang
 BuildRequires:  systemd-rpm-macros
+BuildRequires:  postgresql-server
 
 Provides:       %{name} = %{version}
 
@@ -22,7 +23,7 @@ check the status of accounts, subscribe to event streams and more.
 
 %prep
 
-%setup -q -n stellar-packages
+%setup -q -n %{name}-%{version}
 %setup -q -b 1 -T -D -n  go-horizon-v%{version}
 
 %build
