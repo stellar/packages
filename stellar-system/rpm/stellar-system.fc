@@ -1,0 +1,5 @@
+/var/run/stellar(/.*)?                     system_u:object_r:postgresql_var_run_t:s0
+/var/lib/stellar/pgsql(/.*)?               system_u:object_r:postgresql_db_t:s0
+/var/lib/stellar/pgsql/.*\.log             system_u:object_r:postgresql_log_t:s0
+/var/lib/stellar/pgsql/.*/log(/.*)?        system_u:object_r:postgresql_log_t:s0
+/var/lib/stellar/pgsql/.*/pg_log(/.*)?     system_u:object_r:postgresql_log_t:s0
