@@ -1,0 +1,19 @@
+# test stellar-core-postgres
+FROM fedora:35 as base
+RUN echo 'install_weak_deps=False' >> /etc/dnf/dnf.conf
+RUN dnf install postgresql-server dnf-plugins-core -y
+RUN dnf copr enable vorona/stellar-packages -y
+
+
+FROM base
+RUN dnf install stellar-core-postgres -y && dnf clean all
+RUN rpm -qa "stellar-*"
+USER stellar
+WORKDIR /var/lib/stellar
+ENV PGDATA=/var/lib/stellar/pgsql/core
+ENV STELLAR_CONFIG_PATH=/etc/stellar/stellar-core-postgres-public.cfg
+
+RUN /usr/libexec/stellar/init-db-core && \
+    pg_ctl start && \
+    /usr/libexec/stellar/init-stellar-core && \
+    pg_ctl stop
