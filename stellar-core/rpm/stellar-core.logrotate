@@ -1,0 +1,9 @@
+/var/log/stellar/*.log {
+  daily
+  copytruncate
+  rotate 14
+  compress
+  delaycompress
+  missingok
+  notifempty
+}

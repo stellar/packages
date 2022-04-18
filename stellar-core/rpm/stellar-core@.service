@@ -1,0 +1,18 @@
+[Unit]
+Description=SDF - stellar-core
+Before=multi-user.target
+#PartOf=stellar.service
+
+[Service]
+User=stellar
+Group=stellar
+WorkingDirectory=/var/lib/stellar/core
+ExecStart=/usr/bin/stellar-core --conf ${STELLAR_CONFIG_PATH} run
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=process
+Restart=on-failure
+RestartPreventExitStatus=255
+Type=simple
+
+[Install]
+WantedBy=multi-user.target
