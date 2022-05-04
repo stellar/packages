@@ -26,3 +26,5 @@
 + echo "SRC_TEST_CXX_FILES" = $(find . -regextype posix-egrep -regex '.*\.cpp' -printf '%P\n' | sort -u | egrep '(test|simulation)/' | tr "\n" " ")
 + echo "SRC_RUST_FILES" = $(find . -regextype posix-egrep -regex '.*\.rs' -printf '%P\n' | sort -u | egrep '(test|simulation)/' | tr "\n" " ")
  ) > src/src.mk
+ 
+ 
