@@ -3,7 +3,7 @@
 
 Name: stellar-core
 Version: 18.5.0
-Release: 8%{?dist}
+Release: 9%{?dist}
 Summary: Stellar is a decentralized, federated peer-to-peer network
 
 License: Apache 2.0
@@ -107,6 +107,9 @@ make check
 
 %preun
 %systemd_preun %{name}.service
+
+%postun
+%systemd_postun_with_restart %{name}.service
 
 %files
 %{_bindir}/%{name}

@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name: stellar-core-postgres
-Version: 0.0.8
+Version: 0.0.9
 Release: 1%{?dist}
 Summary: Postgresql configuration for the Stellar Core
 License: Apache 2.0
@@ -34,6 +34,17 @@ install -p -m 755 -D dist/libexec.init-stellar-core.sh  %{buildroot}%{_libexecdi
 %{_datadir}/stellar/postgres.16GB.cloud.conf
 %{_libexecdir}/stellar/init-db-core
 %{_libexecdir}/stellar/init-stellar-core
+
+%post
+%systemd_post postgresql@core.service
+%systemd_post stellar-core@public.service
+
+%preun
+%systemd_preun stellar-core@public.service
+%systemd_preun postgresql@core.service
+
+%postun
+%systemd_postun_with_restart stellar-core@public.service
 
 %changelog
 * Sun Apr 10 2022 Anatolii Vorona <vorona.tolik@gmail.com>
