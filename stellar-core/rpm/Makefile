@@ -8,7 +8,7 @@ clean:
 	rm -rf $(PROJECTTMPDIR)
 
 submodules:
-	cd $(PROJECTNAME)/rpm/ && bash update.submodules.sh  > $(PROJECTNAME).spec
+	cd $(PROJECTNAME)/rpm/ && bash -x update.submodules.sh
 
 spec:
 	rpkg spec --spec $(PROJECTNAME)/rpm/$(PROJECTNAME).spec -p

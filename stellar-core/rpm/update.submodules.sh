@@ -1,4 +1,5 @@
-#!/bin/bash -x
+#!/bin/bash
+set -e -u
 TMP_SPEC=$(mktemp /tmp/stellar-core.spec.XXXX)
 
 # Stellar core user functions

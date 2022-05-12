@@ -2,8 +2,8 @@
 %define system_name stellar
 
 Name: stellar-core
-Version: 18.5.0
-Release: 9%{?dist}
+Version: 19.0.1
+Release: 1%{?dist}
 Summary: Stellar is a decentralized, federated peer-to-peer network
 
 License: Apache 2.0
