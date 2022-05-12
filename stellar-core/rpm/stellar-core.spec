@@ -1,8 +1,9 @@
 %global debug_package %{nil}
+%define system_name stellar
 
 Name: stellar-core
 Version: 18.5.0
-Release: 7%{?dist}
+Release: 8%{?dist}
 Summary: Stellar is a decentralized, federated peer-to-peer network
 
 License: Apache 2.0
@@ -19,23 +20,28 @@ Source106: https://api.github.com/repos/USCiLab/cereal/tarball/02eace19a99ce3cd5
 Source107: https://api.github.com/repos/xdrpp/xdrpp/tarball/9fd7ca222bb26337e1443c67b18fbc5019962884#/xdrpp-xdrpp-9fd7ca2.tar.gz
 
 # END: submodule sources
+%if 0%{?rhel} && 0%{?rhel} == 7
+BuildRequires: llvm-toolset-7.0-clang
+BuildRequires: devtoolset-8-gcc-c++
+BuildRequires: rh-postgresql12-postgresql-devel, rh-postgresql12-postgresql-server
+%else
+BuildRequires: clang >= 10
+BuildRequires: gcc-c++ >= 8
+BuildRequires: postgresql-devel, postgresql-server
+%endif
 
 Requires: user(stellar)
 Requires: group(stellar)
 
 BuildRequires: automake
 BuildRequires: bison
-BuildRequires: clang >= 10
 BuildRequires: flex
-BuildRequires: gcc-c++ >= 8
 BuildRequires: git
 BuildRequires: hostname
 BuildRequires: libtool
 BuildRequires: libunwind-devel
 BuildRequires: parallel
-
 BuildRequires: systemd-rpm-macros
-BuildRequires: postgresql-devel, postgresql-server
 
 Provides: %{name} = %{version}
 
@@ -65,11 +71,16 @@ tar -zxf  %{SOURCE107} --strip-components 1 -C lib/xdrpp/
 ./autogen.sh
 
 %build
+%if 0%{?rhel} && 0%{?rhel} == 7
+    LDFLAGS=-Wl,-rpath,%{_datadir}/%{system_name}/lib/
+    source /opt/rh/rh-postgresql12/enable
+    source /opt/rh/devtoolset-8/enable
+    source /opt/rh/llvm-toolset-7.0/enable
+%endif
 %configure
 %make_build
 
 %install
-rm -rf %{buildroot}
 %make_install
 install -Dpm 0644 %{_builddir}/{{{ git_dir_name }}}/%{name}.logrotate %{buildroot}%{_sysconfdir}/logrotate.d/%{name}
 install -Dpm 0644 %{_builddir}/{{{ git_dir_name }}}/%{name}.service   %{buildroot}%{_unitdir}/%{name}.service
@@ -80,8 +91,15 @@ install -d %{buildroot}/var/log/stellar
 install -d %{buildroot}/var/lib/stellar/core
 install -d %{buildroot}%{_sysconfdir}/stellar
 
+%if 0%{?rhel} && 0%{?rhel} == 7
+    install -D /opt/rh/rh-postgresql12/root/usr/lib64/libpq.so.rh-postgresql12-5 %{buildroot}%{_datadir}/%{system_name}/lib/libpq.so.rh-postgresql12-5
+%endif
 
 %check
+%if 0%{?rhel} && 0%{?rhel} == 7
+source /opt/rh/llvm-toolset-7.0/enable
+%endif
+
 make check
 
 %post
@@ -100,6 +118,9 @@ make check
 %config %{_sysconfdir}/logrotate.d/%{name}
 %dir %attr(0755, stellar, stellar) /var/log/stellar
 %dir %attr(0755, stellar, stellar) /var/lib/stellar/core
+%if 0%{?rhel} && 0%{?rhel} == 7
+    %{_datadir}/%{system_name}/lib/libpq.so.rh-postgresql12-5
+%endif
 
 %changelog
 * Wed Mar 23 2022 Anatolii Vorona <vorona.tolik@gmail.com>

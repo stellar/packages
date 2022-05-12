@@ -3,14 +3,21 @@
 
 Name: %{system_name}-system
 Version: 0.0.6
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: system configuration for the Stellar infra
 License: Apache 2.0
 Source0: {{{ git_dir_pack }}}
 
 BuildRequires: systemd-rpm-macros
 Requires(pre): shadow-utils
-Requires:      (%{name}-selinux if selinux-policy-targeted)
+
+%if 0%{?rhel} && 0%{?rhel} == 7
+# rhel7 uses rpm-4.11
+# Requires: %{name}-selinux
+%else
+# starting with rpm-4.13, RPM is able to process boolean expressions
+Requires: (%{name}-selinux if selinux-policy-targeted)
+%endif
 
 Provides: user(%{system_name})
 Provides: group(%{system_name})

@@ -12,10 +12,14 @@ Source1: https://github.com/stellar/go/archive/refs/tags/horizon-v%{version}.tar
 Requires: user(stellar)
 Requires: group(stellar)
 
-BuildRequires: git
+BuildRequires: git >= 2.0
 BuildRequires: golang
 BuildRequires: systemd-rpm-macros
-BuildRequires: postgresql-server
+%if 0%{?rhel} && 0%{?rhel} == 7
+BuildRequires: rh-postgresql12-postgresql-server
+%else
+BuildRequires: postgresql-server >= 10.0
+%endif
 
 Provides: %{name} = %{version}
 
@@ -41,6 +45,9 @@ install -Dpm 0644 %{_builddir}/{{{ git_dir_name }}}/%{name}.sysconfig %{buildroo
 install -Dpm 0644 %{_builddir}/{{{ git_dir_name }}}/%{name}.service   %{buildroot}%{_unitdir}/%{name}.service
 
 %check
+%if 0%{?rhel} && 0%{?rhel} == 7
+    source /opt/rh/rh-postgresql12/enable
+%endif
 # make clean db in tmp dir, and run go test.
 export PGDATA=`mktemp -d`
 initdb --no-locale -E UTF8 -U postgres
