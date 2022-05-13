@@ -3,7 +3,7 @@
 
 Name: %{system_name}-system
 Version: 0.0.6
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: system configuration for the Stellar infra
 License: Apache 2.0
 Source0: {{{ git_dir_pack }}}
@@ -63,7 +63,7 @@ getent passwd '%{system_name}' >/dev/null || \
 # -m, --create-home Create the user's home directory
 
 %post
-systemd-sysusers || :
+systemd-sysusers &>/dev/null || :
 systemd-tmpfiles --create &>/dev/null || :
 
 %pre selinux
