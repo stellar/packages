@@ -1,4 +1,6 @@
 #!/bin/sh
+# file: /usr/libexec/stellar/init-stellar-core
+
 if [ -z "$STELLAR_CONFIG_PATH" ]; then
   echo "the script required \$STELLAR_CONFIG_PATH environment variable"
   exit 1

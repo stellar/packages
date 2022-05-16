@@ -1,4 +1,6 @@
 #!/bin/sh
+# file: /usr/libexec/stellar/init-db-core
+
 if [ -z "$PGDATA" ]; then
   echo "the script required \$PGDATA environment variable"
   exit 1

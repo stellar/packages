@@ -118,7 +118,7 @@ make check
 %{_unitdir}/%{name}.service
 %{_unitdir}/%{name}@.service
 %config(noreplace) %{_sysconfdir}/stellar/%{name}.cfg
-%config %{_sysconfdir}/logrotate.d/%{name}
+%config(noreplace) %{_sysconfdir}/logrotate.d/%{name}
 %dir %attr(0755, stellar, stellar) /var/log/stellar
 %dir %attr(0755, stellar, stellar) /var/lib/stellar/core
 %if 0%{?rhel} && 0%{?rhel} == 7
