@@ -2,7 +2,7 @@
 %define system_name stellar
 
 Name: stellar-core
-Version: 19.0.1
+Version: 19.1.0
 Release: 1%{?dist}
 Summary: Stellar is a decentralized, federated peer-to-peer network
 
@@ -10,13 +10,13 @@ License: Apache 2.0
 Source0: {{{ git_dir_pack }}}
 Source1: https://github.com/stellar/stellar-core/archive/refs/tags/v%{version}.tar.gz#/stellar-core-v%{version}.tar.gz
 # START: submodule sources
-Source100: https://api.github.com/repos/chriskohlhoff/asio/tarball/b84e6c16b2ea907dbad94206b7510d85aafc0b42#/chriskohlhoff-asio-asio-1-18-1-0-gb84e6c1.tar.gz
+Source100: https://api.github.com/repos/chriskohlhoff/asio/tarball/bba12d10501418fd3789ce01c9f86a77d37df7ed#/chriskohlhoff-asio-asio-1-22-1-0-gbba12d1.tar.gz
 Source101: https://api.github.com/repos/fmtlib/fmt/tarball/b6f4ceaed0a0a24ccf575fab6c56dd50ccf6f1a9#/fmtlib-fmt-8.1.1-0-gb6f4cea.tar.gz
-Source102: https://api.github.com/repos/gabime/spdlog/tarball/eb3220622e73a4889eee355ffa37972b3cac3df5#/gabime-spdlog-v1.9.2-0-geb32206.tar.gz
+Source102: https://api.github.com/repos/gabime/spdlog/tarball/76fb40d95455f249bd70824ecfcae7a8f0930fa3#/gabime-spdlog-v1.10.0-0-g76fb40d.tar.gz
 Source103: https://api.github.com/repos/stellar/libsodium/tarball/4f5e89fa84ce1d178a6765b8b46f2b6f91216677#/stellar-libsodium-1.0.18-0-g4f5e89f.tar.gz
 Source104: https://api.github.com/repos/stellar/medida/tarball/361443a1e0addcde9b6645105ba0064b6c4f667b#/stellar-medida-361443a.tar.gz
 Source105: https://api.github.com/repos/stellar/tracy/tarball/7c74f6eb094d29e6b23ba670686c3597e1e96b96#/stellar-tracy-v0.6.3-2048-g7c74f6e.tar.gz
-Source106: https://api.github.com/repos/USCiLab/cereal/tarball/02eace19a99ce3cd564ca4e379753d69af08c2c8#/USCiLab-cereal-v1.3.0-0-g02eace1.tar.gz
+Source106: https://api.github.com/repos/USCiLab/cereal/tarball/ebef1e929807629befafbb2918ea1a08c7194554#/USCiLab-cereal-v1.3.2-0-gebef1e9.tar.gz
 Source107: https://api.github.com/repos/xdrpp/xdrpp/tarball/9fd7ca222bb26337e1443c67b18fbc5019962884#/xdrpp-xdrpp-9fd7ca2.tar.gz
 
 # END: submodule sources
@@ -126,5 +126,8 @@ make check
 %endif
 
 %changelog
+* Mon Jun 06 2022 Anatolii Vorona <vorona.tolik@gmail.com>
+- update v19.1.0
+
 * Wed Mar 23 2022 Anatolii Vorona <vorona.tolik@gmail.com>
 - init stellar-core rpm
