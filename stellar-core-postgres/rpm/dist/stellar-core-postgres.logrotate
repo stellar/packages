@@ -13,4 +13,5 @@
     rotate 0
     daily
     maxage 1
+    ifempty
 }
