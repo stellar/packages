@@ -27,7 +27,7 @@ override_dh_autoreconf:
 # dh_make generated override targets
 # This is example for Cmake (See https://bugs.debian.org/641051 )
 override_dh_auto_configure:
-	CC=clang-8 CXX=clang++-8 ./configure $(DEB_CONFIGURE_OPTS) $(DEB_CONFIGURE_OPTS_APPEND)
+	CC=clang-10 CXX=clang++-10 ./configure $(DEB_CONFIGURE_OPTS) $(DEB_CONFIGURE_OPTS_APPEND)
 
 override_dh_systemd_start:
 	dh_systemd_start --restart-after-upgrade
