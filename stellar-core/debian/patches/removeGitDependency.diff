@@ -1,11 +1,10 @@
 --- a/make-mks
 +++ b/make-mks
 @@ -6,6 +6,7 @@ case "$0" in
-        ;;
+ 	;;
  esac
-
+ 
 +NOGIT=1
  if [ -z "$NOGIT" ] ; then
      # Bail if not under git
      git rev-parse
-
