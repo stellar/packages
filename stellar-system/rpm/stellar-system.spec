@@ -3,7 +3,7 @@
 
 Name: %{system_name}-system
 Version: 0.0.6
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: system configuration for the Stellar infra
 License: Apache 2.0
 Source0: {{{ git_dir_pack }}}
@@ -45,11 +45,13 @@ make -f /usr/share/selinux/devel/Makefile
 bzip2 -9 %{name}.pp
 
 %install
+%{__install} -Dpm 0644 dist/88-%{system_name}.preset       %{buildroot}%{_presetdir}/88-%{system_name}.preset
 %{__install} -Dpm 0644 dist/sysusers.d/%{system_name}.conf %{buildroot}%{_sysusersdir}/%{system_name}.conf
 %{__install} -Dpm 0644 dist/tmpfiles.d/%{system_name}.conf %{buildroot}%{_tmpfilesdir}/%{system_name}.conf
 %{__install} -Dm  0644 %{name}.pp.bz2                      %{buildroot}%{_datadir}/selinux/packages/%{name}.pp.bz2
 
 %files
+%{_presetdir}/88-%{system_name}.preset
 %{_sysusersdir}/%{system_name}.conf
 %{_tmpfilesdir}/%{system_name}.conf
 
