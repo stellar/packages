@@ -18,16 +18,16 @@ The stellar-core-postgres package contains config files for postgres core db and
 {{{ git_dir_setup_macro }}}
 
 %install
-install -d %{buildroot}%{_libexecdir}/stellar/
-install -d %{buildroot}%{_datadir}/stellar/
+%{__install} -d %{buildroot}%{_libexecdir}/stellar/
+%{__install} -d %{buildroot}%{_datadir}/stellar/
 
-install -p -m 644 -D dist/%{name}.logrotate             %{buildroot}%{_sysconfdir}/logrotate.d/%{name}
-install -p -m 644 -D dist/%{name}-public.cfg            %{buildroot}%{_sysconfdir}/stellar/%{name}-public.cfg
-install -p -m 644 -D dist/unit.postgresql.core.conf     %{buildroot}%{_sysconfdir}/systemd/system/postgresql@core.service.d/custom.conf
-install -p -m 644 -D dist/unit.stellar-core.public.conf %{buildroot}%{_sysconfdir}/systemd/system/stellar-core@public.service.d/custom.conf
-install -p -m 644 -D dist/postgres.*.conf               %{buildroot}%{_datadir}/stellar/
-install -p -m 755 -D dist/libexec.init-db-core.sh       %{buildroot}%{_libexecdir}/stellar/init-db-core
-install -p -m 755 -D dist/libexec.init-stellar-core.sh  %{buildroot}%{_libexecdir}/stellar/init-stellar-core
+%{__install} -Dpm 0644 dist/%{name}.logrotate             %{buildroot}%{_sysconfdir}/logrotate.d/%{name}
+%{__install} -Dpm 0644 dist/%{name}-public.cfg            %{buildroot}%{_sysconfdir}/stellar/%{name}-public.cfg
+%{__install} -Dpm 0644 dist/unit.postgresql.core.conf     %{buildroot}%{_sysconfdir}/systemd/system/postgresql@core.service.d/custom.conf
+%{__install} -Dpm 0644 dist/unit.stellar-core.public.conf %{buildroot}%{_sysconfdir}/systemd/system/stellar-core@public.service.d/custom.conf
+%{__install} -Dpm 0644 dist/postgres.*.conf               %{buildroot}%{_datadir}/stellar/
+%{__install} -Dpm 0755 dist/libexec.init-db-core.sh       %{buildroot}%{_libexecdir}/stellar/init-db-core
+%{__install} -Dpm 0755 dist/libexec.init-stellar-core.sh  %{buildroot}%{_libexecdir}/stellar/init-stellar-core
 
 %files
 %config(noreplace) %{_sysconfdir}/logrotate.d/%{name}

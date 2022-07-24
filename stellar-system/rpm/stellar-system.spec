@@ -45,9 +45,9 @@ make -f /usr/share/selinux/devel/Makefile
 bzip2 -9 %{name}.pp
 
 %install
-install -p -m644 -D dist/sysusers.d/%{system_name}.conf %{buildroot}%{_sysusersdir}/%{system_name}.conf
-install -p -m644 -D dist/tmpfiles.d/%{system_name}.conf %{buildroot}%{_tmpfilesdir}/%{system_name}.conf
-install -D -m 644 %{name}.pp.bz2                 %{buildroot}%{_datadir}/selinux/packages/%{name}.pp.bz2
+%{__install} -Dpm 0644 dist/sysusers.d/%{system_name}.conf %{buildroot}%{_sysusersdir}/%{system_name}.conf
+%{__install} -Dpm 0644 dist/tmpfiles.d/%{system_name}.conf %{buildroot}%{_tmpfilesdir}/%{system_name}.conf
+%{__install} -Dm  0644 %{name}.pp.bz2                      %{buildroot}%{_datadir}/selinux/packages/%{name}.pp.bz2
 
 %files
 %{_sysusersdir}/%{system_name}.conf

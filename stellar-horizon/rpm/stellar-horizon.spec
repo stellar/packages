@@ -40,9 +40,9 @@ go mod vendor
 go build --mod vendor -ldflags="-s -w" -o %{name} services/horizon/*.go
 
 %install
-install -Dpm 0755 %{name} %{buildroot}%{_bindir}/%{name}
-install -Dpm 0644 %{_builddir}/{{{ git_dir_name }}}/%{name}.sysconfig %{buildroot}%{_sysconfdir}/sysconfig/%{name}
-install -Dpm 0644 %{_builddir}/{{{ git_dir_name }}}/%{name}.service   %{buildroot}%{_unitdir}/%{name}.service
+%{__install} -Dpm 0755 %{name} %{buildroot}%{_bindir}/%{name}
+%{__install} -Dpm 0644 %{_builddir}/{{{ git_dir_name }}}/%{name}.sysconfig %{buildroot}%{_sysconfdir}/sysconfig/%{name}
+%{__install} -Dpm 0644 %{_builddir}/{{{ git_dir_name }}}/%{name}.service   %{buildroot}%{_unitdir}/%{name}.service
 
 %check
 %if 0%{?rhel} && 0%{?rhel} == 7

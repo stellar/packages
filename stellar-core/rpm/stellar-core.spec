@@ -82,17 +82,17 @@ tar -zxf  %{SOURCE107} --strip-components 1 -C lib/xdrpp/
 
 %install
 %make_install
-install -Dpm 0644 %{_builddir}/{{{ git_dir_name }}}/%{name}.logrotate %{buildroot}%{_sysconfdir}/logrotate.d/%{name}
-install -Dpm 0644 %{_builddir}/{{{ git_dir_name }}}/%{name}.service   %{buildroot}%{_unitdir}/%{name}.service
-install -Dpm 0644 %{_builddir}/{{{ git_dir_name }}}/%{name}@.service  %{buildroot}%{_unitdir}/%{name}@.service
-install -Dpm 0644 %{buildroot}%{_docdir}/%{name}/stellar-core_example.cfg %{buildroot}%{_sysconfdir}/stellar/%{name}.cfg
+%{__install} -Dpm 0644 %{_builddir}/{{{ git_dir_name }}}/%{name}.logrotate %{buildroot}%{_sysconfdir}/logrotate.d/%{name}
+%{__install} -Dpm 0644 %{_builddir}/{{{ git_dir_name }}}/%{name}.service   %{buildroot}%{_unitdir}/%{name}.service
+%{__install} -Dpm 0644 %{_builddir}/{{{ git_dir_name }}}/%{name}@.service  %{buildroot}%{_unitdir}/%{name}@.service
+%{__install} -Dpm 0644 %{buildroot}%{_docdir}/%{name}/stellar-core_example.cfg %{buildroot}%{_sysconfdir}/stellar/%{name}.cfg
 
-install -d %{buildroot}/var/log/stellar
-install -d %{buildroot}/var/lib/stellar/core
-install -d %{buildroot}%{_sysconfdir}/stellar
+%{__install} -d %{buildroot}/var/log/stellar
+%{__install} -d %{buildroot}/var/lib/stellar/core
+%{__install} -d %{buildroot}%{_sysconfdir}/stellar
 
 %if 0%{?rhel} && 0%{?rhel} == 7
-    install -D /opt/rh/rh-postgresql12/root/usr/lib64/libpq.so.rh-postgresql12-5 %{buildroot}%{_datadir}/%{system_name}/lib/libpq.so.rh-postgresql12-5
+    %{__install} -D /opt/rh/rh-postgresql12/root/usr/lib64/libpq.so.rh-postgresql12-5 %{buildroot}%{_datadir}/%{system_name}/lib/libpq.so.rh-postgresql12-5
 %endif
 
 %check
