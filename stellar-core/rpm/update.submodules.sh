@@ -5,15 +5,17 @@ TMP_SPEC=$(mktemp /tmp/stellar-core.spec.XXXX)
 # Stellar core user functions
 STELLAR_CORE_VERSION=$(rpmspec -q --qf "%{Version}" stellar-core.spec)
 
+# grep 'path =' .gitmodules | awk '{print $3}' | sort
 StCoreSubModuleDirs=(
-  chriskohlhoff/asio
-  fmtlib/fmt
-  gabime/spdlog
-  stellar/libsodium
-  stellar/libmedida
-  stellar/tracy
-  USCiLab/cereal
-  xdrpp/xdrpp
+  lib/asio
+  lib/cereal
+  lib/fmt
+  lib/libmedida
+  lib/libsodium
+  lib/rs-stellar-contract-env
+  lib/spdlog
+  lib/tracy
+  lib/xdrpp
 )
 
 function stellar_core_submodule_sources() {
@@ -23,8 +25,7 @@ function stellar_core_submodule_sources() {
   ST_CORE_SUBMODULE_SRC=""
   declare -i i=0
   for smod in "${StCoreSubModuleDirs[@]}"; do
-    # TarballUrl=$(curl -s "$API_GH_STELLAR_CORE/contents/lib/${smod##*/}?ref=$REF" | jq -r .git_url | sed "s#git/trees#tarball#")
-    TarballUrl=$(curl -s "$API_GH_STELLAR_CORE/contents/lib/${smod##*/}?ref=$REF" | sed -n 's#git/trees#tarball#; s#"git_url": "\(.*\)",#\1#p;')
+    TarballUrl=$(curl -s "$API_GH_STELLAR_CORE/contents/${smod}?ref=$REF" | sed -n 's#git/trees#tarball#; s#"git_url": "\(.*\)",#\1#p;')
     SourceUrl=$(curl --output-dir /tmp/ -sLOJ $TarballUrl -w '%{url}#/%{filename_effective}')
     ST_CORE_SUBMODULE_SRC+="Source10$i: $SourceUrl\n"
     i+=1
@@ -36,7 +37,7 @@ function stellar_core_submodule_prep() {
   ST_CORE_SUBMODULE_PREP=""
   declare -i i=0
   for smod in "${StCoreSubModuleDirs[@]}"; do
-    ST_CORE_SUBMODULE_PREP+="tar -zxf  %{SOURCE10$i} --strip-components 1 -C lib/${smod##*/}/\n"
+    ST_CORE_SUBMODULE_PREP+="tar -zxf  %{SOURCE10$i} --strip-components 1 -C ${smod}/\n"
     i+=1
   done
   echo -e "$ST_CORE_SUBMODULE_PREP"

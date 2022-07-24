@@ -8,6 +8,7 @@ clean:
 	rm -rf $(PROJECTTMPDIR)
 
 submodules:
+	# https://github.com/stellar/stellar-core/compare/v19.1.0...v19.2.0
 	bash -x update.submodules.sh
 
 spec:
