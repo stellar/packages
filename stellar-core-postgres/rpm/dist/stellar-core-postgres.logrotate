@@ -6,6 +6,7 @@
     rotate 0
     daily
     maxage 1
+    dateext
 }
 
 /var/lib/stellar/core/history/history/*/*/*/*.json {
@@ -14,4 +15,5 @@
     daily
     maxage 1
     ifempty
+    dateext
 }
