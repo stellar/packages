@@ -3,7 +3,7 @@
 
 Name: stellar-core
 Version: 19.2.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Stellar is a decentralized, federated peer-to-peer network
 
 License: Apache 2.0
@@ -22,13 +22,13 @@ Source108: https://api.github.com/repos/xdrpp/xdrpp/tarball/9fd7ca222bb26337e144
 
 # END: submodule sources
 %if 0%{?rhel} && 0%{?rhel} == 7
-BuildRequires: llvm-toolset-7.0-clang
-BuildRequires: devtoolset-8-gcc-c++
-BuildRequires: rh-postgresql12-postgresql-devel, rh-postgresql12-postgresql-server
+BuildRequires: devtoolset-10-gcc-c++
+BuildRequires: rh-postgresql13-postgresql-devel, rh-postgresql13-postgresql-server
 %else
 BuildRequires: clang >= 10
 BuildRequires: gcc-c++ >= 8
-BuildRequires: postgresql-devel, postgresql-server
+BuildRequires: postgresql-devel >= 13
+BuildRequires: postgresql-server >= 13
 %endif
 
 Requires: user(stellar)
@@ -75,9 +75,8 @@ tar -zxf  %{SOURCE108} --strip-components 1 -C lib/xdrpp/
 %build
 %if 0%{?rhel} && 0%{?rhel} == 7
     LDFLAGS=-Wl,-rpath,%{_datadir}/%{system_name}/lib/
-    source /opt/rh/rh-postgresql12/enable
-    source /opt/rh/devtoolset-8/enable
-    source /opt/rh/llvm-toolset-7.0/enable
+    source /opt/rh/rh-postgresql13/enable
+    source /opt/rh/devtoolset-10/enable
 %endif
 %configure
 %make_build
@@ -94,12 +93,14 @@ tar -zxf  %{SOURCE108} --strip-components 1 -C lib/xdrpp/
 %{__install} -d %{buildroot}%{_sysconfdir}/stellar
 
 %if 0%{?rhel} && 0%{?rhel} == 7
-    %{__install} -D /opt/rh/rh-postgresql12/root/usr/lib64/libpq.so.rh-postgresql12-5 %{buildroot}%{_datadir}/%{system_name}/lib/libpq.so.rh-postgresql12-5
+    %{__install} -D /opt/rh/rh-postgresql13/root/usr/lib64/libpq.so.rh-postgresql13-5 %{buildroot}%{_datadir}/%{system_name}/lib/libpq.so.rh-postgresql13-5
 %endif
 
 %check
 %if 0%{?rhel} && 0%{?rhel} == 7
-source /opt/rh/llvm-toolset-7.0/enable
+# ./xdrc/xdrc -hh -o tests/xdrtest.hh tests/xdrtest.x
+# g++: error: unrecognized command line option '-std=c++17'
+source /opt/rh/devtoolset-10/enable
 %endif
 
 make check
@@ -124,10 +125,14 @@ make check
 %dir %attr(0755, stellar, stellar) /var/log/stellar
 %dir %attr(0755, stellar, stellar) /var/lib/stellar/core
 %if 0%{?rhel} && 0%{?rhel} == 7
-    %{_datadir}/%{system_name}/lib/libpq.so.rh-postgresql12-5
+    %{_datadir}/%{system_name}/lib/libpq.so.rh-postgresql13-5
 %endif
 
 %changelog
+* Sun Jul 31 2022 Anatolii Vorona <vorona.tolik@gmail.com>
+- update v19.2.0
+- postgresql libs should be >= 13
+
 * Mon Jun 06 2022 Anatolii Vorona <vorona.tolik@gmail.com>
 - update v19.1.0
 

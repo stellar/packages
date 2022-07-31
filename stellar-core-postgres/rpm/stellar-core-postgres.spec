@@ -1,14 +1,14 @@
 %global debug_package %{nil}
 
 Name: stellar-core-postgres
-Version: 0.0.12
+Version: 19.2.0
 Release: 1%{?dist}
 Summary: Postgresql configuration for the Stellar Core
 License: Apache 2.0
 Source0: {{{ git_dir_pack }}}
 
 BuildRequires: systemd-rpm-macros
-Requires: stellar-core
+Requires: stellar-core == %{version}
 Requires: postgresql-server
 
 %description
