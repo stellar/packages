@@ -9,5 +9,5 @@ fi
 if [ ! -d "buckets" ]; then
   createdb --host=/var/run/stellar core
   stellar-core --conf ${STELLAR_CONFIG_PATH} new-db
-  stellar-core --conf ${STELLAR_CONFIG_PATH} new-hist local
+  stellar-core --conf ${STELLAR_CONFIG_PATH} new-hist local ||:
 fi

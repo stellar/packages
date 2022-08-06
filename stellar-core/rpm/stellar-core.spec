@@ -2,8 +2,8 @@
 %define system_name stellar
 
 Name: stellar-core
-Version: 19.2.0
-Release: 2%{?dist}
+Version: 19.3.0
+Release: 1%{?dist}
 Summary: Stellar is a decentralized, federated peer-to-peer network
 
 License: Apache 2.0
@@ -13,16 +13,16 @@ Source1: https://github.com/stellar/stellar-core/archive/refs/tags/v%{version}.t
 Source100: https://api.github.com/repos/chriskohlhoff/asio/tarball/bba12d10501418fd3789ce01c9f86a77d37df7ed#/chriskohlhoff-asio-asio-1-22-1-0-gbba12d1.tar.gz
 Source101: https://api.github.com/repos/USCiLab/cereal/tarball/ebef1e929807629befafbb2918ea1a08c7194554#/USCiLab-cereal-v1.3.2-0-gebef1e9.tar.gz
 Source102: https://api.github.com/repos/fmtlib/fmt/tarball/b6f4ceaed0a0a24ccf575fab6c56dd50ccf6f1a9#/fmtlib-fmt-8.1.1-0-gb6f4cea.tar.gz
-Source103: https://api.github.com/repos/stellar/medida/tarball/361443a1e0addcde9b6645105ba0064b6c4f667b#/stellar-medida-361443a.tar.gz
+Source103: https://api.github.com/repos/stellar/medida/tarball/b5b1c5aa63f624749be36ca5bf9efdcd144044e4#/stellar-medida-b5b1c5a.tar.gz
 Source104: https://api.github.com/repos/stellar/libsodium/tarball/4f5e89fa84ce1d178a6765b8b46f2b6f91216677#/stellar-libsodium-1.0.18-0-g4f5e89f.tar.gz
-Source105: https://api.github.com/repos/stellar/rs-stellar-contract-env/tarball/bde44d2f80fd3a75f68faf5e7874bc18a88355da#/stellar-rs-stellar-contract-env-bde44d2.tar.gz
-Source106: https://api.github.com/repos/gabime/spdlog/tarball/76fb40d95455f249bd70824ecfcae7a8f0930fa3#/gabime-spdlog-v1.10.0-0-g76fb40d.tar.gz
-Source107: https://api.github.com/repos/stellar/tracy/tarball/7c74f6eb094d29e6b23ba670686c3597e1e96b96#/stellar-tracy-v0.6.3-2048-g7c74f6e.tar.gz
-Source108: https://api.github.com/repos/xdrpp/xdrpp/tarball/9fd7ca222bb26337e1443c67b18fbc5019962884#/xdrpp-xdrpp-9fd7ca2.tar.gz
+Source105: https://api.github.com/repos/gabime/spdlog/tarball/76fb40d95455f249bd70824ecfcae7a8f0930fa3#/gabime-spdlog-v1.10.0-0-g76fb40d.tar.gz
+Source106: https://api.github.com/repos/stellar/tracy/tarball/7c74f6eb094d29e6b23ba670686c3597e1e96b96#/stellar-tracy-v0.6.3-2048-g7c74f6e.tar.gz
+Source107: https://api.github.com/repos/xdrpp/xdrpp/tarball/9fd7ca222bb26337e1443c67b18fbc5019962884#/xdrpp-xdrpp-9fd7ca2.tar.gz
+Source108: https://api.github.com/repos/stellar/stellar-xdr-next/tarball/f0a767c5ee60586bd4ab2526960ec253f5b571a4#/stellar-stellar-xdr-next-f0a767c.tar.gz
 
 # END: submodule sources
 %if 0%{?rhel} && 0%{?rhel} == 7
-BuildRequires: devtoolset-10-gcc-c++
+BuildRequires: devtoolset-11-gcc-c++
 BuildRequires: rh-postgresql13-postgresql-devel, rh-postgresql13-postgresql-server
 %else
 BuildRequires: clang >= 10
@@ -64,10 +64,10 @@ tar -zxf  %{SOURCE101} --strip-components 1 -C lib/cereal/
 tar -zxf  %{SOURCE102} --strip-components 1 -C lib/fmt/
 tar -zxf  %{SOURCE103} --strip-components 1 -C lib/libmedida/
 tar -zxf  %{SOURCE104} --strip-components 1 -C lib/libsodium/
-tar -zxf  %{SOURCE105} --strip-components 1 -C lib/rs-stellar-contract-env/
-tar -zxf  %{SOURCE106} --strip-components 1 -C lib/spdlog/
-tar -zxf  %{SOURCE107} --strip-components 1 -C lib/tracy/
-tar -zxf  %{SOURCE108} --strip-components 1 -C lib/xdrpp/
+tar -zxf  %{SOURCE105} --strip-components 1 -C lib/spdlog/
+tar -zxf  %{SOURCE106} --strip-components 1 -C lib/tracy/
+tar -zxf  %{SOURCE107} --strip-components 1 -C lib/xdrpp/
+tar -zxf  %{SOURCE108} --strip-components 1 -C src/protocol-next/xdr/
 
 # END: submodules setup
 ./autogen.sh
@@ -76,7 +76,7 @@ tar -zxf  %{SOURCE108} --strip-components 1 -C lib/xdrpp/
 %if 0%{?rhel} && 0%{?rhel} == 7
     LDFLAGS=-Wl,-rpath,%{_datadir}/%{system_name}/lib/
     source /opt/rh/rh-postgresql13/enable
-    source /opt/rh/devtoolset-10/enable
+    source /opt/rh/devtoolset-11/enable
 %endif
 %configure
 %make_build
@@ -100,7 +100,7 @@ tar -zxf  %{SOURCE108} --strip-components 1 -C lib/xdrpp/
 %if 0%{?rhel} && 0%{?rhel} == 7
 # ./xdrc/xdrc -hh -o tests/xdrtest.hh tests/xdrtest.x
 # g++: error: unrecognized command line option '-std=c++17'
-source /opt/rh/devtoolset-10/enable
+source /opt/rh/devtoolset-11/enable
 %endif
 
 make check
@@ -129,6 +129,9 @@ make check
 %endif
 
 %changelog
+* Mon Aug  1 2022 Anatolii Vorona <vorona.tolik@gmail.com>
+- update v19.3.0
+
 * Sun Jul 31 2022 Anatolii Vorona <vorona.tolik@gmail.com>
 - update v19.2.0
 - postgresql libs should be >= 13

@@ -12,10 +12,10 @@ StCoreSubModuleDirs=(
   lib/fmt
   lib/libmedida
   lib/libsodium
-  lib/rs-stellar-contract-env
   lib/spdlog
   lib/tracy
   lib/xdrpp
+  src/protocol-next/xdr
 )
 
 function stellar_core_submodule_sources() {
