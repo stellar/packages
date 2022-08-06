@@ -1,3 +1,15 @@
+stellar-core (19.1.0) stable; urgency=medium
+
+  * build with clang-10
+
+ -- Package Maintainer <packages@stellar.org>  Mon, 6 Jun 2022 01:05:00 +0000
+
+stellar-core (19.0.0) stable; urgency=medium
+
+  * added cargo rustc Build-Depends
+
+ -- Package Maintainer <packages@stellar.org>  Fri, 30 Apr 2022 01:05:00 +0000
+
 stellar-core (17.4.1-700) stable; urgency=medium
 
   * added libcapstone-dev libfreetype6-dev libglfw3-dev libgtk2.0-dev libtbb-dev Build-Depends
