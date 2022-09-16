@@ -20,7 +20,7 @@ DEB_CONFIGURE_OPTS ?= --prefix=/usr --includedir=/usr/include --mandir=/usr/shar
 
 # add the directory rust is installed into to PATH
 RUSTHOME = $(CURDIR)/rusthome
-PATH := $(RUSTHOME)/.cargo/bin:/usr/sbin:/usr/bin:/sbin:/bin
+PATH := $(RUSTHOME)/.cargo/bin:$(PATH)
 export PATH
 
 %:
