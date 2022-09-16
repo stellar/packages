@@ -19,7 +19,7 @@ DEB_CONFIGURE_OPTS ?= --prefix=/usr --includedir=/usr/include --mandir=/usr/shar
 # set DEB_CONFIGURE_OPTS_APPEND in your environment to append options
 
 # add the directory rust is installed into to PATH
-PATH := $(BUILDDIR)/.cargo/bin:$(PATH)
+PATH := rusthome/.cargo/bin:$(PATH)
 export PATH
 
 %:
@@ -31,7 +31,8 @@ override_dh_autoreconf:
 # dh_make generated override targets
 # This is example for Cmake (See https://bugs.debian.org/641051 )
 override_dh_auto_configure:
-	HOME=$(BUILDDIR) ./install-rust.sh
+	mkdir rusthome
+	HOME=rusthome ./install-rust.sh
 	CC=clang-10 CXX=clang++-10 ./configure $(DEB_CONFIGURE_OPTS) $(DEB_CONFIGURE_OPTS_APPEND)
 
 override_dh_systemd_start:
