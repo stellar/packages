@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name: stellar-core-postgres
-Version: 19.3.0
+Version: 19.4.0
 Release: 2%{?dist}
 Summary: Postgresql configuration for the Stellar Core
 License: Apache 2.0
@@ -48,6 +48,9 @@ The stellar-core-postgres package contains config files for postgres core db and
 %systemd_postun_with_restart stellar-core@public.service
 
 %changelog
+* Wed Oct 12 2022 Anatolii Vorona <vorona.tolik@gmail.com>
+- update v19.4.0
+
 * Thu Aug  4 2022 Anatolii Vorona <vorona.tolik@gmail.com>
 - remove logrotate as history cleaner
 - remove publishing a history archive

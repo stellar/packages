@@ -2,7 +2,7 @@
 %define system_name stellar
 
 Name: stellar-core
-Version: 19.3.0
+Version: 19.4.0
 Release: 1%{?dist}
 Summary: Stellar is a decentralized, federated peer-to-peer network
 
@@ -18,7 +18,7 @@ Source104: https://api.github.com/repos/stellar/libsodium/tarball/4f5e89fa84ce1d
 Source105: https://api.github.com/repos/gabime/spdlog/tarball/76fb40d95455f249bd70824ecfcae7a8f0930fa3#/gabime-spdlog-v1.10.0-0-g76fb40d.tar.gz
 Source106: https://api.github.com/repos/stellar/tracy/tarball/7c74f6eb094d29e6b23ba670686c3597e1e96b96#/stellar-tracy-v0.6.3-2048-g7c74f6e.tar.gz
 Source107: https://api.github.com/repos/xdrpp/xdrpp/tarball/9fd7ca222bb26337e1443c67b18fbc5019962884#/xdrpp-xdrpp-9fd7ca2.tar.gz
-Source108: https://api.github.com/repos/stellar/stellar-xdr-next/tarball/f0a767c5ee60586bd4ab2526960ec253f5b571a4#/stellar-stellar-xdr-next-f0a767c.tar.gz
+Source108: https://api.github.com/repos/stellar/stellar-xdr-next/tarball/d194cc6cd79e3b368c43477556b0084e81b9dcbc#/stellar-stellar-xdr-next-d194cc6.tar.gz
 
 # END: submodule sources
 %if 0%{?rhel} && 0%{?rhel} == 7
@@ -129,6 +129,9 @@ make check
 %endif
 
 %changelog
+* Wed Oct 12 2022 Anatolii Vorona <vorona.tolik@gmail.com>
+- update v19.4.0
+
 * Mon Aug  1 2022 Anatolii Vorona <vorona.tolik@gmail.com>
 - update v19.3.0
 
