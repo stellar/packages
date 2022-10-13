@@ -13,7 +13,7 @@ Requires: user(stellar)
 Requires: group(stellar)
 
 BuildRequires: git >= 2.0
-BuildRequires: golang
+BuildRequires: golang >= 1.18
 BuildRequires: systemd-rpm-macros
 %if 0%{?rhel} && 0%{?rhel} == 7
 BuildRequires: rh-postgresql13-postgresql-server
