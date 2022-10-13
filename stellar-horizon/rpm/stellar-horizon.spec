@@ -1,8 +1,8 @@
 %global debug_package %{nil}
 
 Name: stellar-horizon
-Version: 2.15.1
-Release: 4%{?dist}
+Version: 2.21.0
+Release: 1%{?dist}
 Summary: Client-facing API server for the Stellar network
 
 License: Apache 2.0
@@ -16,9 +16,9 @@ BuildRequires: git >= 2.0
 BuildRequires: golang
 BuildRequires: systemd-rpm-macros
 %if 0%{?rhel} && 0%{?rhel} == 7
-BuildRequires: rh-postgresql12-postgresql-server
+BuildRequires: rh-postgresql13-postgresql-server
 %else
-BuildRequires: postgresql-server >= 10.0
+BuildRequires: postgresql-server >= 13.0
 %endif
 
 Provides: %{name} = %{version}
@@ -46,7 +46,7 @@ go build --mod vendor -ldflags="-s -w" -o %{name} services/horizon/*.go
 
 %check
 %if 0%{?rhel} && 0%{?rhel} == 7
-    source /opt/rh/rh-postgresql12/enable
+    source /opt/rh/rh-postgresql13/enable
 %endif
 # make clean db in tmp dir, and run go test.
 export PGDATA=`mktemp -d`
@@ -69,5 +69,8 @@ pg_ctl stop
 %config(noreplace) %{_sysconfdir}/sysconfig/%{name}
 
 %changelog
+* Thu Oct 13 2022 Anatolii Vorona <vorona.tolik@gmail.com>
+- update Horizon v2.21.0
+
 * Wed Mar 23 2022 Anatolii Vorona <vorona.tolik@gmail.com>
 - init stellar-horizon rpm
