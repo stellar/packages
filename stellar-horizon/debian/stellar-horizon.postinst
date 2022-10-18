@@ -38,7 +38,7 @@ case "$1" in
         db_connection_string=$(grep -r '^DATABASE_URL' /etc/default/stellar-horizon | sed 's/DATABASE_URL=//g' | sed 's/"//g');
         # extract INGEST flag from /etc/default/stellar-horizon. Default
         ingest_flag=$(grep -r '^INGEST' /etc/default/stellar-horizon||echo "INGEST=true");
-        ingest_flag=$(echo $INGEST | sed 's/INGEST=//g' | sed 's/"//g');
+        ingest_flag=$(echo $ingest_flag | sed 's/INGEST=//g' | sed 's/"//g');
         # check `stellar` role and DATABASE_URL
         if echo "SELECT 'role_exists' FROM pg_roles WHERE rolname='${ROLE}'" | runuser -l ${ROLE} -c "psql '${db_connection_string}' -tA" 2>&1 | grep 'role_exists' > /dev/null; then
           # check `horizon` database has been initialised
