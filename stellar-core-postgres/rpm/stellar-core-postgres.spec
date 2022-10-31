@@ -2,7 +2,7 @@
 
 Name: stellar-core-postgres
 Version: 19.4.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Postgresql configuration for the Stellar Core
 License: Apache 2.0
 Source0: {{{ git_dir_pack }}}
