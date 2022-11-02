@@ -1,4 +1,4 @@
-stellar-soroban-rpc (0.0.1) stable; urgency=medium
+stellar-soroban-rpc (_VERSION_-_BUILD_VERSION_) stable; urgency=medium
 
   * Initial Release.
 

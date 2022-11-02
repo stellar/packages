@@ -7,14 +7,4 @@
 
 .debhelper
 
-stellar-core-postgres/debian/files
-stellar-core-postgres/debian/stellar-core-postgres.debhelper.log
-stellar-core-postgres/debian/stellar-core-postgres.substvars
-stellar-core-postgres/debian/stellar-core-postgres/
-
-stellar-horizon-postgres/debian/files
-stellar-horizon-postgres/debian/stellar-horizon-postgres.debhelper.log
-stellar-horizon-postgres/debian/stellar-horizon-postgres.substvars
-stellar-horizon-postgres/debian/stellar-horizon-postgres/
-
 .vscode/
