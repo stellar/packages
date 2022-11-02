@@ -6,7 +6,7 @@ Build-Depends: debhelper (>=9), dh-systemd (>=1.5)
 Standards-Version: 3.9.6
 Homepage: https://www.stellar.org/
 
-Package: stellar-horizon
+Package: stellar-soroban-rpc
 Architecture: any
 Description: Soroban RPC is the client facing API server for the Stellar Soraban Smart Contracts ecosystem. It acts as the interface between stellar-core and applications that want to access smart contracts on the Stellar network.
  
