@@ -17,7 +17,6 @@ set -e
 # for details, see https://www.debian.org/doc/debian-policy/ or
 # the debian-policy package
 ROLE=stellar;
-DBNAME=stellar;
 
 case "$1" in
   configure)

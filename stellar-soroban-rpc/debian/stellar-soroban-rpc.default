@@ -3,7 +3,7 @@
 # define the port on local machine that soroban rpc server will bind to.
 ENDPOINT=localhost:8003
 # for now rpc requires access to horizon, this will change.
-HORIZON_URL=http://localhost:8001
+HORIZON_URL=http://localhost:8000
 NETWORK_PASSPHRASE="Test SDF Future Network ; October 2022"
 # for now rpc requires access to core, this will change.
 STELLAR_CORE_URL="http://localhost:11626"
