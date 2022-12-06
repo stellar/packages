@@ -2,7 +2,7 @@
 %define system_name stellar
 
 Name: stellar-core
-Version: 19.5.0
+Version: 19.6.0
 Release: 1%{?dist}
 Summary: Stellar is a decentralized, federated peer-to-peer network
 
@@ -14,11 +14,11 @@ Source100: https://api.github.com/repos/chriskohlhoff/asio/tarball/bba12d1050141
 Source101: https://api.github.com/repos/USCiLab/cereal/tarball/ebef1e929807629befafbb2918ea1a08c7194554#/USCiLab-cereal-v1.3.2-0-gebef1e9.tar.gz
 Source102: https://api.github.com/repos/fmtlib/fmt/tarball/b6f4ceaed0a0a24ccf575fab6c56dd50ccf6f1a9#/fmtlib-fmt-8.1.1-0-gb6f4cea.tar.gz
 Source103: https://api.github.com/repos/stellar/medida/tarball/b5b1c5aa63f624749be36ca5bf9efdcd144044e4#/stellar-medida-b5b1c5a.tar.gz
-Source104: https://api.github.com/repos/stellar/libsodium/tarball/4f5e89fa84ce1d178a6765b8b46f2b6f91216677#/stellar-libsodium-1.0.18-0-g4f5e89f.tar.gz
+Source104: https://api.github.com/repos/stellar/libsodium/tarball/71d227cf8e4644393a3322f36050f7afdfddc498#/stellar-libsodium-vs2022-0-g71d227c.tar.gz
 Source105: https://api.github.com/repos/gabime/spdlog/tarball/76fb40d95455f249bd70824ecfcae7a8f0930fa3#/gabime-spdlog-v1.10.0-0-g76fb40d.tar.gz
 Source106: https://api.github.com/repos/stellar/tracy/tarball/7c74f6eb094d29e6b23ba670686c3597e1e96b96#/stellar-tracy-v0.6.3-2048-g7c74f6e.tar.gz
 Source107: https://api.github.com/repos/xdrpp/xdrpp/tarball/9fd7ca222bb26337e1443c67b18fbc5019962884#/xdrpp-xdrpp-9fd7ca2.tar.gz
-Source108: https://api.github.com/repos/stellar/stellar-xdr-next/tarball/161e2e5b64425a49f9ccfef7f732ae742ed5eec4#/stellar-stellar-xdr-next-161e2e5.tar.gz
+Source108: https://api.github.com/repos/stellar/stellar-xdr-next/tarball/026c9cd074bdb28ddde8ee52f2a4502d9e518a09#/stellar-stellar-xdr-026c9cd.tar.gz
 
 # END: submodule sources
 %if 0%{?rhel} && 0%{?rhel} == 7
@@ -129,6 +129,9 @@ make check
 %endif
 
 %changelog
+* Tue Dec 6 2022 Anatolii Vorona <vorona.tolik@gmail.com>
+- update v19.6.0
+
 * Wed Nov 2 2022 Anatolii Vorona <vorona.tolik@gmail.com>
 - update v19.5.0
 
