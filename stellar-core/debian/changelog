@@ -1,3 +1,7 @@
+stellar-core (19.7.1) stable; urgency=medium
+
+  * build with clang-12
+
 stellar-core (19.1.0) stable; urgency=medium
 
   * build with clang-10
