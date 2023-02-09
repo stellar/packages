@@ -1,0 +1,21 @@
+[Unit]
+Description=SDF - stellar-soroban-rpc
+Before=multi-user.target
+
+[Service]
+User=stellar
+Group=stellar
+LimitNOFILE=8192
+StandardOutput=append:/var/log/stellar/stellar-soroban-rpc.log
+StandardError=append:/var/log/stellar/stellar-soroban-rpc.log
+SyslogIdentifier=stellar-soroban-rpc
+EnvironmentFile=/etc/default/stellar-soroban-rpc
+ExecStart=/usr/bin/stellar-soroban-rpc
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=process
+Restart=on-failure
+RestartPreventExitStatus=255
+Type=simple
+
+[Install]
+WantedBy=multi-user.target
