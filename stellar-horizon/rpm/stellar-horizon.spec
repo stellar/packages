@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name: stellar-horizon
-Version: 2.23.1
+Version: 2.24.0
 Release: 1%{?dist}
 Summary: Client-facing API server for the Stellar network
 
@@ -36,8 +36,10 @@ check the status of accounts, subscribe to event streams and more.
 # the onliner bellow do the same as the next two rows
 # go build --mod mod -ldflags="-s -w" -o %{name} services/horizon/*.go
 # but we want to be sure that the tests use the same source code
+# linkmode=external related to he rpm>=4.14.0 and build-id
+# one way is to use gccgo instead of go build, and the other way is to add -ldflags=-linkmode=external flag to go build.
 go mod vendor
-go build --mod vendor -ldflags="-s -w" -o %{name} services/horizon/*.go
+go build --mod vendor -ldflags="-s -w -linkmode=external" -o %{name} services/horizon/*.go
 
 %install
 %{__install} -Dpm 0755 %{name} %{buildroot}%{_bindir}/%{name}
@@ -69,7 +71,10 @@ pg_ctl stop
 %config(noreplace) %{_sysconfdir}/sysconfig/%{name}
 
 %changelog
-* Tue Dec 8 2022 Anatolii Vorona <vorona.tolik@gmail.com>
+* Thu Feb 9 2023 Anatolii Vorona <vorona.tolik@gmail.com>
+- update Horizon v2.24.0
+
+* Thu Dec 8 2022 Anatolii Vorona <vorona.tolik@gmail.com>
 - update Horizon v2.23.1
 
 * Tue Nov 1 2022 Anatolii Vorona <vorona.tolik@gmail.com>
