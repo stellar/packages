@@ -23,8 +23,8 @@ export HOME := $(CURDIR)/rusthome
 export PATH := $(HOME)/.cargo/bin:$(PATH)
 
 # export CC and CXX so they are picked up by the rust cc library
-export CC := clang-10
-export CXX := clang++-10
+export CC := clang-12
+export CXX := clang++-12
 
 %:
 	dh $@ --with autoreconf --with systemd --parallel
