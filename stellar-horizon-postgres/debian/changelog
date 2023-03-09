@@ -1,4 +1,4 @@
-stellar-horizon-postgres (_VERSION_-_BUILD_VERSION_) stable; urgency=medium
+stellar-horizon-postgres (0.2-2) stable; urgency=medium
 
   * Initial Release.
 
