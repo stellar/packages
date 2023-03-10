@@ -1,4 +1,4 @@
-stellar-core-prometheus-exporter (_VERSION_-_BUILD_VERSION_) stable; urgency=medium
+stellar-core-prometheus-exporter (0.10.5-17) stable; urgency=medium
 
   * Initial Release.
 
