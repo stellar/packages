@@ -8,7 +8,7 @@ Homepage: https://www.stellar.org/
 
 Package: stellar-core-postgres
 Architecture: any
-Depends: stellar-core, postgresql (>=9.5)
+Depends: stellar-core, postgresql (>=12)
 Description: This package will configure PostgreSQL for stellar-core locally.
  * creates/manages stellar user
  * creates stellar PostgreSQL role

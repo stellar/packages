@@ -1,4 +1,4 @@
-stellar-core-postgres (_VERSION_-_BUILD_VERSION_) stable; urgency=medium
+stellar-core-postgres (0.2-9) stable; urgency=medium
 
   * Initial Release.
 
