@@ -1,4 +1,4 @@
-stellar-account-prometheus-exporter (_VERSION_-_BUILD_VERSION_) stable; urgency=medium
+stellar-account-prometheus-exporter (0.0.5-6) stable; urgency=medium
 
   * Initial Release.
 
