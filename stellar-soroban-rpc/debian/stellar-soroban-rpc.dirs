@@ -1,2 +1,3 @@
 /var/lib/stellar/
+/var/lib/stellar/soroban-rpc/captive-core/
 /var/log/stellar/
