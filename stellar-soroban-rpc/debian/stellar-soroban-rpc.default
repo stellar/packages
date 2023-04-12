@@ -8,7 +8,7 @@ CAPTIVE_CORE_CONFIG_PATH=/etc/stellar/soroban-rpc/etc/stellar-captive-core.cfg
 CAPTIVE_CORE_STORAGE_PATH=/var/lib/stellar/soroban-rpc/captive-core
 CAPTIVE_CORE_USE_DB=true
 STELLAR_CORE_BINARY_PATH=/usr/bin/stellar-core
-HISTORY_ARCHIVE_URLS="http://history-futurenet.stellar.org"
+HISTORY_ARCHIVE_URLS="https://history-futurenet.stellar.org"
 DB_PATH="/var/lib/stellar/soroban-rpc/soroban_rpc.sqlite"
 STELLAR_CAPTIVE_CORE_HTTP_PORT=0
 
