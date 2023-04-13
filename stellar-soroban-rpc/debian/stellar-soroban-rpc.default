@@ -2,15 +2,11 @@
 
 # define the port on local machine that soroban rpc server will bind to.
 ENDPOINT=localhost:8003
-FRIENDBOT_URL=https://friendbot-futurenet.stellar.org/
+# for now rpc requires access to horizon, this will change.
+HORIZON_URL=http://localhost:8000
 NETWORK_PASSPHRASE="Test SDF Future Network ; October 2022"
-CAPTIVE_CORE_CONFIG_PATH=/etc/stellar/soroban-rpc/stellar-captive-core.cfg
-CAPTIVE_CORE_STORAGE_PATH=/var/lib/stellar/soroban-rpc/captive-core
-CAPTIVE_CORE_USE_DB=true
-STELLAR_CORE_BINARY_PATH=/usr/bin/stellar-core
-HISTORY_ARCHIVE_URLS="https://history-futurenet.stellar.org"
-DB_PATH="/var/lib/stellar/soroban-rpc/soroban_rpc.sqlite"
-STELLAR_CAPTIVE_CORE_HTTP_PORT=0
+# for now rpc requires access to core, this will change.
+STELLAR_CORE_URL="http://localhost:11626"
 
 # minimum log severity (debug, info, warn, error), default=info 
 # LOG_LEVEL=info
