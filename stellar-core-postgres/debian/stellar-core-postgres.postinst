@@ -49,6 +49,14 @@ case "$1" in
         runuser -l ${ROLE} -c "/usr/bin/stellar-core --conf /etc/stellar/stellar-core.cfg new-db"
       fi
     fi
+
+    # the stellar-core package does not provide a default config which
+    # leaves the service in a failed state until the config exists
+    # and the service is restarted
+    if systemctl is-enabled stellar-core > /dev/null && systemctl is-failed stellar-core > /dev/null;then
+      /usr/bin/systemctl stop stellar-core.service
+      /usr/bin/systemctl start stellar-core.service
+    fi
   ;;
 
   abort-upgrade|abort-remove|abort-deconfigure)
