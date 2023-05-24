@@ -8,6 +8,6 @@
 -		&& git describe --always --dirty --tags 2>/dev/null \
 -		|| echo "$(PACKAGE) $(VERSION)"); \
 +	@vers=$$(echo "${LOCAL_PACKAGE} ${LOCAL_VERSION} (${GIT_COMMIT})"); \
- 		sed -e "s/%%VERSION%%/$$vers/" \
+ 		sed -e "s@%%VERSION%%@$$vers@" \
  			< "$(srcdir)/main/StellarCoreVersion.cpp.in" > $@~
  	@if cmp -s $@~ $@; then rm -f $@~; else \
