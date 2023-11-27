@@ -32,7 +32,7 @@ Running a full validator is a fairly straightforward process and depending on yo
 * access to an Object store such as S3/Spaces/Azure Blob for storing history (optional, can also be stored and served locally)
 * monitoring (optional, can also be plugged into existing monitoring)
 
-For more in-depth requirements please see the main [admin guide](https://www.stellar.org/developers/stellar-core/software/admin.html#full-validators)
+For more in-depth requirements please see the main [admin guide](https://developers.stellar.org/docs/run-core-node).
 
 #### Required Steps
 
