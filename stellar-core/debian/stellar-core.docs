@@ -1,7 +1,6 @@
 CONTRIBUTING.md
 COPYING
 docs/architecture.md
-docs/db-schema.md
 docs/fuzzing.md
 docs/history.md
 docs/integration.md
