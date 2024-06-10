@@ -20,16 +20,17 @@ The key we use (A136B5A6), is available from https://pgp.mit.edu with fingerprin
 
 **AEAF 01EE A6CA FCEF DDAE  8AA7 0463 8272 A136 B5A6**
 
-### Download and install the public signing key:
+### Download the public signing key:
 
 ```
-wget -qO - https://apt.stellar.org/SDF.asc | sudo apt-key add -
+sudo curl -fsSL https://apt.stellar.org/SDF.asc -o /etc/apt/keyrings/SDF.asc
+sudo chmod a+r /etc/apt/keyrings/SDF.asc
 ```
 
 ### Save the repository definition to /etc/apt/sources.list.d/SDF.list:
 
 ```
-echo "deb https://apt.stellar.org $(lsb_release -cs) stable" | sudo tee -a /etc/apt/sources.list.d/SDF.list
+echo "deb [signed-by=/etc/apt/keyrings/SDF.asc] https://apt.stellar.org $(lsb_release -cs) stable" | sudo tee -a /etc/apt/sources.list.d/SDF.list
 ```
 
 Please note we only support Ubuntu LTS releases.
@@ -41,7 +42,7 @@ If you would like to install our Release Candidates and/or track the Master bran
 ### Save the `testing` repository definition to /etc/apt/sources.list.d/SDF-testing.list:
 
 ```
-echo "deb https://apt.stellar.org $(lsb_release -cs) testing" | sudo tee -a /etc/apt/sources.list.d/SDF-testing.list
+echo "deb [signed-by=/etc/apt/keyrings/SDF.asc] https://apt.stellar.org $(lsb_release -cs) testing" | sudo tee -a /etc/apt/sources.list.d/SDF-testing.list
 ```
 
 Please note we only support Ubuntu LTS releases.
