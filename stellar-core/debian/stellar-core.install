@@ -1,1 +1,2 @@
 docs/*.cfg /etc/stellar/
+scripts/stellar-core-debug-info /usr/bin/
