@@ -1,0 +1,6 @@
+The Debian Package stellar-rpc
+----------------------------
+
+RPC is the client facing API server for the Stellar Soroban ecosystem.
+
+ -- Package Maintainer <packages@stellar.org>  
