@@ -1,0 +1,21 @@
+[Unit]
+Description=SDF - stellar-rpc
+Before=multi-user.target
+
+[Service]
+User=stellar
+Group=stellar
+LimitNOFILE=8192
+StandardOutput=append:/var/log/stellar/stellar-rpc.log
+StandardError=append:/var/log/stellar/stellar-rpc.log
+SyslogIdentifier=stellar-rpc
+EnvironmentFile=/etc/default/stellar-rpc
+ExecStart=/usr/bin/stellar-rpc
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=process
+Restart=on-failure
+RestartPreventExitStatus=255
+Type=simple
+
+[Install]
+WantedBy=multi-user.target
