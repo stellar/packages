@@ -11,7 +11,7 @@ include /usr/share/dpkg/buildflags.mk
 #export DEB_BUILD_MAINT_OPTIONS = hardening=+all
 
 # package maintainers to prepend CXXFLAGS
-export DEB_CXXFLAGS_MAINT_PREPEND  = -stdlib=libc++ -fno-omit-frame-pointer -isystem /usr/include/libcxxabi
+export DEB_CXXFLAGS_MAINT_PREPEND  = -stdlib=libc++ -std=c++17 -fno-omit-frame-pointer -isystem /usr/include/libcxxabi
 
 # set DEB_CONFIGURE_OPTS in your environment to override
 DEB_CONFIGURE_OPTS ?= --prefix=/usr --includedir=/usr/include --mandir=/usr/share/man --infodir=/usr/share/info --sysconfdir=/etc --localstatedir=/var
@@ -23,8 +23,8 @@ export HOME := $(CURDIR)/rusthome
 export PATH := $(HOME)/.cargo/bin:$(PATH)
 
 # export CC and CXX so they are picked up by the rust cc library
-export CC := clang-12
-export CXX := clang++-12
+export CC := clang-19
+export CXX := clang++-19
 
 %:
 	dh $@ --with autoreconf --with systemd --parallel
