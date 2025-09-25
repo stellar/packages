@@ -1,3 +1,7 @@
+stellar-core (23.0.0) stable; urgency=medium
+
+  * build with clang-19
+
 stellar-core (21.0.0) stable; urgency=medium
 
   * add debug info gathering script
