@@ -2,6 +2,8 @@
 Description=SDF - stellar-core
 Before=multi-user.target
 #PartOf=stellar.service
+StartLimitBurst=5
+StartLimitIntervalSec=30s
 
 [Service]
 User=stellar
@@ -12,6 +14,7 @@ KillMode=process
 Restart=on-failure
 RestartPreventExitStatus=255
 Type=simple
+RestartSec=5s
 
 [Install]
 WantedBy=multi-user.target
