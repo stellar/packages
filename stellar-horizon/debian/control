@@ -2,7 +2,7 @@ Source: stellar-horizon
 Section: web
 Priority: optional
 Maintainer: Package Maintainer <packages@stellar.org>
-Build-Depends: debhelper (>=9), dh-systemd (>=1.5)
+Build-Depends: debhelper (>=9)
 Standards-Version: 3.9.6
 Homepage: https://www.stellar.org/
 
