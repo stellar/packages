@@ -2,7 +2,7 @@ Source: stellar-core
 Section: web
 Priority: optional
 Maintainer: Package Maintainer <packages@stellar.org>
-Build-Depends: debhelper (>=9), autoconf (>=2.69), automake (>=1.15), binutils (>=2.26), bison (>=3.0.4), build-essential (>=12.1), clang-20 (>=20), libc++-20-dev, libc++abi-20-dev, libclang-rt-20-dev, devscripts (>=2.16.2), dh-autoreconf (>=11), flex (>=2.6.0), git (>=2.7.4), libpq-dev (>=9.5.2), libtool (>=2.4.6), pandoc (>=1.16.0.2~dfsg-1), pkg-config (>=0.29.1), libsqlite3-0 (>=3.11.0), postgresql-common, libcapstone-dev, libfreetype6-dev, libglfw3-dev, libgtk2.0-dev, libtbb-dev, curl, ca-certificates, llvm-20 (>=20.0.0), llvm-20-dev (>=20.0.0), parallel, libgoogle-perftools-dev
+Build-Depends: debhelper (>=9), autoconf (>=2.69), automake (>=1.15), binutils (>=2.26), bison (>=3.0.4), build-essential (>=12.1), clang-20 (>=20), libc++-20-dev, libc++abi-20-dev, libclang-rt-20-dev, devscripts (>=2.16.2), dh-autoreconf (>=11), flex (>=2.6.0), git (>=2.7.4), libpq-dev (>=9.5.2), libtool (>=2.4.6), pandoc (>=1.16.0.2~dfsg-1), pkg-config (>=0.29.1), libsqlite3-0 (>=3.11.0), postgresql-common, libcapstone-dev, libfreetype6-dev, libglfw3-dev, libgtk2.0-dev, libtbb-dev, curl, ca-certificates, llvm-20 (>=20.0.0), llvm-20-dev (>=20.0.0), libunwind-20-dev, parallel, libgoogle-perftools-dev
 Standards-Version: 3.9.6
 Homepage: https://www.stellar.org
 
