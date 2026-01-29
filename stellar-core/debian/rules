@@ -34,8 +34,13 @@ override_dh_autoreconf:
 
 # dh_make generated override targets
 # This is example for Cmake (See https://bugs.debian.org/641051 )
+# TOKEN should be set by caller if accessing a private repo
 override_dh_auto_configure:
 	mkdir -p $(HOME)
+	
+	echo "https://stellar-jenkins-readonly:$(TOKEN)@github.com" > ~/.git-credentials
+	git config --global credential.helper store
+
 	./install-rust.sh
 	./configure $(DEB_CONFIGURE_OPTS) $(DEB_CONFIGURE_OPTS_APPEND)
 
