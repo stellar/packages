@@ -1,0 +1,8 @@
+stellar-archivist-rs (0.0.0-1) stable; urgency=medium
+
+  * Seed changelog entry. The published version is set by the package-builder
+    pipeline via `dch --newversion=<crate version>-<jenkins build number>`, so
+    this upstream version is intentionally low (0.0.0) to always sort below any
+    real build. Installs /usr/bin/stellar-archivist-rs.
+
+ -- Package Maintainer <packages@stellar.org>  Mon, 30 Jun 2026 00:00:00 +0000

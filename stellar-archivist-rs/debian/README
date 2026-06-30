@@ -1,0 +1,9 @@
+The Debian Package stellar-archivist-rs
+----------------------------
+
+This package provides the Rust implementation of stellar-archivist, a toolset
+for working with stellar-core history archives. The binary is installed as
+/usr/bin/stellar-archivist-rs so it can coexist with the Go stellar-archivist
+package.
+
+ -- Package Maintainer <packages@stellar.org>  Mon, 30 Jun 2026 00:00:00 +0000

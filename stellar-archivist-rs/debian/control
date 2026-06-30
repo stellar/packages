@@ -1,0 +1,16 @@
+Source: stellar-archivist-rs
+Section: web
+Priority: optional
+Maintainer: Package Maintainer <packages@stellar.org>
+Build-Depends: debhelper (>=9)
+Standards-Version: 3.9.6
+Homepage: https://www.stellar.org/
+
+Package: stellar-archivist-rs
+Architecture: any
+Depends: ${misc:Depends}, ca-certificates
+Description: Rust toolset for working with stellar-core history archives
+ This package provides the Rust implementation of stellar-archivist, a toolset
+ for scanning, mirroring, and repairing stellar-core history archives. The
+ binary is installed as /usr/bin/stellar-archivist-rs so it can coexist with the
+ Go stellar-archivist package.
