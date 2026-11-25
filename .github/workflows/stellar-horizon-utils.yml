@@ -1,0 +1,72 @@
+name: stellar-horizon-utils package
+
+# Builds stellar-horizon-utils from stellar-horizon-utils/ and publishes it to apt.stellar.org
+# with stellar/actions' deb-s3-publish workflow.
+#
+# REVISION_OFFSET starts the Debian revision above the last published build (0.3-6), so apt
+# treats these as newer.
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Upstream version; the package is stellar-horizon-utils_<version>-<revision>
+        type: string
+        default: "0.3"
+
+permissions: {}
+
+jobs:
+  build:
+    # One build serves every distro: the package is a shell script, and focal's dpkg reads the
+    # zstd-compressed .deb this runner builds
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    env:
+      DEBFULLNAME: Package Maintainer
+      DEBEMAIL: packages@stellar.org
+      VERSION: ${{ inputs.version }}
+      REVISION_OFFSET: 6
+    steps:
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+        with:
+          persist-credentials: false
+
+      - name: Install the build dependencies
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq --no-install-recommends devscripts
+          # The package's Build-Depends from debian/control, as pbuilder installed them
+          sudo apt-get build-dep -y -qq ./stellar-horizon-utils
+
+      - name: Set the version
+        run: |
+          set -euo pipefail
+          REVISION=$(( REVISION_OFFSET + GITHUB_RUN_NUMBER ))
+          dch --changelog stellar-horizon-utils/debian/changelog --distribution focal \
+            --newversion "${VERSION}-${REVISION}" "New version"
+
+      - name: Build the package
+        run: |
+          set -euo pipefail
+          (cd stellar-horizon-utils && dpkg-buildpackage -b -us -uc)
+          mkdir debs
+          mv stellar-horizon-utils_*.deb debs/
+          dpkg-deb --info debs/*.deb
+          dpkg-deb --contents debs/*.deb
+
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: debs
+          path: debs/*.deb
+          if-no-files-found: error
+
+  publish:
+    needs: build
+    permissions:
+      id-token: write
+    uses: stellar/actions/.github/workflows/deb-s3-publish.yml@main
+    with:
+      artifact-name: debs
+      staging-role: arn:aws:iam::746476062914:role/github-actions-deb-s3-staging
